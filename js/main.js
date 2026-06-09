@@ -2,17 +2,13 @@
    TESSERA — JavaScript principal
    ════════════════════════════════════════════════ */
 
-/* ─── CURSOR PERSONALIZADO ─────────────────────── */
+/* ─── Cursor personalizado ─────────────────────── */
 const cursor  = document.getElementById('cursor');
 const dot     = document.getElementById('cursor-dot');
 const ring    = document.getElementById('cursor-ring');
-
 let mx = 0, my = 0, rx = 0, ry = 0;
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX;
-  my = e.clientY;
-});
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
 (function animCursor() {
   dot.style.left = mx + 'px';
@@ -30,24 +26,38 @@ document.querySelectorAll('a, button, .service-card, .testimonial-card, .pillar'
 });
 
 
-/* ─── BARRA DE PROGRESO DE SCROLL ──────────────── */
-const scrollBar = document.getElementById('scroll-bar');
+/* ─── Logo: color según sección ────────────────── */
+// Cuando la nav no tiene clase scrolled (sobre el hero), el logo va en beige
+const mainNav = document.getElementById('mainNav');
+const navLogo = mainNav.querySelector('.nav-logo');
 
+function updateLogoColor() {
+  if (window.scrollY < 80) {
+    navLogo.style.color = 'var(--beige)';
+  } else {
+    navLogo.style.color = 'var(--navy)';
+  }
+}
+window.addEventListener('scroll', updateLogoColor);
+updateLogoColor(); // inicial
+
+
+/* ─── Barra de progreso de scroll ──────────────── */
+const scrollBar = document.getElementById('scroll-bar');
 window.addEventListener('scroll', () => {
   const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
   scrollBar.style.width = (pct * 100) + '%';
 });
 
 
-/* ─── NAV — ESTADO AL HACER SCROLL ─────────────── */
+/* ─── Nav scroll state ──────────────────────────── */
 const nav = document.getElementById('mainNav');
-
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
 
 
-/* ─── MENÚ MÓVIL ───────────────────────────────── */
+/* ─── Menú móvil ────────────────────────────────── */
 const mobileNav = document.getElementById('mobileNav');
 const hamburger = document.getElementById('hamburger');
 
@@ -56,20 +66,15 @@ function toggleMobile() {
   hamburger.classList.toggle('open', open);
   document.body.style.overflow = open ? 'hidden' : '';
 }
-
 function closeMobile() {
   mobileNav.classList.remove('open');
   hamburger.classList.remove('open');
   document.body.style.overflow = '';
 }
-
-// Cerrar con Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeMobile();
-});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
 
 
-/* ─── REVEAL AL HACER SCROLL ───────────────────── */
+/* ─── Reveal al hacer scroll ────────────────────── */
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('visible');
@@ -79,29 +84,20 @@ const revealObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 
-/* ─── ANIMACIÓN COUNT-UP ───────────────────────── */
-/**
- * Anima un elemento de 0 hasta `target` en `duration` ms
- * @param {HTMLElement} el       - elemento cuyo textContent se actualiza
- * @param {number}      target   - valor final
- * @param {number}      duration - duración en ms
- */
+/* ─── Count-up animation ────────────────────────── */
 function countUpStart(el, target, duration) {
   requestAnimationFrame(startTime => {
     (function step(now) {
       const progress = Math.min((now - startTime) / duration, 1);
-      const eased    = 1 - Math.pow(1 - progress, 3); // ease-out cúbico
+      const eased    = 1 - Math.pow(1 - progress, 3);
       el.textContent = Math.floor(eased * target);
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        el.textContent = target;
-      }
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
     })(startTime);
   });
 }
 
-// Contadores de la sección #stats  (data-target en el wrapper)
+// Contadores sección #stats
 const counterObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -113,10 +109,9 @@ const counterObserver = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.4 });
-
 document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-// Contadores de la sección #metodologia  (.count-anim con data-target en sí mismos)
+// Contadores sección #metodologia
 const animObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting && !e.target.dataset.done) {
@@ -125,16 +120,36 @@ const animObserver = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.4 });
-
 document.querySelectorAll('.count-anim').forEach(el => animObserver.observe(el));
 
 
-/* ─── TIMELINE — LÍNEAS ANIMADAS ───────────────── */
+/* ─── Barras de progreso animadas ───────────────── */
+// Se animan cuando entran en el viewport
+const progressObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.progress-fill').forEach((bar, i) => {
+        const targetWidth = bar.dataset.width + '%';
+        // Escalonamos cada barra ligeramente
+        setTimeout(() => {
+          bar.style.width = targetWidth;
+        }, i * 120);
+      });
+      progressObserver.unobserve(e.target); // solo animar una vez
+    }
+  });
+}, { threshold: 0.3 });
+
+const progressSection = document.querySelector('.progress-section');
+if (progressSection) progressObserver.observe(progressSection);
+
+
+/* ─── Timeline: líneas animadas ─────────────────── */
 const timelineObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.querySelectorAll('.timeline-step').forEach((step, i) => {
-        setTimeout(() => step.classList.add('visible'), i * 120);
+        setTimeout(() => step.classList.add('visible'), i * 130);
       });
     }
   });
