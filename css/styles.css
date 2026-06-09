@@ -112,13 +112,13 @@ nav.scrolled .nav-logo { color: var(--navy); }
   background-size: 200px;
 }
 .hero-loop { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); opacity: .2; pointer-events: none; }
-.hero-eyebrow { font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: var(--teal-lt); font-weight: 600; margin-bottom: 1.8rem; opacity: 0; animation: fadeUp .9s .3s var(--ease) forwards; }
+.hero-eyebrow { font-size: 1rem; letter-spacing: .28em; text-transform: uppercase; color: var(--beige); font-weight: 600; margin-bottom: 1.8rem; opacity: 0; animation: fadeUp .9s .3s var(--ease) forwards; }
 .hero-title { font-size: clamp(3rem,7.5vw,8rem); font-weight: 200; line-height: .95; color: var(--beige); letter-spacing: .02em; max-width: 18ch; opacity: 0; animation: fadeUp 1s .5s var(--ease) forwards; }
 .hero-title strong { font-weight: 800; color: var(--yellow); display: block; }
-.hero-sub { margin-top: 2.5rem; max-width: 50ch; font-size: 1rem; color: rgba(240,232,222,.5); font-weight: 300; line-height: 1.75; opacity: 0; animation: fadeUp 1s .7s var(--ease) forwards; }
+.hero-sub { margin-top: 2.5rem; max-width: 50ch; font-size: 1rem; color: var(--beige); font-weight: 300; line-height: 1.75; opacity: 0; animation: fadeUp 1s .7s var(--ease) forwards; }
 .hero-actions { margin-top: 3rem; display: flex; gap: 1.2rem; align-items: center; opacity: 0; animation: fadeUp 1s .9s var(--ease) forwards; }
-.hero-tagline { position: absolute; bottom: 5rem; right: 4rem; font-size: .8rem; color: rgba(240,232,222,.3); letter-spacing: .12em; text-transform: uppercase; opacity: 0; animation: fadeIn 1s 1.2s forwards; }
-.hero-tagline strong { color: rgba(240,232,222,.5); font-weight: 600; }
+.hero-tagline { position: absolute; bottom: 5rem; right: 4rem; font-size: .8rem; color: var(--beige); letter-spacing: .12em; text-transform: uppercase; opacity: 0; animation: fadeIn 1s 1.2s forwards; }
+.hero-tagline strong { color: var(--yellow); font-weight: 600; }
 .hero-scroll-hint { position: absolute; bottom: 2.5rem; right: 4rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; opacity: 0; animation: fadeIn 1s 1.4s forwards; }
 .hero-scroll-hint span { font-size: .6rem; letter-spacing: .2em; color: var(--slate); text-transform: uppercase; writing-mode: vertical-rl; font-weight: 500; }
 .scroll-line { width: 1px; height: 60px; background: linear-gradient(var(--teal),transparent); animation: scrollPulse 2s infinite; }
@@ -214,6 +214,13 @@ section { position: relative; }
   padding: 4rem;
   margin-bottom: 5rem;
 }
+/* ── Barras de progreso (sin hover) ── */
+.progress-section {
+  background: var(--beige);
+  border-radius: 4px;
+  padding: 4rem;
+  margin-bottom: 5rem;
+}
 .progress-title {
   font-size: 1.3rem; font-weight: 600; color: var(--navy);
   margin-bottom: 2.5rem; letter-spacing: .02em;
@@ -226,58 +233,30 @@ section { position: relative; }
   display: flex; justify-content: space-between;
   align-items: center; margin-bottom: .7rem;
 }
-/* Label: cambia a teal en hover */
 .progress-label {
   font-size: .85rem; font-weight: 600;
   color: var(--navy); letter-spacing: .04em;
-  transition: color .3s var(--ease);
 }
-.progress-item:hover .progress-label { color: var(--teal); }
-
-/* Valor: cambia a navy en hover */
 .progress-value {
   font-size: .85rem; font-weight: 700;
   color: var(--teal); letter-spacing: .06em;
-  transition: color .3s var(--ease);
 }
-.progress-item:hover .progress-value { color: var(--navy); }
-
-/* Track: crece de 6px a 10px en hover */
 .progress-track {
   height: 6px;
   background: rgba(32,32,49,.12);
   border-radius: 3px;
-  overflow: visible;
-  transition: height .35s var(--ease);
+  overflow: hidden;
 }
-.progress-item:hover .progress-track { height: 10px; }
-
-/* Barra: cambia de color + escala en hover */
 .progress-fill {
   height: 100%;
   width: 0;
   border-radius: 3px;
   background: linear-gradient(90deg, var(--teal) 0%, var(--teal-lt) 100%);
-  transition:
-    width 1.2s var(--ease),
-    background .35s var(--ease),
-    transform .35s var(--ease),
-    border-radius .35s var(--ease);
-  transform-origin: left center;
-  transform: scaleY(1);
+  transition: width 1.2s var(--ease);
 }
-.progress-item:hover .progress-fill {
-  background: linear-gradient(90deg, var(--navy) 0%, var(--teal) 100%);
-  transform: scaleY(1.25);
-  border-radius: 4px;
-}
-
 /* 4ª barra (Shortlist 100%) — amarillo */
 .progress-item:nth-child(4) .progress-fill {
   background: linear-gradient(90deg, var(--teal) 0%, var(--yellow) 100%);
-}
-.progress-item:nth-child(4):hover .progress-fill {
-  background: linear-gradient(90deg, var(--navy) 0%, var(--yellow) 100%);
 }
 /* ════════════════════════════════════════════════════ */
 
@@ -302,38 +281,188 @@ section { position: relative; }
 
 .h-timeline { position: relative; padding-top: 1rem; }
 
-/* Etiquetas H+X */
+/* ══════════════════════════════════════════════════════
+   TIMELINE HORIZONTAL — alineación perfecta + hover
+   ══════════════════════════════════════════════════════ */
+
+.timeline-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700; color: var(--beige);
+  margin-bottom: 3rem; line-height: 1.2;
+}
+.timeline-title strong { color: var(--yellow); font-weight: 800; }
+
+.h-timeline { position: relative; padding-top: 1rem; }
+
+/* ── Fila 1: etiquetas H+X ── */
 .h-times {
-  display: flex; justify-content: space-between;
-  margin-bottom: .9rem; padding: 0 7px;
+  display: flex;
+  margin-bottom: .75rem;
 }
 .h-times span {
-  flex: 1; text-align: center;
-  font-size: .82rem; font-weight: 700;
-  color: rgba(240,232,222,.55); letter-spacing: .06em;
-  transition: color .3s var(--ease);
+  flex: 1;
+  text-align: center;
+  font-size: .8rem; font-weight: 700;
+  color: rgba(240,232,222,.5); letter-spacing: .06em;
 }
-/* La etiqueta se ilumina cuando el punto debajo tiene hover */
-.h-col:hover .h-times-label { color: var(--yellow); }
 
-/* Riel: línea de fondo + línea animada */
+/* ── Fila 2: riel con puntos ── */
+.h-rail {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+}
+
+/* Línea base — va de borde a borde */
+.h-rail::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  height: 1px;
+  background: rgba(240,232,222,.15);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+/* Línea animada — arranca en width:0, llega a 100% */
+.h-rail::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 0;
+  height: 1px; width: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(240,232,222,.3)  0%,
+    rgba(240,232,222,.65) 70%,
+    var(--yellow)         100%
+  );
+  transform: translateY(-50%);
+  z-index: 0;
+  transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.h-rail.animated::after { width: 100%; }
+
+/* ── Puntos — todos idénticos, color sólido para tapar la línea ── */
+.h-dot {
+  position: relative;
+  z-index: 2;                         /* encima de ::before y ::after */
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  /* Color sólido = fondo de la sección. Sin semitransparencia. */
+  background: #3d5c5f;
+  box-shadow: 0 0 0 2px rgba(240,232,222,.35);
+  border: none; outline: none;
+  flex-shrink: 0;
+  cursor: pointer;
+  /* Estado inicial para la animación de entrada */
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity    .35s ease,
+    transform  .35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+.h-rail .h-dot:nth-child(1) {
+  margin-left: 76px;
+}
+
+.h-rail .h-dot:nth-child(2) {
+  margin-left: 12px;
+}
+
+.h-rail .h-dot:nth-child(4) {
+  margin-right: 16px;
+}
+
+.h-rail .h-dot:nth-child(5) {
+  margin-right: 72px;
+}
+/* Una vez visible (JS añade inline style) */
+.h-dot.entered {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── HOVER igual en todos ── */
+.h-dot:hover {
+  background: var(--teal-lt);
+  box-shadow: 0 0 0 5px rgba(88,117,121,.3);
+  transform: scale(1.65);
+}
+
+/* Tooltip */
+.h-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background: rgba(20,30,35,.95);
+  color: var(--beige);
+  font-family: var(--ff);
+  font-size: .68rem; font-weight: 600;
+  letter-spacing: .05em;
+  white-space: nowrap;
+  padding: .28rem .65rem;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.h-dot:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Fila 3: textos debajo ── */
+.h-steps {
+  display: flex;
+}
+.h-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 .4rem;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.h-step.visible { opacity: 1; transform: translateY(0); }
+
+.h-step-name {
+  font-size: .88rem; font-weight: 700;
+  color: var(--beige); margin-bottom: .45rem;
+  letter-spacing: .02em;
+  transition: color .25s ease;
+}
+.h-step-desc {
+  font-size: .76rem;
+  color: rgba(240,232,222,.38);
+  line-height: 1.5; font-weight: 300;
+}
+
+/* Quitar los estilos de h-cols que ya no se usan */
+.h-cols, .h-col, .h-col-time, .h-col-dot-wrap, .h-line-segment { display: none; }
+
+/* ── Riel: línea de fondo + línea animada ── */
 .h-rail {
   position: relative; display: flex;
   align-items: center; justify-content: space-between;
   margin-bottom: 2rem; padding: 0 7px;
 }
-/* Línea base gris */
+/* Línea base gris — detrás de los puntos */
 .h-rail::before {
   content: ''; position: absolute;
   top: 50%; left: 7px; right: 7px; height: 1px;
   background: rgba(240,232,222,.15);
   transform: translateY(-50%); z-index: 0;
 }
-/* Línea animada que se dibuja de izquierda a derecha al entrar en viewport */
+/* Línea animada de izquierda a derecha */
 .h-rail::after {
   content: ''; position: absolute;
-  top: 50%; left: 7px; height: 1px;
-  width: 0;
+  top: 50%; left: 7px; height: 1px; width: 0;
   background: linear-gradient(
     90deg,
     rgba(240,232,222,.2) 0%,
@@ -345,47 +474,40 @@ section { position: relative; }
 }
 .h-rail.animated::after { width: calc(100% - 14px); }
 
-/* Puntos */
+/* ── Puntos — todos idénticos, tapan la línea ── */
 .h-dot {
-  position: relative; z-index: 1;
+  position: relative;
+  z-index: 2;                            /* por encima de la línea */
   width: 14px; height: 14px;
   border-radius: 50%;
-  background: rgba(240,232,222,.15);
-  border: 1.5px solid rgba(240,232,222,.25);
+  /* Color sólido = mismo que el fondo de la sección (#1a2e31) */
+  background: #3a5457;                   /* tono visible sobre el fondo */
+  box-shadow: 0 0 0 2px rgba(240,232,222,.3);  /* anillo suave sin border */
+  border: none; outline: none;
   flex-shrink: 0;
   cursor: pointer;
-  /* Transición suave para hover */
   transition:
-    background   .3s var(--ease),
-    border-color .3s var(--ease),
-    transform    .3s var(--ease),
-    box-shadow   .3s var(--ease);
+    background .3s var(--ease),
+    box-shadow  .3s var(--ease),
+    transform   .3s var(--ease);
 }
 
-/* Punto activo (H+72 — Shortlist) */
+/* Punto activo — mismo aspecto que los demás */
 .h-dot.active {
-  background: var(--yellow);
-  border-color: var(--yellow);
-  width: 18px; height: 18px;
-  box-shadow: 0 0 0 5px rgba(251,224,160,.18);
+  background: #3a5457;
+  box-shadow: 0 0 0 2px rgba(240,232,222,.3);
+  width: 14px; height: 14px;
 }
 
-/* ── HOVER en cada punto ── */
-.h-dot:hover {
-  background: var(--teal-lt);
-  border-color: var(--teal-lt);
-  transform: scale(1.55);
-  box-shadow: 0 0 0 6px rgba(88,117,121,.22);
-}
-/* El punto activo mantiene el amarillo en hover pero también crece */
+/* ── HOVER igual en todos los puntos ── */
+.h-dot:hover,
 .h-dot.active:hover {
-  background: var(--yellow);
-  border-color: var(--yellow);
-  transform: scale(1.45);
-  box-shadow: 0 0 0 8px rgba(251,224,160,.25);
+  background: var(--teal-lt);
+  box-shadow: 0 0 0 5px rgba(88,117,121,.28);
+  transform: scale(1.6);
 }
 
-/* Tooltip al hacer hover en el punto */
+/* Tooltip al hacer hover */
 .h-dot::after {
   content: attr(data-label);
   position: absolute;
@@ -395,13 +517,11 @@ section { position: relative; }
   background: rgba(32,32,49,.92);
   color: var(--beige);
   font-family: var(--ff);
-  font-size: .7rem;
-  font-weight: 600;
+  font-size: .7rem; font-weight: 600;
   letter-spacing: .06em;
   white-space: nowrap;
   padding: .3rem .7rem;
   border-radius: 3px;
-  border: 1px solid rgba(240,232,222,.1);
   pointer-events: none;
   opacity: 0;
   transition: opacity .2s, transform .2s var(--ease);

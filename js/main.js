@@ -104,49 +104,41 @@ const progObs = new IntersectionObserver(entries => {
 const ps = document.querySelector('.progress-section');
 if (ps) progObs.observe(ps);
 
-/* ── Timeline horizontal: línea animada + pasos + hover sincronizado ── */
+/* ── Timeline horizontal ── */
 const htObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      /* 1. Dibuja la línea de izquierda a derecha */
-      const rail = document.getElementById('hRail');
-      if (rail) setTimeout(() => rail.classList.add('animated'), 150);
+    if (!e.isIntersecting) return;
 
-      /* 2. Aparecen los pasos escalonados */
-      e.target.querySelectorAll('.h-step').forEach((step, i) => {
-        setTimeout(() => step.classList.add('visible'), 300 + i * 180);
+    const dots  = e.target.querySelectorAll('.h-dot');
+    const steps = e.target.querySelectorAll('.h-step');
+    const rail  = document.getElementById('hRail');
+
+    /* 1. Dibuja la línea de izquierda a derecha */
+    if (rail) setTimeout(() => rail.classList.add('animated'), 100);
+
+    /* 2. Puntos aparecen uno a uno con pop */
+    dots.forEach((dot, i) => {
+      setTimeout(() => dot.classList.add('entered'), 120 + i * 200);
+    });
+
+    /* 3. Textos suben escalonados */
+    steps.forEach((step, i) => {
+      setTimeout(() => step.classList.add('visible'), 280 + i * 180);
+    });
+
+    /* 4. Hover: ilumina el nombre del paso correspondiente */
+    dots.forEach((dot, i) => {
+      dot.addEventListener('mouseenter', () => {
+        steps[i]?.querySelector('.h-step-name')?.style.setProperty('color', 'var(--yellow)');
       });
-
-      /* 3. Los puntos aparecen uno a uno con un leve retraso */
-      e.target.querySelectorAll('.h-dot').forEach((dot, i) => {
-        dot.style.opacity = '0';
-        dot.style.transform = 'scale(0.4)';
-        dot.style.transition = 'opacity .4s var(--ease), transform .4s var(--ease)';
-        setTimeout(() => {
-          dot.style.opacity = '1';
-          dot.style.transform = '';
-        }, 200 + i * 220);
+      dot.addEventListener('mouseleave', () => {
+        steps[i]?.querySelector('.h-step-name')?.style.removeProperty('color');
       });
+    });
 
-      htObs.unobserve(e.target);
-    }
+    htObs.unobserve(e.target);
   });
 }, { threshold: 0.25 });
 
 const ht = document.getElementById('hTimeline');
-if (ht) {
-  htObs.observe(ht);
-
-  /* Hover: sincroniza punto ↔ nombre del paso */
-  const dots  = ht.querySelectorAll('.h-dot');
-  const steps = ht.querySelectorAll('.h-step');
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('mouseenter', () => {
-      if (steps[i]) steps[i].querySelector('.h-step-name').style.color = 'var(--yellow)';
-    });
-    dot.addEventListener('mouseleave', () => {
-      if (steps[i]) steps[i].querySelector('.h-step-name').style.color = '';
-    });
-  });
-}
+if (ht) htObs.observe(ht);
