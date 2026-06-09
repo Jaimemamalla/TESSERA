@@ -104,18 +104,49 @@ const progObs = new IntersectionObserver(entries => {
 const ps = document.querySelector('.progress-section');
 if (ps) progObs.observe(ps);
 
-/* ── Timeline horizontal: línea + pasos ── */
+/* ── Timeline horizontal: línea animada + pasos + hover sincronizado ── */
 const htObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
+      /* 1. Dibuja la línea de izquierda a derecha */
       const rail = document.getElementById('hRail');
-      if (rail) setTimeout(() => rail.classList.add('animated'), 100);
+      if (rail) setTimeout(() => rail.classList.add('animated'), 150);
+
+      /* 2. Aparecen los pasos escalonados */
       e.target.querySelectorAll('.h-step').forEach((step, i) => {
-        setTimeout(() => step.classList.add('visible'), 200 + i * 160);
+        setTimeout(() => step.classList.add('visible'), 300 + i * 180);
       });
+
+      /* 3. Los puntos aparecen uno a uno con un leve retraso */
+      e.target.querySelectorAll('.h-dot').forEach((dot, i) => {
+        dot.style.opacity = '0';
+        dot.style.transform = 'scale(0.4)';
+        dot.style.transition = 'opacity .4s var(--ease), transform .4s var(--ease)';
+        setTimeout(() => {
+          dot.style.opacity = '1';
+          dot.style.transform = '';
+        }, 200 + i * 220);
+      });
+
       htObs.unobserve(e.target);
     }
   });
 }, { threshold: 0.25 });
+
 const ht = document.getElementById('hTimeline');
-if (ht) htObs.observe(ht);
+if (ht) {
+  htObs.observe(ht);
+
+  /* Hover: sincroniza punto ↔ nombre del paso */
+  const dots  = ht.querySelectorAll('.h-dot');
+  const steps = ht.querySelectorAll('.h-step');
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('mouseenter', () => {
+      if (steps[i]) steps[i].querySelector('.h-step-name').style.color = 'var(--yellow)';
+    });
+    dot.addEventListener('mouseleave', () => {
+      if (steps[i]) steps[i].querySelector('.h-step-name').style.color = '';
+    });
+  });
+}

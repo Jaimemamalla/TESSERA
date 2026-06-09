@@ -289,23 +289,146 @@ section { position: relative; }
 .tessa-callout p { color: rgba(240,232,222,.55); line-height: 1.7; max-width: 60ch; font-weight: 300; }
 .tessa-callout strong { color: var(--beige); font-weight: 700; }
 
-/* ── Timeline horizontal ── */
-.timeline-title { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; color: var(--beige); margin-bottom: 3rem; line-height: 1.2; }
+/* ══════════════════════════════════════════════════════
+   TIMELINE HORIZONTAL — animación de carga + hover
+   ══════════════════════════════════════════════════════ */
+
+.timeline-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700; color: var(--beige);
+  margin-bottom: 3rem; line-height: 1.2;
+}
 .timeline-title strong { color: var(--yellow); font-weight: 800; }
+
 .h-timeline { position: relative; padding-top: 1rem; }
-.h-times { display: flex; justify-content: space-between; margin-bottom: .9rem; padding: 0 7px; }
-.h-times span { flex: 1; text-align: center; font-size: .82rem; font-weight: 700; color: rgba(240,232,222,.55); letter-spacing: .06em; }
-.h-rail { position: relative; display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding: 0 7px; }
-.h-rail::before { content: ''; position: absolute; top: 50%; left: 7px; right: 7px; height: 1px; background: rgba(240,232,222,.18); transform: translateY(-50%); z-index: 0; }
-.h-rail::after { content: ''; position: absolute; top: 50%; left: 7px; height: 1px; width: 0; background: rgba(240,232,222,.5); transform: translateY(-50%); z-index: 0; transition: width 1.4s var(--ease); }
+
+/* Etiquetas H+X */
+.h-times {
+  display: flex; justify-content: space-between;
+  margin-bottom: .9rem; padding: 0 7px;
+}
+.h-times span {
+  flex: 1; text-align: center;
+  font-size: .82rem; font-weight: 700;
+  color: rgba(240,232,222,.55); letter-spacing: .06em;
+  transition: color .3s var(--ease);
+}
+/* La etiqueta se ilumina cuando el punto debajo tiene hover */
+.h-col:hover .h-times-label { color: var(--yellow); }
+
+/* Riel: línea de fondo + línea animada */
+.h-rail {
+  position: relative; display: flex;
+  align-items: center; justify-content: space-between;
+  margin-bottom: 2rem; padding: 0 7px;
+}
+/* Línea base gris */
+.h-rail::before {
+  content: ''; position: absolute;
+  top: 50%; left: 7px; right: 7px; height: 1px;
+  background: rgba(240,232,222,.15);
+  transform: translateY(-50%); z-index: 0;
+}
+/* Línea animada que se dibuja de izquierda a derecha al entrar en viewport */
+.h-rail::after {
+  content: ''; position: absolute;
+  top: 50%; left: 7px; height: 1px;
+  width: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(240,232,222,.2) 0%,
+    rgba(240,232,222,.6) 60%,
+    var(--yellow) 100%
+  );
+  transform: translateY(-50%); z-index: 0;
+  transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
 .h-rail.animated::after { width: calc(100% - 14px); }
-.h-dot { position: relative; z-index: 1; width: 14px; height: 14px; border-radius: 50%; background: rgba(240,232,222,.2); border: 1.5px solid rgba(240,232,222,.3); flex-shrink: 0; transition: background .4s; }
-.h-dot.active { background: var(--yellow); border-color: var(--yellow); width: 18px; height: 18px; box-shadow: 0 0 0 5px rgba(251,224,160,.18); }
+
+/* Puntos */
+.h-dot {
+  position: relative; z-index: 1;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: rgba(240,232,222,.15);
+  border: 1.5px solid rgba(240,232,222,.25);
+  flex-shrink: 0;
+  cursor: pointer;
+  /* Transición suave para hover */
+  transition:
+    background   .3s var(--ease),
+    border-color .3s var(--ease),
+    transform    .3s var(--ease),
+    box-shadow   .3s var(--ease);
+}
+
+/* Punto activo (H+72 — Shortlist) */
+.h-dot.active {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  width: 18px; height: 18px;
+  box-shadow: 0 0 0 5px rgba(251,224,160,.18);
+}
+
+/* ── HOVER en cada punto ── */
+.h-dot:hover {
+  background: var(--teal-lt);
+  border-color: var(--teal-lt);
+  transform: scale(1.55);
+  box-shadow: 0 0 0 6px rgba(88,117,121,.22);
+}
+/* El punto activo mantiene el amarillo en hover pero también crece */
+.h-dot.active:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  transform: scale(1.45);
+  box-shadow: 0 0 0 8px rgba(251,224,160,.25);
+}
+
+/* Tooltip al hacer hover en el punto */
+.h-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(32,32,49,.92);
+  color: var(--beige);
+  font-family: var(--ff);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  white-space: nowrap;
+  padding: .3rem .7rem;
+  border-radius: 3px;
+  border: 1px solid rgba(240,232,222,.1);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s, transform .2s var(--ease);
+}
+.h-dot:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Pasos: nombre + descripción */
 .h-steps { display: flex; justify-content: space-between; gap: 1rem; }
-.h-step { flex: 1; text-align: center; opacity: 0; transform: translateY(14px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.h-step {
+  flex: 1; text-align: center;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
 .h-step.visible { opacity: 1; transform: translateY(0); }
-.h-step-name { font-size: .88rem; font-weight: 700; color: var(--beige); margin-bottom: .5rem; letter-spacing: .02em; }
-.h-step-desc { font-size: .78rem; color: rgba(240,232,222,.42); line-height: 1.5; font-weight: 300; }
+.h-step-name {
+  font-size: .88rem; font-weight: 700;
+  color: var(--beige); margin-bottom: .5rem;
+  letter-spacing: .02em;
+  transition: color .3s var(--ease);
+}
+.h-step-desc {
+  font-size: .78rem; color: rgba(240,232,222,.38);
+  line-height: 1.5; font-weight: 300;
+}
 
 /* ── ENTREGABLE ── */
 #entregable { padding: 9rem 0; background: var(--bg); }
