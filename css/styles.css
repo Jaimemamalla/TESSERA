@@ -183,9 +183,9 @@ nav.nav-dark .hamburger span { background: var(--beige); }
 
 .hero-loop { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); opacity: .15; pointer-events: none; z-index: 3; }
 .hero-eyebrow { font-size: 1rem; letter-spacing: .28em; text-transform: uppercase; color: var(--beige); font-weight: 600; margin-bottom: 1.8rem; opacity: 0; animation: fadeUp .9s .3s var(--ease) forwards; }
-.hero-title { font-size: clamp(3rem,7.5vw,8rem); font-weight: 200; line-height: .95; color: var(--beige); letter-spacing: .02em; max-width: 18ch; opacity: 0; animation: fadeUp 1s .5s var(--ease) forwards; }
+.hero-title { font-size: clamp(3rem,6.5vw,8rem); font-weight: 200; line-height: .95; color: var(--beige); letter-spacing: .02em; max-width: 18ch; opacity: 0; animation: fadeUp 1s .5s var(--ease) forwards; }
 .hero-title strong { font-weight: 800; color: var(--yellow); display: block; }
-.hero-sub { margin-top: 2.5rem; max-width: 50ch; font-size: 1rem; color: rgba(240,232,222,.75); font-weight: 300; line-height: 1.75; opacity: 0; animation: fadeUp 1s .7s var(--ease) forwards; }
+.hero-sub { margin-top: 2.5rem; max-width: 50ch; font-size: 1rem; color: var(--beige); font-weight: 300; line-height: 1.75; opacity: 0; animation: fadeUp 1s .7s var(--ease) forwards; }
 .hero-actions { margin-top: 3rem; display: flex; gap: 1.2rem; align-items: center; opacity: 0; animation: fadeUp 1s .9s var(--ease) forwards; }
 .hero-tagline { position: absolute; bottom: 5rem; right: 4rem; font-size: .8rem; color: rgba(240,232,222,.6); letter-spacing: .12em; text-transform: uppercase; opacity: 0; animation: fadeIn 1s 1.2s forwards; z-index: 3; }
 .hero-tagline strong { color: var(--yellow); font-weight: 600; }
