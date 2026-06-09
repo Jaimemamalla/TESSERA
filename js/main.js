@@ -1,28 +1,84 @@
 /* ════════════════════════════════════════════════
    TESSERA · Finanzas y capital humano — main.js
-   Segunda web (Netlify) + barras con hover
    ════════════════════════════════════════════════ */
 
-/* ── Barra de progreso de scroll ── */
+/* ── Referencias DOM ── */
+const nav       = document.getElementById('mainNav');
+const mobileNav = document.getElementById('mobileNav');
+const hamburger = document.getElementById('hamburger');
 const scrollBar = document.getElementById('scroll-bar');
+
+/* ── Barra de progreso de scroll ── */
 window.addEventListener('scroll', () => {
   const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
   scrollBar.style.width = (pct * 100) + '%';
+}, { passive: true });
+
+/* ── Nav: clase scrolled ── */
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ══════════════════════════════════════════════════
+   NAV ADAPTABLE: claro/oscuro según sección de fondo
+   ══════════════════════════════════════════════════ */
+
+/* Mapeo: id de sección → tema de la nav */
+const sectionThemes = {
+  'top':         'dark',   /* hero con vídeo */
+  'about':       'light',  /* beige claro    */
+  'servicios':   'light',  /* blanco roto    */
+  'metodologia': 'dark',   /* verde oscuro   */
+  'entregable':  'light',  /* beige          */
+  'casos':       'light',  /* blanco roto    */
+  'contacto':    'dark',   /* navy           */
+};
+
+function setNavTheme(theme) {
+  if (theme === 'light') {
+    nav.classList.add('nav-light');
+    nav.classList.remove('nav-dark');
+  } else {
+    nav.classList.add('nav-dark');
+    nav.classList.remove('nav-light');
+  }
+}
+
+/* Estado inicial: hero oscuro */
+setNavTheme('dark');
+
+/* Observer: detecta qué sección ocupa el top del viewport */
+const themeObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const id    = entry.target.id;
+    const theme = sectionThemes[id];
+    if (theme) setNavTheme(theme);
+  });
+}, {
+  threshold: 0,
+  rootMargin: '-50px 0px -85% 0px'
+  /* La franja activa es los primeros ~15% del viewport tras la nav */
 });
 
-/* ── Nav: clase scrolled + color logo ── */
-const nav     = document.getElementById('mainNav');
-const navLogo = nav.querySelector('.nav-logo');
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY > 60;
-  nav.classList.toggle('scrolled', scrolled);
-  navLogo.style.color = scrolled ? 'var(--navy)' : 'var(--beige)';
+/* Observa solo las secciones que tienen tema definido */
+Object.keys(sectionThemes).forEach(id => {
+  const el = document.getElementById(id);
+  if (el) themeObs.observe(el);
 });
+
+/* ── Parallax en el vídeo del hero ── */
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight) {
+      heroVideo.style.transform = `translateY(${y * 0.4}px)`;
+    }
+  }, { passive: true });
+}
 
 /* ── Menú móvil ── */
-const mobileNav = document.getElementById('mobileNav');
-const hamburger = document.getElementById('hamburger');
-
 function toggleMobile() {
   const open = mobileNav.classList.toggle('open');
   hamburger.classList.toggle('open', open);
@@ -61,7 +117,7 @@ function countUp(el, target, duration) {
   });
 }
 
-/* Contadores sección #servicios (data-target en el wrapper) */
+/* Contadores sección #servicios */
 const cntObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -75,7 +131,7 @@ const cntObs = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 document.querySelectorAll('[data-target]').forEach(el => cntObs.observe(el));
 
-/* Contadores sección #metodologia (.count-anim) */
+/* Contadores sección #metodologia */
 const animObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting && !e.target.dataset.done) {
@@ -86,16 +142,12 @@ const animObs = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 document.querySelectorAll('.count-anim').forEach(el => animObs.observe(el));
 
-/* ── Barras de progreso: animación de entrada ──
-   El hover lo gestiona el CSS (no necesita JS).
-   Este observer solo anima el width al entrar en viewport. */
+/* ── Barras de progreso ── */
 const progObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.querySelectorAll('.progress-fill').forEach((bar, i) => {
-        setTimeout(() => {
-          bar.style.width = bar.dataset.width + '%';
-        }, i * 120);
+        setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, i * 120);
       });
       progObs.unobserve(e.target);
     }
@@ -113,20 +165,16 @@ const htObs = new IntersectionObserver(entries => {
     const steps = e.target.querySelectorAll('.h-step');
     const rail  = document.getElementById('hRail');
 
-    /* 1. Dibuja la línea de izquierda a derecha */
     if (rail) setTimeout(() => rail.classList.add('animated'), 100);
 
-    /* 2. Puntos aparecen uno a uno con pop */
     dots.forEach((dot, i) => {
       setTimeout(() => dot.classList.add('entered'), 120 + i * 200);
     });
 
-    /* 3. Textos suben escalonados */
     steps.forEach((step, i) => {
       setTimeout(() => step.classList.add('visible'), 280 + i * 180);
     });
 
-    /* 4. Hover: ilumina el nombre del paso correspondiente */
     dots.forEach((dot, i) => {
       dot.addEventListener('mouseenter', () => {
         steps[i]?.querySelector('.h-step-name')?.style.setProperty('color', 'var(--yellow)');
