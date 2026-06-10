@@ -264,15 +264,14 @@ nav.nav-dark .hamburger span {
   padding: 0 4rem 5rem;
   position: relative; 
   overflow: hidden;
-  background: #0a1a1c; /* fallback mientras carga el vídeo */
+  background: #0a1a1c;
 }
 
-/* Vídeo de fondo */
 .hero-video {
   position: absolute;
   inset: 0;
   width: 100%; 
-  height: 115%; /* un poco más alto para que el parallax no deje huecos */
+  height: 115%;
   top: -7.5%;
   object-fit: cover;
   object-position: center;
@@ -281,7 +280,6 @@ nav.nav-dark .hamburger span {
   will-change: transform;
 }
 
-/* Capa oscura semitransparente sobre el vídeo */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -289,7 +287,6 @@ nav.nav-dark .hamburger span {
   z-index: 1;
 }
 
-/* Grano de textura encima de todo */
 .hero-grain {
   position: absolute; 
   inset: 0; 
@@ -300,7 +297,6 @@ nav.nav-dark .hamburger span {
   pointer-events: none;
 }
 
-/* Todos los elementos del hero van por encima de vídeo + overlay */
 .hero-loop,
 .hero-eyebrow,
 .hero-title,
@@ -421,6 +417,7 @@ nav.nav-dark .hamburger span {
 .btn-primary { 
   display: inline-flex; 
   align-items: center; 
+  justify-content: center;
   gap: .6rem; 
   padding: .9rem 2.2rem; 
   background: var(--teal); 
@@ -443,6 +440,7 @@ nav.nav-dark .hamburger span {
 .btn-ghost { 
   display: inline-flex; 
   align-items: center; 
+  justify-content: center;
   gap: .6rem; 
   padding: .9rem 2.2rem; 
   border: 1px solid rgba(240, 232, 222, .25); 
@@ -522,8 +520,7 @@ section {
 }
 
 .about-grid { 
-  display: grid; 
-  grid-template-columns: 1fr 1.2fr; 
+  display: grid;
   gap: 7rem; 
   align-items: center; 
 }
@@ -644,7 +641,6 @@ section {
   font-weight: 300; 
 }
 
-/* Contadores dentro de servicios */
 .stats-counter-row { 
   display: grid; 
   grid-template-columns: repeat(3, 1fr); 
@@ -919,7 +915,6 @@ section {
   transition: width 1.2s var(--ease);
 }
 
-/* 4ª barra (Shortlist 100%) — amarillo */
 .progress-item:nth-child(4) .progress-fill {
   background: linear-gradient(90deg, var(--teal) 0%, var(--yellow) 100%);
 }
@@ -971,7 +966,7 @@ section {
 }
 
 /* ══════════════════════════════════════════════════════
-   TIMELINE HORIZONTAL — animación de carga + hover
+   TIMELINE HORIZONTAL
    ══════════════════════════════════════════════════════ */
 
 .timeline-title {
@@ -992,7 +987,6 @@ section {
   padding-top: 1rem; 
 }
 
-/* ── Fila 1: etiquetas H+X ── */
 .h-times {
   display: flex;
   margin-bottom: .75rem;
@@ -1007,7 +1001,6 @@ section {
   letter-spacing: .06em;
 }
 
-/* ── Riel: línea de fondo + línea animada ── */
 .h-rail {
   position: relative; 
   display: flex;
@@ -1017,7 +1010,6 @@ section {
   padding: 0 7px;
 }
 
-/* Línea base gris — detrás de los puntos */
 .h-rail::before {
   content: ''; 
   position: absolute;
@@ -1030,7 +1022,6 @@ section {
   z-index: 0;
 }
 
-/* Línea animada de izquierda a derecha */
 .h-rail::after {
   content: ''; 
   position: absolute;
@@ -1053,7 +1044,6 @@ section {
   width: calc(100% - 14px); 
 }
 
-/* ── Puntos — todos idénticos, tapan la línea ── */
 .h-dot {
   position: relative;
   z-index: 2;
@@ -1075,7 +1065,6 @@ section {
     box-shadow .3s var(--ease);
 }
 
-/* Una vez visible */
 .h-dot.entered {
   opacity: 1;
   transform: scale(1);
@@ -1088,7 +1077,6 @@ section {
   height: 14px;
 }
 
-/* ── HOVER igual en todos los puntos ── */
 .h-dot:hover,
 .h-dot.active:hover {
   background: var(--teal-lt);
@@ -1096,7 +1084,6 @@ section {
   transform: scale(1.6);
 }
 
-/* Tooltip al hacer hover */
 .h-dot::after {
   content: attr(data-label);
   position: absolute;
@@ -1122,7 +1109,6 @@ section {
   transform: translateX(-50%) translateY(0);
 }
 
-/* Pasos: nombre + descripción */
 .h-steps { 
   display: flex; 
   justify-content: space-between; 
@@ -1440,7 +1426,6 @@ footer {
   background: rgba(88, 117, 121, .2);
 }
 
-/* Iconos Font Awesome */
 .social-link i {
   font-size: 15px;
   color: rgba(240, 232, 222, .8);
@@ -1515,47 +1500,62 @@ footer {
 }
 
 @media (max-width: 768px) {
+  /* Previene el scroll horizontal no deseado */
+  body, html { overflow-x: hidden; }
+
   nav, nav.scrolled { padding: 1.2rem 1.5rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  
   .hero { padding: 0 1.5rem 4rem; }
   .hero-scroll-hint, .hero-loop, .hero-tagline { display: none; }
   
-  /* Nuevas reglas inyectadas para la Hero en móvil */
+  /* CORRECCIÓN: Tipografía responsiva fluida sin romper el ancho de pantalla */
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(2.2rem, 8vw, 3rem); 
     line-height: 1.1;
+    max-width: 100%; /* Elimina la restricción de los 18ch original */
+    word-wrap: break-word; /* Permite cortar palabras largas si fuera necesario */
   }
   
   .hero-sub {
     font-size: 0.95rem;
     margin-top: 1.5rem;
+    max-width: 100%;
   }
   
+  /* CORRECCIÓN: Flexbox controlado al 100% del contenedor */
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+    width: 100%; 
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
   }
   
   .btn-primary, .btn-ghost {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.75rem;
+    padding: 1rem 1.5rem;
+    font-size: 0.8rem;
     justify-content: center;
+    width: 100%; 
+    text-align: center;
+    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
   }
 
-  /* Resto de estilos en móvil preexistentes */
   .section-inner { padding: 0 1.5rem; }
   .divider { margin: 0 1.5rem; }
   #about, #servicios, #metodologia, #entregable, #casos, #contacto { padding: 5rem 0; }
+  
   .services-grid { grid-template-columns: 1fr; }
   .service-card { border-right: none !important; }
+  
   .stats-row { grid-template-columns: 1fr; }
   .progress-section { padding: 2.5rem 1.5rem; }
   .h-step-desc { display: none; }
+  
   .report-grid { grid-template-columns: 1fr; }
   .report-item { border-right: none !important; }
+  
   footer { padding: 3rem 1.5rem 2rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
