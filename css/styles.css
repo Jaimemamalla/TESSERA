@@ -557,7 +557,7 @@ section {
 }
 
 .pillar-num { 
-  font-size: 1.7rem; 
+  font-size: 1.5rem; 
   color: var(--teal); 
   font-weight: 700; 
   min-width: 24px; 
@@ -1033,7 +1033,7 @@ section {
   position: relative; 
   display: flex;
   align-items: center; 
-  justify-space-between;
+  justify-content: space-between;
   margin-bottom: 2rem; 
   padding: 0 7px;
 }
