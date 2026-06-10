@@ -472,12 +472,11 @@ section {
 }
 
 .section-label { 
-  font-size: .65rem; 
-  letter-spacing: .26em; 
-  text-transform: uppercase; 
-  color: var(--teal); 
-  font-weight: 700; 
-  margin-bottom: 1.2rem; 
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: var(--mid);
+  line-height: 1.75;
+  font-weight: 300;
 }
 
 .section-title { 
@@ -590,13 +589,6 @@ section {
   position: absolute; 
   inset: 0; 
   background: radial-gradient(ellipse 80% 60% at 20% 30%, rgba(88, 117, 121, .2) 0%, transparent 60%); 
-}
-
-.box-loop { 
-  position: absolute; 
-  bottom: -10px; 
-  right: -10px; 
-  pointer-events: none; 
 }
 
 .about-right-box blockquote { 
