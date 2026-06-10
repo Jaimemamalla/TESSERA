@@ -666,10 +666,30 @@ footer { background: #161625; border-top: 1px solid rgba(240,232,222,.06); paddi
 .footer-col ul a { font-size: .86rem; color: rgba(240,232,222,.35); text-decoration: none; transition: color .25s; font-weight: 300; }
 .footer-col ul a:hover { color: var(--beige); }
 .footer-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
-.social-link { width: 36px; height: 36px; border: 1px solid rgba(240,232,222,.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: border-color .3s, background .3s; }
-.social-link:hover { border-color: var(--teal); background: rgba(88,117,121,.15); }
-.social-link svg { width: 14px; height: 14px; fill: none; stroke: rgba(240,232,222,.4); stroke-width: 1.5; }
-.social-link:hover svg { stroke: var(--teal-lt); }
+
+.social-link {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(240,232,222,.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  transition: border-color .3s, background .3s;
+}
+.social-link:hover {
+  border-color: var(--teal);
+  background: rgba(88,117,121,.15);
+}
+
+/* Iconos Font Awesome — usa color, no stroke */
+.social-link i {
+  font-size: 14px;
+  color: rgba(240,232,222,.45);
+  transition: color .3s;
+  line-height: 1;
+}
+.social-link:hover i {
+  color: var(--teal-lt);
+}
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 2rem; border-top: 1px solid rgba(240,232,222,.05); }
 .footer-bottom p { font-size: .75rem; color: rgba(240,232,222,.2); font-weight: 300; }
 .footer-legal { display: flex; gap: 1.5rem; }
