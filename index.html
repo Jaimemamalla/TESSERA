@@ -41,7 +41,7 @@
 </nav>
 
 
-<!-- ══ HERO ══ -->
+<!-- ══ HERO ══════════════════════════════════════════ -->
 <section id="top" class="hero">
   <!-- Vídeo de fondo -->
   <video class="hero-video" autoplay muted loop playsinline preload="auto">
@@ -149,63 +149,66 @@
       <p class="meth-sub">72 horas y 7 días. Así de claro es lo que te garantizamos en cada búsqueda de talento.</p>
     </div>
 
-    <!-- Stats grandes -->
-    <div class="stats-row">
-      <div class="stat-box reveal">
-        <div class="stat-num"><span class="count-anim" data-target="72">0</span></div>
-        <p class="stat-unit">HORAS</p>
-        <p class="stat-label-big">Primer shortlist</p>
-        <p class="stat-desc">Candidatos reales encima de tu mesa. Validados, disponibles y alineados con el rol.</p>
-      </div>
-      <div class="stat-box reveal reveal-delay-2">
-        <div class="stat-num"><span class="count-anim" data-target="7">0</span></div>
-        <p class="stat-unit">DÍAS</p>
-        <p class="stat-label-big">Informe de mercado</p>
-        <p class="stat-desc">Benchmarking salarial, mapa de talento, competidores y realidades que nadie te cuenta.</p>
-      </div>
-    </div>
+    <!-- Fila superior: stats + barras lado a lado -->
+    <div class="meth-top-row reveal">
 
-    <!-- ══ BARRAS DE PROGRESO (de la primera web, con hover) ══ -->
-    <div class="progress-section reveal">
-      <h3 class="progress-title">Lo que incluye cada proceso</h3>
-      <div class="progress-list">
-        <div class="progress-item">
-          <div class="progress-header">
-            <span class="progress-label">Identificación de talento</span>
-            <span class="progress-value">98%</span>
-          </div>
-          <div class="progress-track"><div class="progress-fill" data-width="98"></div></div>
+      <!-- Stats grandes -->
+      <div class="stats-row">
+        <div class="stat-box reveal">
+          <div class="stat-num"><span class="count-anim" data-target="72">0</span><span class="stat-suffix">h</span></div>
+          <p class="stat-label-big">Primer shortlist</p>
+          <p class="stat-desc">Candidatos reales encima de tu mesa. Validados, disponibles y alineados con el rol.</p>
         </div>
-        <div class="progress-item">
-          <div class="progress-header">
-            <span class="progress-label">Benchmarking salarial</span>
-            <span class="progress-value">95%</span>
-          </div>
-          <div class="progress-track"><div class="progress-fill" data-width="95"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-header">
-            <span class="progress-label">Análisis de mercado</span>
-            <span class="progress-value">90%</span>
-          </div>
-          <div class="progress-track"><div class="progress-fill" data-width="90"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-header">
-            <span class="progress-label">Shortlist en 72h</span>
-            <span class="progress-value">100%</span>
-          </div>
-          <div class="progress-track"><div class="progress-fill" data-width="100"></div></div>
-        </div>
-        <div class="progress-item">
-          <div class="progress-header">
-            <span class="progress-label">Tasa de cierre</span>
-            <span class="progress-value">87%</span>
-          </div>
-          <div class="progress-track"><div class="progress-fill" data-width="87"></div></div>
+        <div class="stat-box reveal reveal-delay-2">
+          <div class="stat-num"><span class="count-anim" data-target="7">0</span><span class="stat-suffix">d</span></div>
+          <p class="stat-label-big">Informe de mercado</p>
+          <p class="stat-desc">Benchmarking salarial, mapa de talento, competidores y realidades que nadie te cuenta.</p>
         </div>
       </div>
-    </div>
+
+      <!-- Barras de progreso -->
+      <div class="progress-section reveal">
+        <h3 class="progress-title">Lo que incluye cada proceso</h3>
+        <div class="progress-list">
+          <div class="progress-item">
+            <div class="progress-header">
+              <span class="progress-label">Identificación de talento</span>
+              <span class="progress-value">98%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-width="98"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span class="progress-label">Benchmarking salarial</span>
+              <span class="progress-value">95%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-width="95"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span class="progress-label">Análisis de mercado</span>
+              <span class="progress-value">90%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-width="90"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span class="progress-label">Shortlist en 72h</span>
+              <span class="progress-value">100%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-width="100"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header">
+              <span class="progress-label">Tasa de cierre</span>
+              <span class="progress-value">87%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-width="87"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /meth-top-row -->
 
     <!-- Tessa callout -->
     <div class="tessa-callout reveal">
@@ -224,11 +227,11 @@
           <span>H+0</span><span>H+12</span><span>H+24</span><span>H+48</span><span>H+72</span>
         </div>
         <div class="h-rail" id="hRail">
-          <div class="h-dot"></div>
-          <div class="h-dot"></div>
-          <div class="h-dot"></div>
-          <div class="h-dot"></div>
-          <div class="h-dot active"></div>
+          <div class="h-dot" data-label="H+0 · Kickoff"></div>
+          <div class="h-dot" data-label="H+12 · Estrategia"></div>
+          <div class="h-dot" data-label="H+24 · Outreach"></div>
+          <div class="h-dot" data-label="H+48 · Screening"></div>
+          <div class="h-dot" data-label="H+72 · Shortlist"></div>
         </div>
         <div class="h-steps">
           <div class="h-step">
@@ -329,7 +332,7 @@
 </section>
 
 
-<!-- ══ FOOTER ══════════════════════════════════════ -->
+<!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
