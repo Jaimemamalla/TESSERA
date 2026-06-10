@@ -555,7 +555,7 @@ section {
 }
 
 .pillar-num { 
-  font-size: .75rem; 
+  font-size: 1.7rem; 
   color: var(--teal); 
   font-weight: 700; 
   min-width: 24px; 
@@ -708,7 +708,7 @@ section {
 }
 
 .service-num { 
-  font-size: .7rem; 
+  font-size: 1.7rem; 
   color: var(--light); 
   font-weight: 600; 
   letter-spacing: .14em; 
@@ -1499,7 +1499,9 @@ footer {
   .nav-links { display: none; }
   .hamburger { display: flex; }
   
-  .hero { padding: 0 1.5rem 4rem; }
+  .hero { padding: 7rem 1.5rem 3rem; 
+    justify-content: center; 
+    min-height: 100vh; }
   .hero-scroll-hint, .hero-loop, .hero-tagline { display: none; }
   
   /* CORRECCIÓN: Tipografía responsiva fluida sin romper el ancho de pantalla */
@@ -1536,7 +1538,7 @@ footer {
 
   .section-inner { padding: 0 1.5rem; }
   .divider { margin: 0 1.5rem; }
-  #about, #servicios, #metodologia, #entregable, #casos, #contacto { padding: 5rem 0; }
+  #about, #servicios, #metodologia, #entregable, #casos, #contacto { padding: 3.5rem 0; }
   
   .services-grid { grid-template-columns: 1fr; }
   .service-card { border-right: none !important; }
