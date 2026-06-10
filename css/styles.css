@@ -472,11 +472,12 @@ section {
 }
 
 .section-label { 
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  color: var(--mid);
-  line-height: 1.75;
-  font-weight: 300;
+  font-size: .65rem; 
+  letter-spacing: .26em; 
+  text-transform: uppercase; 
+  color: var(--teal); 
+  font-weight: 700; 
+  margin-bottom: 1.2rem; 
 }
 
 .section-title { 
@@ -519,7 +520,8 @@ section {
 }
 
 .about-grid { 
-  display: grid;
+  display: grid; 
+  grid-template-columns: 1fr 1.2fr; 
   gap: 7rem; 
   align-items: center; 
 }
@@ -591,6 +593,13 @@ section {
   background: radial-gradient(ellipse 80% 60% at 20% 30%, rgba(88, 117, 121, .2) 0%, transparent 60%); 
 }
 
+.box-loop { 
+  position: absolute; 
+  bottom: -10px; 
+  right: -10px; 
+  pointer-events: none; 
+}
+
 .about-right-box blockquote { 
   font-size: 1.35rem; 
   font-weight: 300; 
@@ -647,6 +656,7 @@ section {
   padding: 2.5rem; 
   border-right: 1px solid var(--dust); 
   background: var(--bg); 
+  font-family: var(--ff);
 }
 
 .counter-item:last-child { 
@@ -654,6 +664,7 @@ section {
 }
 
 .counter-num { 
+  font-family: var(--ff);
   font-size: clamp(2rem, 4vw, 3.5rem); 
   font-weight: 200; 
   color: var(--navy); 
@@ -662,6 +673,7 @@ section {
 }
 
 .counter-label { 
+  font-family: var(--ff);
   font-size: .7rem; 
   letter-spacing: .14em; 
   text-transform: uppercase; 
@@ -679,9 +691,10 @@ section {
   padding: 3rem 2.5rem; 
   border-right: 1px solid var(--dust); 
   border-bottom: 1px solid var(--dust); 
-  transition: background .3s; 
+  transition: background .3s var(--ease); 
   position: relative; 
   overflow: hidden; 
+  font-family: var(--ff);
 }
 
 .service-card:nth-child(3n) { 
@@ -700,7 +713,7 @@ section {
 }
 
 .service-card:hover { 
-  background: var(--bg); 
+  background: var(--navy); 
 }
 
 .service-card:hover::before { 
@@ -708,26 +721,44 @@ section {
 }
 
 .service-num { 
+  font-family: var(--ff);
   font-size: 1.7rem; 
   color: var(--light); 
   font-weight: 600; 
   letter-spacing: .14em; 
   margin-bottom: 1.5rem; 
   display: block; 
+  transition: color .3s var(--ease); 
 }
 
 .service-card h3 { 
+  font-family: var(--ff);
   font-size: 1.2rem; 
-  font-weight: 700; 
+  font-weight: 600; 
   margin-bottom: .8rem; 
   color: var(--navy); 
+  transition: color .3s var(--ease); 
 }
 
 .service-card p { 
+  font-family: var(--ff);
   font-size: .9rem; 
   color: var(--mid); 
   line-height: 1.65; 
   font-weight: 300; 
+  transition: color .3s var(--ease); 
+}
+
+.service-card:hover .service-num {
+  color: var(--teal-lt);
+}
+
+.service-card:hover h3 {
+  color: var(--beige);
+}
+
+.service-card:hover p {
+  color: rgba(240, 232, 222, 0.75); 
 }
 
 .service-ebitda { 
@@ -795,6 +826,7 @@ section {
   padding: 4rem; 
   position: relative; 
   overflow: hidden; 
+  font-family: var(--ff);
 }
 
 .stat-box::before { 
@@ -813,6 +845,7 @@ section {
 }
 
 .stat-num { 
+  font-family: var(--ff);
   font-size: clamp(4rem, 8vw, 7rem); 
   font-weight: 200; 
   color: var(--beige); 
@@ -821,6 +854,7 @@ section {
 }
 
 .stat-unit { 
+  font-family: var(--ff);
   font-size: .65rem; 
   letter-spacing: .28em; 
   text-transform: uppercase; 
@@ -830,6 +864,7 @@ section {
 }
 
 .stat-label-big { 
+  font-family: var(--ff);
   font-size: 1.1rem; 
   font-weight: 600; 
   color: var(--beige); 
@@ -837,6 +872,7 @@ section {
 }
 
 .stat-desc { 
+  font-family: var(--ff);
   font-size: .95rem; 
   color: rgba(240, 232, 222, .4); 
   line-height: 1.65; 
@@ -997,7 +1033,7 @@ section {
   position: relative; 
   display: flex;
   align-items: center; 
-  justify-content: space-between;
+  justify-space-between;
   margin-bottom: 2rem; 
   padding: 0 7px;
 }
@@ -1152,7 +1188,8 @@ section {
   padding: 3rem 2.5rem; 
   border-right: 1px solid var(--dust); 
   border-bottom: 1px solid var(--dust); 
-  transition: background .3s; 
+  transition: background .3s var(--ease); /* Añadido suavizado */
+  font-family: var(--ff);
 }
 
 .report-item:nth-child(3n) { 
@@ -1163,30 +1200,50 @@ section {
   border-bottom: none; 
 }
 
+/* CAMBIO: Hover ahora usa var(--navy) (azul oscuro) */
 .report-item:hover { 
-  background: var(--bg-lt); 
+  background: var(--navy); 
 }
 
 .report-num { 
+  font-family: var(--ff);
   font-size: 2.2rem; 
   font-weight: 200; 
   color: var(--dust); 
   line-height: 1; 
   margin-bottom: 1rem; 
+  transition: color .3s var(--ease); /* Añadido suavizado */
 }
 
 .report-item h4 { 
+  font-family: var(--ff);
   font-size: 1rem; 
   font-weight: 700; 
   margin-bottom: .7rem; 
   color: var(--navy); 
+  transition: color .3s var(--ease); /* Añadido suavizado */
 }
 
 .report-item p { 
+  font-family: var(--ff);
   font-size: .9rem; 
   color: var(--mid); 
   line-height: 1.65; 
   font-weight: 300; 
+  transition: color .3s var(--ease); /* Añadido suavizado */
+}
+
+/* CAMBIO: Contraste de las letras en el entregable en hover sobre fondo azul */
+.report-item:hover .report-num {
+  color: var(--teal-lt);
+}
+
+.report-item:hover h4 {
+  color: var(--beige);
+}
+
+.report-item:hover p {
+  color: rgba(240, 232, 222, 0.75);
 }
 
 /* ── TESTIMONIOS ── */
@@ -1492,24 +1549,27 @@ footer {
 }
 
 @media (max-width: 768px) {
-  /* Previene el scroll horizontal no deseado */
   body, html { overflow-x: hidden; }
 
   nav, nav.scrolled { padding: 1.2rem 1.5rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   
-  .hero { padding: 7rem 1.5rem 3rem; 
+  .hero { 
+    padding: 7rem 1.5rem 3rem; 
     justify-content: center; 
-    min-height: 100vh; }
-  .hero-scroll-hint, .hero-loop, .hero-tagline { display: none; }
+    min-height: 100vh;
+  }
   
-  /* CORRECCIÓN: Tipografía responsiva fluida sin romper el ancho de pantalla */
+  #about, #servicios, #metodologia, #entregable, #casos, #contacto { 
+    padding: 3.5rem 0; 
+  }
+  
   .hero-title {
     font-size: clamp(2.2rem, 8vw, 3rem); 
     line-height: 1.1;
-    max-width: 100%; /* Elimina la restricción de los 18ch original */
-    word-wrap: break-word; /* Permite cortar palabras largas si fuera necesario */
+    max-width: 100%; 
+    word-wrap: break-word; 
   }
   
   .hero-sub {
@@ -1518,7 +1578,6 @@ footer {
     max-width: 100%;
   }
   
-  /* CORRECCIÓN: Flexbox controlado al 100% del contenedor */
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
@@ -1533,12 +1592,11 @@ footer {
     justify-content: center;
     width: 100%; 
     text-align: center;
-    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
+    box-sizing: border-box; 
   }
 
   .section-inner { padding: 0 1.5rem; }
   .divider { margin: 0 1.5rem; }
-  #about, #servicios, #metodologia, #entregable, #casos, #contacto { padding: 3.5rem 0; }
   
   .services-grid { grid-template-columns: 1fr; }
   .service-card { border-right: none !important; }
