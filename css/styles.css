@@ -519,12 +519,12 @@ section {
   background: var(--bg); 
 }
 
-.about-grid { 
+/* .about-grid { 
   display: grid; 
   grid-template-columns: 1fr 1.2fr; 
   gap: 7rem; 
   align-items: center; 
-}
+} */
 
 .about-left .section-title { 
   margin-bottom: 2rem; 
