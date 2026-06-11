@@ -22,16 +22,14 @@ window.addEventListener('scroll', () => {
 /* ══════════════════════════════════════════════════
    NAV ADAPTABLE: claro/oscuro según sección de fondo
    ══════════════════════════════════════════════════ */
-
-/* Mapeo: id de sección → tema de la nav */
 const sectionThemes = {
-  'top':         'dark',   /* hero con vídeo */
-  'about':       'light',  /* beige claro    */
-  'servicios':   'light',  /* blanco roto    */
-  'metodologia': 'dark',   /* verde oscuro   */
-  'entregable':  'light',  /* beige          */
-  'casos':       'light',  /* blanco roto    */
-  'contacto':    'dark',   /* navy           */
+  'top':         'dark',
+  'about':       'light',
+  'servicios':   'light',
+  'metodologia': 'dark',
+  'entregable':  'light',
+  'casos':       'light',
+  'contacto':    'dark',
 };
 
 function setNavTheme(theme) {
@@ -44,10 +42,8 @@ function setNavTheme(theme) {
   }
 }
 
-/* Estado inicial: hero oscuro */
 setNavTheme('dark');
 
-/* Observer: detecta qué sección ocupa el top del viewport */
 const themeObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
@@ -58,35 +54,43 @@ const themeObs = new IntersectionObserver(entries => {
 }, {
   threshold: 0,
   rootMargin: '-50px 0px -85% 0px'
-  /* La franja activa es los primeros ~15% del viewport tras la nav */
 });
 
-/* Observa solo las secciones que tienen tema definido */
 Object.keys(sectionThemes).forEach(id => {
   const el = document.getElementById(id);
   if (el) themeObs.observe(el);
 });
 
-/* ── Parallax en el vídeo del hero ── */
+/* ── Parallax Optimizado (requestAnimationFrame) ── */
 const heroVideo = document.querySelector('.hero-video');
+let isTicking = false;
+
 if (heroVideo) {
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (y < window.innerHeight) {
-      heroVideo.style.transform = `translateY(${y * 0.4}px)`;
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < window.innerHeight) {
+          heroVideo.style.transform = `translateY(${y * 0.4}px)`;
+        }
+        isTicking = false;
+      });
+      isTicking = true;
     }
   }, { passive: true });
 }
 
-/* ── Menú móvil ── */
+/* ── Menú móvil (A11y Mejorado) ── */
 function toggleMobile() {
   const open = mobileNav.classList.toggle('open');
   hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open); // A11y Update
   document.body.style.overflow = open ? 'hidden' : '';
 }
 function closeMobile() {
   mobileNav.classList.remove('open');
   hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false'); // A11y Update
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => {
@@ -117,21 +121,6 @@ function countUp(el, target, duration) {
   });
 }
 
-/* Contadores sección #servicios */
-const cntObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const sp = e.target.querySelector('.count');
-      if (sp && !sp.dataset.done) {
-        sp.dataset.done = '1';
-        countUp(sp, +e.target.dataset.target, 1800);
-      }
-    }
-  });
-}, { threshold: 0.4 });
-document.querySelectorAll('[data-target]').forEach(el => cntObs.observe(el));
-
-/* Contadores sección #metodologia */
 const animObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting && !e.target.dataset.done) {
@@ -142,12 +131,13 @@ const animObs = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 document.querySelectorAll('.count-anim').forEach(el => animObs.observe(el));
 
-/* ── Barras de progreso ── */
+/* ── Barras de progreso (Lógica limpia sin SetTimeout) ── */
 const progObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.querySelectorAll('.progress-fill').forEach((bar, i) => {
-        setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, i * 120);
+      // Leer data-width del HTML pero el retraso lo maneja el CSS
+      e.target.querySelectorAll('.progress-fill').forEach((bar) => {
+        bar.style.width = bar.dataset.width + '%';
       });
       progObs.unobserve(e.target);
     }
@@ -156,29 +146,18 @@ const progObs = new IntersectionObserver(entries => {
 const ps = document.querySelector('.progress-section');
 if (ps) progObs.observe(ps);
 
-/* ── Timeline horizontal ── */
+/* ── Timeline horizontal (Lógica limpia sin SetTimeout) ── */
 const htObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
 
-    const dots     = e.target.querySelectorAll('.h-dot');
-    const steps    = e.target.querySelectorAll('.h-step');
-    const lineFill = e.target.querySelector('#hLineFill');
+    // Al añadir la clase 'animated', el CSS se encarga de los delays y animaciones de forma nativa
+    e.target.classList.add('animated');
 
-    /* 1. Dibuja la línea de izquierda a derecha */
-    if (lineFill) setTimeout(() => lineFill.classList.add('animated'), 100);
+    const dots  = e.target.querySelectorAll('.h-dot');
+    const steps = e.target.querySelectorAll('.h-step');
 
-    /* 2. Puntos aparecen uno a uno con pop */
-    dots.forEach((dot, i) => {
-      setTimeout(() => dot.classList.add('entered'), 150 + i * 200);
-    });
-
-    /* 3. Textos suben escalonados */
-    steps.forEach((step, i) => {
-      setTimeout(() => step.classList.add('visible'), 300 + i * 180);
-    });
-
-    /* 4. Hover: ilumina el nombre del paso correspondiente */
+    /* Hover: ilumina el nombre del paso correspondiente */
     dots.forEach((dot, i) => {
       dot.addEventListener('mouseenter', () => {
         steps[i]?.querySelector('.h-step-name')?.style.setProperty('color', 'var(--yellow)');
@@ -194,3 +173,22 @@ const htObs = new IntersectionObserver(entries => {
 
 const ht = document.getElementById('hTimeline');
 if (ht) htObs.observe(ht);
+
+/* ── Vídeos de sección — lazy load al entrar en viewport ── */
+const sectionVideos = document.querySelectorAll('.section-video');
+if (sectionVideos.length) {
+  const videoObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const video = e.target;
+        if (!video.getAttribute('data-loaded')) {
+          video.setAttribute('data-loaded', '1');
+          video.load();
+          video.play().catch(() => {});
+        }
+        videoObs.unobserve(video);
+      }
+    });
+  }, { threshold: 0.1 });
+  sectionVideos.forEach(v => videoObs.observe(v));
+}
