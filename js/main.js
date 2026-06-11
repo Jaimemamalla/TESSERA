@@ -161,20 +161,24 @@ const htObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
 
-    const dots  = e.target.querySelectorAll('.h-dot');
-    const steps = e.target.querySelectorAll('.h-step');
-    const rail  = document.getElementById('hRail');
+    const dots     = e.target.querySelectorAll('.h-dot');
+    const steps    = e.target.querySelectorAll('.h-step');
+    const lineFill = e.target.querySelector('#hLineFill');
 
-    if (rail) setTimeout(() => rail.classList.add('animated'), 100);
+    /* 1. Dibuja la línea de izquierda a derecha */
+    if (lineFill) setTimeout(() => lineFill.classList.add('animated'), 100);
 
+    /* 2. Puntos aparecen uno a uno con pop */
     dots.forEach((dot, i) => {
-      setTimeout(() => dot.classList.add('entered'), 120 + i * 200);
+      setTimeout(() => dot.classList.add('entered'), 150 + i * 200);
     });
 
+    /* 3. Textos suben escalonados */
     steps.forEach((step, i) => {
-      setTimeout(() => step.classList.add('visible'), 280 + i * 180);
+      setTimeout(() => step.classList.add('visible'), 300 + i * 180);
     });
 
+    /* 4. Hover: ilumina el nombre del paso correspondiente */
     dots.forEach((dot, i) => {
       dot.addEventListener('mouseenter', () => {
         steps[i]?.querySelector('.h-step-name')?.style.setProperty('color', 'var(--yellow)');

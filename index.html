@@ -156,11 +156,13 @@
       <div class="stats-row">
         <div class="stat-box reveal">
           <div class="stat-num"><span class="count-anim" data-target="72">0</span><span class="stat-suffix">horas</span></div>
+          <div class="stat-divider"></div>
           <p class="stat-label-big">Primer shortlist</p>
           <p class="stat-desc">Candidatos reales encima de tu mesa. Validados, disponibles y alineados con el rol.</p>
         </div>
         <div class="stat-box reveal reveal-delay-2">
           <div class="stat-num"><span class="count-anim" data-target="7">0</span><span class="stat-suffix">días</span></div>
+          <div class="stat-divider"></div>
           <p class="stat-label-big">Informe de mercado</p>
           <p class="stat-desc">Benchmarking salarial, mapa de talento, competidores y realidades que nadie te cuenta.</p>
         </div>
@@ -223,37 +225,70 @@
     <div class="reveal">
       <h3 class="timeline-title">Lo que pasa desde que firmamos hasta tu <strong>primer shortlist.</strong></h3>
       <div class="h-timeline" id="hTimeline">
-        <div class="h-times">
-          <span>H+0</span><span>H+12</span><span>H+24</span><span>H+48</span><span>H+72</span>
+
+        <!-- Línea de fondo que conecta todos los puntos -->
+        <div class="h-line-bg">
+          <div class="h-line-fill" id="hLineFill"></div>
         </div>
-        <div class="h-rail" id="hRail">
-          <div class="h-dot" data-label="H+0 · Kickoff"></div>
-          <div class="h-dot" data-label="H+12 · Estrategia"></div>
-          <div class="h-dot" data-label="H+24 · Outreach"></div>
-          <div class="h-dot" data-label="H+48 · Screening"></div>
-          <div class="h-dot" data-label="H+72 · Shortlist"></div>
-        </div>
-        <div class="h-steps">
-          <div class="h-step">
-            <div class="h-step-name">Kickoff</div>
-            <p class="h-step-desc">Briefing profundo con el hiring manager. Nada de formularios genéricos.</p>
+
+        <!-- 5 columnas: cada una con etiqueta + punto + texto -->
+        <div class="h-cols">
+
+          <div class="h-col">
+            <div class="h-col-time">H+0</div>
+            <div class="h-col-dot">
+              <div class="h-dot" data-label="Kickoff"></div>
+            </div>
+            <div class="h-step">
+              <div class="h-step-name">Kickoff</div>
+              <p class="h-step-desc">Briefing profundo con el hiring manager. Nada de formularios genéricos.</p>
+            </div>
           </div>
-          <div class="h-step">
-            <div class="h-step-name">Estrategia</div>
-            <p class="h-step-desc">Mapa de empresas objetivo, boolean strings y canales activos y pasivos.</p>
+
+          <div class="h-col">
+            <div class="h-col-time">H+12</div>
+            <div class="h-col-dot">
+              <div class="h-dot" data-label="Estrategia"></div>
+            </div>
+            <div class="h-step">
+              <div class="h-step-name">Estrategia</div>
+              <p class="h-step-desc">Mapa de empresas objetivo, boolean strings y canales activos y pasivos.</p>
+            </div>
           </div>
-          <div class="h-step">
-            <div class="h-step-name">Outreach activo</div>
-            <p class="h-step-desc">Contacto directo con talento pasivo. Mensajes personalizados, no plantillas.</p>
+
+          <div class="h-col">
+            <div class="h-col-time">H+24</div>
+            <div class="h-col-dot">
+              <div class="h-dot" data-label="Outreach activo"></div>
+            </div>
+            <div class="h-step">
+              <div class="h-step-name">Outreach activo</div>
+              <p class="h-step-desc">Contacto directo con talento pasivo. Mensajes personalizados, no plantillas.</p>
+            </div>
           </div>
-          <div class="h-step">
-            <div class="h-step-name">Screening</div>
-            <p class="h-step-desc">Entrevistas estructuradas. Solo avanzan candidatos que encajan de verdad.</p>
+
+          <div class="h-col">
+            <div class="h-col-time">H+48</div>
+            <div class="h-col-dot">
+              <div class="h-dot" data-label="Screening"></div>
+            </div>
+            <div class="h-step">
+              <div class="h-step-name">Screening</div>
+              <p class="h-step-desc">Entrevistas estructuradas. Solo avanzan candidatos que encajan de verdad.</p>
+            </div>
           </div>
-          <div class="h-step">
-            <div class="h-step-name">Shortlist</div>
-            <p class="h-step-desc">Perfiles validados, con informe individual y disponibilidad confirmada.</p>
+
+          <div class="h-col">
+            <div class="h-col-time">H+72</div>
+            <div class="h-col-dot">
+              <div class="h-dot" data-label="Shortlist"></div>
+            </div>
+            <div class="h-step">
+              <div class="h-step-name">Shortlist</div>
+              <p class="h-step-desc">Perfiles validados, con informe individual y disponibilidad confirmada.</p>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
