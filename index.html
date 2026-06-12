@@ -46,23 +46,6 @@
   <div class="hero-overlay"></div>
   <div class="hero-grain"></div>
 
-  <div class="hero-social-proof">
-    <div class="hero-proof-item">
-      <span class="hero-proof-num">+€500M</span>
-      <span class="hero-proof-label">asesorados</span>
-    </div>
-    <div class="hero-proof-sep"></div>
-    <div class="hero-proof-item">
-      <span class="hero-proof-num">+40</span>
-      <span class="hero-proof-label">operaciones</span>
-    </div>
-    <div class="hero-proof-sep"></div>
-    <div class="hero-proof-item">
-      <span class="hero-proof-num">+15 años</span>
-      <span class="hero-proof-label">de experiencia</span>
-    </div>
-  </div>
-
   <p class="hero-eyebrow">Finanzas · Capital Humano · Estrategia</p>
   <h1 class="hero-title">
     Las decisiones que<br>
@@ -77,6 +60,24 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
     <a href="#servicios" class="btn-ghost">Ver servicios</a>
+  </div>
+
+  <!-- Cifras abajo a la derecha con contador animado -->
+  <div class="hero-social-proof">
+    <div class="hero-proof-item">
+      <span class="hero-proof-num">+€<span class="proof-count" data-target="500">0</span>M</span>
+      <span class="hero-proof-label">asesorados</span>
+    </div>
+    <div class="hero-proof-sep"></div>
+    <div class="hero-proof-item">
+      <span class="hero-proof-num">+<span class="proof-count" data-target="40">0</span></span>
+      <span class="hero-proof-label">operaciones</span>
+    </div>
+    <div class="hero-proof-sep"></div>
+    <div class="hero-proof-item">
+      <span class="hero-proof-num">+<span class="proof-count" data-target="15">0</span> años</span>
+      <span class="hero-proof-label">de experiencia</span>
+    </div>
   </div>
 
   <div class="hero-scroll-hint" aria-hidden="true">
@@ -99,11 +100,6 @@
     </div>
 
     <div class="about-stats reveal reveal-delay-1">
-      <div class="about-stat">
-        <div class="about-stat-num">PYMES</div>
-        <p>Enfoque exclusivo en empresas medianas y startups con ambición de crecer</p>
-      </div>
-      <div class="about-stat-divider"></div>
       <div class="about-stat">
         <div class="about-stat-num">Senior</div>
         <p>Equipo directivo con experiencia en banca de inversión, consultoría y operaciones reales</p>
@@ -155,8 +151,8 @@
     <div class="services-grid">
       <div class="service-card reveal reveal-delay-1">
         <span class="service-num">01</span>
-        <h3>M&amp;A</h3>
-        <p>Compraventa de empresas, valoración, due diligence y negociación hasta el cierre.</p>
+        <h3>Financiación</h3>
+        <p>Negociamos el volumen y las condiciones. Fondos de capital riesgo, private equity y corporate venture, europeos e internacionales. Buscamos el socio más adecuado para tu compañía.</p>
       </div>
       <div class="service-card reveal reveal-delay-2">
         <span class="service-num">02</span>
@@ -200,9 +196,51 @@
     <!-- Cabecera -->
     <div class="methodology-header reveal">
       <p class="section-label">Human Capital · Selección</p>
-      <h2 class="section-title meth-title">Dos números. <em>Un compromiso.</em></h2>
-      <p class="meth-sub">72 horas y 7 días. Así de claro es lo que te garantizamos en cada búsqueda de talento.</p>
+      <h2 class="section-title meth-title">Encontramos el talento que <em>tu empresa necesita.</em></h2>
+      <p class="meth-sub">Identificamos, atraemos y seleccionamos perfiles directivos y estratégicos para PYMES y startups. No usamos bases de datos genéricas — hacemos búsqueda activa, directa y confidencial. Y nos comprometemos con plazos reales.</p>
     </div>
+
+    <!-- Bloque explicativo de qué hace Human Capital -->
+    <div class="hc-intro reveal">
+      <div class="hc-intro-item">
+        <span class="hc-intro-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </span>
+        <div>
+          <h4>Head hunting directivo</h4>
+          <p>Selección de C-level, directores de área y mandos intermedios clave. Perfiles que marcan la diferencia.</p>
+        </div>
+      </div>
+      <div class="hc-intro-item">
+        <span class="hc-intro-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        <div>
+          <h4>Búsqueda activa y pasiva</h4>
+          <p>Accedemos a talento que no está buscando activamente. Outreach personalizado, no plantillas.</p>
+        </div>
+      </div>
+      <div class="hc-intro-item">
+        <span class="hc-intro-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </span>
+        <div>
+          <h4>Shortlist validado</h4>
+          <p>Solo llegan candidatos que encajan de verdad. Cada perfil viene con informe individual y disponibilidad confirmada.</p>
+        </div>
+      </div>
+      <div class="hc-intro-item">
+        <span class="hc-intro-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        <div>
+          <h4>Plazos comprometidos</h4>
+          <p>Primer shortlist en 72 horas. Informe de mercado en 7 días. Sin excusas, sin dilaciones.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="meth-numbers-title reveal">Dos números. <strong>Un compromiso.</strong></h3>
 
     <!-- Fila 1: cifras grandes como protagonistas -->
     <div class="meto-numbers reveal">
@@ -310,44 +348,64 @@
       <p class="section-label">Lo que dicen de nosotros</p>
       <h2 class="section-title">Empresarios que <strong>ya tomaron la decisión.</strong></h2>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="testimonial-result">Financiación conseguida</div>
-        <span class="quote-mark">"</span>
-        <p>Para nosotros fue determinante su involucración en profundizar en el entendimiento del negocio. Mejoraron la contabilidad, optimizaron la fiscalidad y nos consiguieron la financiación que necesitábamos.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">AG</div>
-          <div class="author-info">
-            <strong>Antonio Gallo</strong>
-            <span>CEO · Sector tecnología</span>
+
+    <!-- Carousel -->
+    <div class="carousel-wrap">
+      <div class="carousel" id="testimonialsCarousel">
+        <div class="testimonial-card">
+          <div class="testimonial-result">Financiación conseguida</div>
+          <span class="quote-mark">"</span>
+          <p>Para nosotros fue determinante su involucración en profundizar en el entendimiento del negocio. Mejoraron la contabilidad, optimizaron la fiscalidad y nos consiguieron la financiación que necesitábamos.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AG</div>
+            <div class="author-info">
+              <strong>Antonio Gallo</strong>
+              <span>CEO · Sector tecnología</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-result">2 adquisiciones cerradas</div>
+          <span class="quote-mark">"</span>
+          <p>Les estoy muy agradecido porque me ayudaron, con un éxito mayor del que imaginaba, a negociar y comprar dos compañías que me permitieron expandir mi negocio.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AM</div>
+            <div class="author-info">
+              <strong>Aecio de la Mora</strong>
+              <span>CEO · Expansión internacional</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-result">Reestructuración en plazo</div>
+          <span class="quote-mark">"</span>
+          <p>Entendieron perfectamente la problemática financiera de la compañía y se adentraron hasta el fondo, incluso en fin de semana, para ayudarnos en el plazo que requería.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">EH</div>
+            <div class="author-info">
+              <strong>Enrique Huertas</strong>
+              <span>CEO · Reestructuración financiera</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="testimonial-result">2 adquisiciones cerradas</div>
-        <span class="quote-mark">"</span>
-        <p>Les estoy muy agradecido porque me ayudaron, con un éxito mayor del que imaginaba, a negociar y comprar dos compañías que me permitieron expandir mi negocio.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">AM</div>
-          <div class="author-info">
-            <strong>Aecio de la Mora</strong>
-            <span>CEO · Expansión internacional</span>
-          </div>
+
+      <!-- Controles del carousel -->
+      <div class="carousel-controls">
+        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" data-idx="0"></button>
+          <button class="carousel-dot" data-idx="1"></button>
+          <button class="carousel-dot" data-idx="2"></button>
         </div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-3">
-        <div class="testimonial-result">Reestructuración en plazo</div>
-        <span class="quote-mark">"</span>
-        <p>Entendieron perfectamente la problemática financiera de la compañía y se adentraron hasta el fondo, incluso en fin de semana, para ayudarnos en el plazo que requería.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">EH</div>
-          <div class="author-info">
-            <strong>Enrique Huertas</strong>
-            <span>CEO · Reestructuración financiera</span>
-          </div>
-        </div>
+        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Siguiente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
     </div>
+
   </div>
 </section>
 

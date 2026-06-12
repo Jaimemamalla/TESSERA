@@ -192,3 +192,49 @@ if (sectionVideos.length) {
   }, { threshold: 0.1 });
   sectionVideos.forEach(v => videoObs.observe(v));
 }
+
+/* ── Contadores del hero (proof-count) ── */
+document.querySelectorAll('.proof-count').forEach((el, idx) => {
+  const target = +el.dataset.target;
+  const delay  = 1100 + idx * 300; /* escalonado: 1.1s, 1.4s, 1.7s */
+  setTimeout(() => countUp(el, target, 900), delay);
+});
+
+/* ══════════════════════════════════════════════════
+   CAROUSEL DE TESTIMONIOS
+   ══════════════════════════════════════════════════ */
+const carousel    = document.getElementById('testimonialsCarousel');
+const prevBtn     = document.getElementById('carouselPrev');
+const nextBtn     = document.getElementById('carouselNext');
+const dots        = document.querySelectorAll('.carousel-dot');
+let   currentIdx  = 0;
+const total       = dots.length;
+
+function goTo(idx) {
+  currentIdx = (idx + total) % total;
+  /* Mueve el flex container con translate */
+  carousel.style.transition = 'transform .45s cubic-bezier(0.16,1,0.3,1)';
+  carousel.style.transform  = `translateX(calc(-${currentIdx * 100}% - ${currentIdx * 2}rem))`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
+}
+
+if (carousel && prevBtn && nextBtn) {
+  prevBtn.addEventListener('click', () => goTo(currentIdx - 1));
+  nextBtn.addEventListener('click', () => goTo(currentIdx + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+
+  /* Auto-play cada 5 segundos */
+  let autoPlay = setInterval(() => goTo(currentIdx + 1), 5000);
+  carousel.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlay));
+  carousel.parentElement.addEventListener('mouseleave', () => {
+    autoPlay = setInterval(() => goTo(currentIdx + 1), 5000);
+  });
+
+  /* Swipe táctil */
+  let startX = 0;
+  carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener('touchend',   e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(currentIdx + (diff > 0 ? 1 : -1));
+  });
+}
