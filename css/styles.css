@@ -116,6 +116,10 @@ nav.nav-light .hamburger span { background: var(--navy); }
   color: var(--beige); letter-spacing: -.01em;
   line-height: 1; margin-bottom: .25rem;
 }
+/* Solo el 500M más grande */
+.hero-proof-item:nth-child(1) .hero-proof-num {
+  font-size: 3rem;
+}
 .hero-proof-label { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(240,232,222,.45); font-weight: 500; }
 .hero-proof-sep { width: 1px; height: 0; background: rgba(240,232,222,.15); opacity: 0; align-self: flex-end; animation: growLine .4s 1.4s forwards; }
 @keyframes growLine { to { height: 24px; opacity: 1; } }
