@@ -393,11 +393,17 @@ section { position: relative; overflow: hidden; }
 
 .carousel-wrap { margin-top: 4rem; position: relative; }
 
+/* El contenedor exterior recorta el track */
 .carousel {
-  display: flex; gap: 2rem;
-  overflow: hidden;           /* oculta las tarjetas fuera de pantalla */
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  position: relative;
+}
+
+/* El track se mueve horizontalmente con transform */
+.carousel-track {
+  display: flex;
+  transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .testimonial-card {
@@ -405,9 +411,10 @@ section { position: relative; overflow: hidden; }
   border: 1px solid var(--dust); position: relative; overflow: hidden;
   cursor: default; display: flex; flex-direction: column;
   transition: background .3s var(--ease), transform .3s var(--ease), box-shadow .3s, border-color .3s;
-  /* Cada tarjeta ocupa el 100% del ancho visible */
-  flex: 0 0 100%; scroll-snap-align: start;
-  /* Las tarjetas se animan con transform — JS controla esto */
+  /* Cada tarjeta ocupa exactamente el 100% del viewport del carousel */
+  flex: 0 0 100%;
+  width: 100%;
+  min-height: 280px;
 }
 .testimonial-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--teal); transition: width .4s var(--ease); }
 .testimonial-card:hover::before { width: 100%; }

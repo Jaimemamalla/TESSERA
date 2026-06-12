@@ -203,37 +203,54 @@ document.querySelectorAll('.proof-count').forEach((el, idx) => {
 /* ══════════════════════════════════════════════════
    CAROUSEL DE TESTIMONIOS
    ══════════════════════════════════════════════════ */
-const carousel    = document.getElementById('testimonialsCarousel');
-const prevBtn     = document.getElementById('carouselPrev');
-const nextBtn     = document.getElementById('carouselNext');
-const dots        = document.querySelectorAll('.carousel-dot');
-let   currentIdx  = 0;
-const total       = dots.length;
+const carouselTrack = document.getElementById('carouselTrack');
+const prevBtn       = document.getElementById('carouselPrev');
+const nextBtn       = document.getElementById('carouselNext');
+const carouselDots  = document.querySelectorAll('.carousel-dot');
+
+let currentIdx = 0;
+const cards    = carouselTrack ? carouselTrack.querySelectorAll('.testimonial-card') : [];
+const total    = cards.length;
 
 function goTo(idx) {
-  currentIdx = (idx + total) % total;
-  /* Mueve el flex container con translate */
-  carousel.style.transition = 'transform .45s cubic-bezier(0.16,1,0.3,1)';
-  carousel.style.transform  = `translateX(calc(-${currentIdx * 100}% - ${currentIdx * 2}rem))`;
-  dots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
+  if (!carouselTrack || total === 0) return;
+  currentIdx = ((idx % total) + total) % total;
+
+  /* Ancho exacto de una tarjeta = ancho del contenedor overflow:hidden */
+  const cardWidth = carouselTrack.parentElement.offsetWidth;
+  carouselTrack.style.transform = `translateX(-${currentIdx * cardWidth}px)`;
+
+  /* Actualizar puntos */
+  carouselDots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
 }
 
-if (carousel && prevBtn && nextBtn) {
+if (carouselTrack && prevBtn && nextBtn) {
+  /* Botones */
   prevBtn.addEventListener('click', () => goTo(currentIdx - 1));
   nextBtn.addEventListener('click', () => goTo(currentIdx + 1));
-  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+
+  /* Puntos */
+  carouselDots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
 
   /* Auto-play cada 5 segundos */
   let autoPlay = setInterval(() => goTo(currentIdx + 1), 5000);
-  carousel.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlay));
-  carousel.parentElement.addEventListener('mouseleave', () => {
+
+  const wrap = carouselTrack.closest('.carousel-wrap');
+  wrap.addEventListener('mouseenter', () => clearInterval(autoPlay));
+  wrap.addEventListener('mouseleave', () => {
+    clearInterval(autoPlay);
     autoPlay = setInterval(() => goTo(currentIdx + 1), 5000);
   });
 
+  /* Recalcular al redimensionar ventana */
+  window.addEventListener('resize', () => goTo(currentIdx), { passive: true });
+
   /* Swipe táctil */
   let startX = 0;
-  carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  carousel.addEventListener('touchend',   e => {
+  carouselTrack.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+  carouselTrack.addEventListener('touchend', e => {
     const diff = startX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) goTo(currentIdx + (diff > 0 ? 1 : -1));
   });
