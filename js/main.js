@@ -210,3 +210,43 @@ if (carouselTrack && prevBtn && nextBtn) {
     if (Math.abs(diff) > 50) goTo(currentIdx + (diff > 0 ? 1 : -1));
   });
 }
+
+/* ══ MODAL DE CONTACTO ══ */
+const contactModal = document.getElementById('contactModal');
+
+function openModal() {
+  contactModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  contactModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(e) {
+  if (e.target === contactModal) closeModal();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+function submitModal(e) {
+  e.preventDefault();
+  const form    = document.getElementById('contactForm');
+  const nombre  = form.nombre.value.trim();
+  const empresa = form.empresa.value.trim();
+  const email   = form.email.value.trim();
+  const telefono= form.telefono.value.trim();
+
+  const hsUrl = 'https://share.hsforms.com/1d6NoOkGySleNnmgRx9twyQsi5os'
+    + '?firstname=' + encodeURIComponent(nombre)
+    + '&company='   + encodeURIComponent(empresa)
+    + '&email='     + encodeURIComponent(email)
+    + '&phone='     + encodeURIComponent(telefono);
+
+  window.open(hsUrl, '_blank');
+  closeModal();
+  form.reset();
+}

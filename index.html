@@ -55,10 +55,10 @@
     La profundidad de una gran firma. La cercanía de un equipo que se sienta en tu mesa.
   </p>
   <div class="hero-actions">
-    <a href="#contacto" class="btn-primary">
+    <button onclick="openModal()" class="btn-primary">
       Hablemos de tu operación
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
+    </button>
     <a href="#servicios" class="btn-ghost">Ver servicios</a>
   </div>
 
@@ -149,10 +149,10 @@
     </div>
 
     <div class="services-grid">
-      <div class="service-card reveal reveal-delay-1">
+      <div class="service-card service-card--ma reveal reveal-delay-1">
         <span class="service-num">01</span>
-        <h3>Financiación</h3>
-        <p>Negociamos el volumen y las condiciones. Fondos de capital riesgo, private equity y corporate venture, europeos e internacionales. Buscamos el socio más adecuado para tu compañía.</p>
+        <h3>M&amp;A · Venta de Empresas</h3>
+        <p>Compraventa, valoración, due diligence y negociación hasta el cierre. Preparación y proceso para maximizar el valor de salida de tu compañía.</p>
       </div>
       <div class="service-card reveal reveal-delay-2">
         <span class="service-num">02</span>
@@ -161,21 +161,16 @@
       </div>
       <div class="service-card reveal reveal-delay-3">
         <span class="service-num">03</span>
-        <h3>Venta de Empresas</h3>
-        <p>Preparación, proceso y cierre para maximizar el valor de salida de tu compañía.</p>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <span class="service-num">04</span>
         <h3>Reestructuración</h3>
         <p>Renegociación de deuda, planes de viabilidad y decisiones para reflotar el negocio.</p>
       </div>
-      <div class="service-card reveal reveal-delay-2">
-        <span class="service-num">05</span>
+      <div class="service-card reveal reveal-delay-1">
+        <span class="service-num">04</span>
         <h3>Business Plan &amp; Financiación</h3>
         <p>Planes que convencen a un comité y levantamiento de deuda, equity y subvenciones.</p>
       </div>
-      <div class="service-card reveal reveal-delay-3">
-        <span class="service-num">06</span>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="service-num">05</span>
         <h3>Consultoría estratégica</h3>
         <p>EBITDA, control de gestión y datos convertidos en decisiones que generan valor.</p>
       </div>
@@ -422,10 +417,10 @@
       <h2 class="contact-title">¿Tu operación merece<br><em>una conversación seria?</em></h2>
       <p class="contact-sub">Cuéntanos el reto. En 24 horas tienes respuesta y en 72 una propuesta sobre la mesa.</p>
       <div class="contact-actions">
-        <a href="https://share.hsforms.com/1d6NoOkGySleNnmgRx9twyQsi5os" class="btn-primary" target="_blank">
+        <button onclick="openModal()" class="btn-primary">
           Contactar ahora
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        </button>
         <a href="mailto:info@tesseraservices.com" class="contact-email">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
           info@tesseraservices.com
@@ -460,9 +455,10 @@
     <div class="footer-col">
       <h5>Servicios</h5>
       <ul>
-        <li><a href="#servicios">M&amp;A</a></li>
+        <li><a href="#servicios">M&amp;A · Venta de Empresas</a></li>
         <li><a href="#servicios">CFO Part-Time</a></li>
         <li><a href="#servicios">Reestructuración</a></li>
+        <li><a href="#servicios">Business Plan &amp; Financiación</a></li>
         <li><a href="#metodologia">Selección 72h</a></li>
       </ul>
     </div>
@@ -493,6 +489,45 @@
     </div>
   </div>
 </footer>
+
+<!-- ══ MODAL DE CONTACTO ══ -->
+<div class="modal-overlay" id="contactModal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-header">
+      <p class="modal-eyebrow">Hablemos</p>
+      <h3 class="modal-title">¿Tu operación merece<br><em>una conversación seria?</em></h3>
+      <p class="modal-sub">Cuéntanos el reto. En 24h tienes respuesta.</p>
+    </div>
+    <form class="modal-form" id="contactForm" onsubmit="submitModal(event)">
+      <div class="modal-field">
+        <label for="mNombre">Nombre *</label>
+        <input type="text" id="mNombre" name="nombre" placeholder="Tu nombre" required />
+      </div>
+      <div class="modal-field">
+        <label for="mEmpresa">Empresa *</label>
+        <input type="text" id="mEmpresa" name="empresa" placeholder="Nombre de tu empresa" required />
+      </div>
+      <div class="modal-row">
+        <div class="modal-field">
+          <label for="mEmail">Email *</label>
+          <input type="email" id="mEmail" name="email" placeholder="correo@empresa.com" required />
+        </div>
+        <div class="modal-field">
+          <label for="mTelefono">Teléfono</label>
+          <input type="tel" id="mTelefono" name="telefono" placeholder="+34 600 000 000" />
+        </div>
+      </div>
+      <button type="submit" class="modal-submit">
+        Enviar mensaje
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="modal-legal">Al enviar aceptas nuestra <a href="https://tesseraservices.com/politica-de-privacidad/" target="_blank">política de privacidad</a>.</p>
+    </form>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>
