@@ -4,8 +4,7 @@
 
 @font-face {
   font-family: 'Ailerons';
-  src: url('fonts/Ailerons-Typeface.otf') format('otf'),
-       url('fonts/Ailerons-Typeface.otf') format('otf');
+  src: url('fonts/Ailerons-Typeface.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -340,7 +339,7 @@ nav.nav-light .hamburger span {
 
 .hero-proof-num {
   display: block;
-  font-size: 1.35rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--beige);
   letter-spacing: -.01em;
@@ -722,7 +721,7 @@ section {
 }
 
 .service-card:hover {
-  background: var(--navy);
+  background: #c0392b;
 }
 
 .service-card:hover::before {
@@ -755,17 +754,11 @@ section {
   transition: color .3s;
 }
 
-.service-card:hover .service-num { color: #e74c3c; }
+.service-card:hover .service-num { color: var(--yellow); }
 .service-card:hover h3            { color: var(--beige); }
 .service-card:hover p             { color: rgba(240,232,222,.7); }
 
-/* M&A — solo el borde izquierdo rojo en reposo, el resto igual */
-.service-card--ma {
-  border-left: 3px solid #c0392b;
-}
-.service-card--ma .service-num {
-  color: #c0392b;
-}
+
 
 .service-ebitda {
   grid-column: 1/-1;
