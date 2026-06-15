@@ -340,7 +340,7 @@ nav.nav-light .hamburger span {
 
 .hero-proof-num {
   display: block;
-  font-size: 1.35rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--beige);
   letter-spacing: -.01em;
@@ -722,7 +722,7 @@ section {
 }
 
 .service-card:hover {
-  background: #c0392b;
+  background: #9b2b1e;
 }
 
 .service-card:hover::before {
@@ -755,7 +755,7 @@ section {
   transition: color .3s;
 }
 
-.service-card:hover .service-num { color: var(--navy); }
+.service-card:hover .service-num { color: var(--yellow); }
 .service-card:hover h3            { color: var(--beige); }
 .service-card:hover p             { color: rgba(240,232,222,.7); }
 
