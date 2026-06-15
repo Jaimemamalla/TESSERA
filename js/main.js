@@ -235,18 +235,29 @@ document.addEventListener('keydown', e => {
 function submitModal(e) {
   e.preventDefault();
   const form    = document.getElementById('contactForm');
-  const nombre  = form.nombre.value.trim();
-  const empresa = form.empresa.value.trim();
-  const email   = form.email.value.trim();
-  const telefono= form.telefono.value.trim();
+  const data    = new FormData(form);
 
-  const hsUrl = 'https://share.hsforms.com/1d6NoOkGySleNnmgRx9twyQsi5os'
-    + '?firstname=' + encodeURIComponent(nombre)
-    + '&company='   + encodeURIComponent(empresa)
-    + '&email='     + encodeURIComponent(email)
-    + '&phone='     + encodeURIComponent(telefono);
+  const btn = form.querySelector('.modal-submit');
+  btn.textContent = 'Enviando…';
+  btn.disabled = true;
 
-  window.open(hsUrl, '_blank');
-  closeModal();
-  form.reset();
+  fetch('https://formspree.io/f/xpqebwbb', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(res => {
+    if (res.ok) {
+      btn.textContent = '✓ Mensaje enviado';
+      form.reset();
+      setTimeout(() => closeModal(), 1800);
+    } else {
+      btn.textContent = 'Error — inténtalo de nuevo';
+      btn.disabled = false;
+    }
+  })
+  .catch(() => {
+    btn.textContent = 'Error — inténtalo de nuevo';
+    btn.disabled = false;
+  });
 }

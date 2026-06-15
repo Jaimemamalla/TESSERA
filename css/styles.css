@@ -352,6 +352,13 @@ nav.nav-light .hamburger span {
   font-size: 3rem;
 }
 
+/* El span del contador inline tiene que estar en baseline */
+.proof-count {
+  vertical-align: baseline;
+  display: inline;
+  line-height: inherit;
+}
+
 .hero-proof-label {
   font-size: .58rem;
   letter-spacing: .18em;
@@ -687,23 +694,7 @@ section {
   grid-column: auto;
 }
 
-/* M&A — acento rojo como punto de venta diferencial */
-.service-card--ma {
-  border-left: 3px solid #c0392b;
-}
-.service-card--ma .service-num {
-  color: #c0392b;
-}
-.service-card--ma:hover {
-  background: #1a0a09;
-}
-.service-card--ma:hover::before {
-  background: #c0392b;
-}
-.service-card--ma:hover .service-num {
-  color: #e74c3c;
-}
-
+/* Todas las tarjetas de servicios — hover rojo uniforme */
 .service-card {
   padding: 2.8rem 2.5rem;
   border-right: 1px solid var(--dust);
@@ -718,6 +709,7 @@ section {
   border-right: none;
 }
 
+/* Línea roja inferior — aparece en hover */
 .service-card::before {
   content: '';
   position: absolute;
@@ -725,12 +717,12 @@ section {
   left: 0;
   width: 0;
   height: 3px;
-  background: var(--teal);
+  background: #c0392b;
   transition: width .4s var(--ease);
 }
 
 .service-card:hover {
-  background: var(--navy);
+  background: #c0392b;
 }
 
 .service-card:hover::before {
@@ -763,9 +755,10 @@ section {
   transition: color .3s;
 }
 
-.service-card:hover .service-num { color: var(--teal-lt); }
+.service-card:hover .service-num { color: var(--navy); }
 .service-card:hover h3            { color: var(--beige); }
 .service-card:hover p             { color: rgba(240,232,222,.7); }
+
 
 .service-ebitda {
   grid-column: 1/-1;
@@ -1828,6 +1821,12 @@ section > .section-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+}
+
+@media(max-width: 520px) {
+  .modal-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .modal-field {
