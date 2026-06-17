@@ -18,26 +18,29 @@
 <div id="scroll-bar"></div>
 
 <nav class="mobile-nav" id="mobileNav">
-  <a href="#about"       onclick="closeMobile()">Nosotros</a>
-  <a href="#servicios"   onclick="closeMobile()">Finanzas</a>
+  <a href="#about"       onclick="closeMobile()" data-i18n="nav.about">Nosotros</a>
+  <a href="#servicios"   onclick="closeMobile()" data-i18n="nav.finance">Finanzas</a>
   <a href="#metodologia" onclick="closeMobile()">Human Capital</a>
-  <a href="#casos"       onclick="closeMobile()">Casos</a>
+  <a href="#casos"       onclick="closeMobile()" data-i18n="nav.cases">Casos</a>
   <a href="https://jobs.tesseraservices.com/" target="_blank">Careers</a>
-  <a href="#contacto"    onclick="closeMobile()" class="mobile-cta">Hablemos</a>
+  <a href="#contacto"    onclick="closeMobile()" class="mobile-cta" data-i18n="nav.cta">Hablemos</a>
 </nav>
 
 <nav id="mainNav">
   <a href="#top" class="nav-logo" aria-label="Tessera">TESSERA</a>
-  <ul class="nav-links">
-    <li><a href="#servicios">Finanzas</a></li>
-    <li><a href="#metodologia">Human Capital</a></li>
-    <li><a href="#casos">Casos</a></li>
-    <li><a href="https://jobs.tesseraservices.com/" target="_blank">Careers</a></li>
-    <li><a href="#contacto" class="nav-cta">Hablemos</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMobile()">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#servicios" data-i18n="nav.finance">Finanzas</a></li>
+      <li><a href="#metodologia">Human Capital</a></li>
+      <li><a href="#casos" data-i18n="nav.cases">Casos</a></li>
+      <li><a href="https://jobs.tesseraservices.com/" target="_blank">Careers</a></li>
+      <li><a href="#contacto" class="nav-cta" data-i18n="nav.cta">Hablemos</a></li>
+    </ul>
+    <button class="lang-switch" id="langSwitch" type="button" onclick="toggleLanguage()" aria-label="Cambiar idioma a inglés">ENG</button>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" data-i18n-aria="nav.menuOpen" aria-expanded="false" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <section id="top" class="hero">
@@ -47,37 +50,37 @@
   <div class="hero-overlay"></div>
   <div class="hero-grain"></div>
 
-  <p class="hero-eyebrow">Finanzas · Capital Humano · Estrategia</p>
-  <h1 class="hero-title">
+  <p class="hero-eyebrow" data-i18n="hero.eyebrow">Finanzas · Capital Humano · Estrategia</p>
+  <h1 class="hero-title" data-i18n="hero.title">
     Las decisiones que<br>
     <strong>definen tu empresa.</strong>
   </h1>
-  <p class="hero-sub">
+  <p class="hero-sub" data-i18n="hero.sub">
     La profundidad de una gran firma. La cercanía de un equipo que se sienta en tu mesa.
   </p>
   <div class="hero-actions">
     <button onclick="openModal()" class="btn-primary">
-      Hablemos de tu operación
+      <span data-i18n="hero.ctaPrimary">Hablemos de tu operación</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </button>
-    <a href="#servicios" class="btn-ghost">Ver servicios</a>
+    <a href="#servicios" class="btn-ghost" data-i18n="hero.ctaGhost">Ver servicios</a>
   </div>
 
   <!-- Cifras abajo a la derecha con contador animado -->
   <div class="hero-social-proof">
     <div class="hero-proof-item">
       <span class="hero-proof-num">+€<span class="proof-count" data-target="500">0</span>M</span>
-      <span class="hero-proof-label">asesorados</span>
+      <span class="hero-proof-label" data-i18n="hero.proof.advised">asesorados</span>
     </div>
     <div class="hero-proof-sep"></div>
     <div class="hero-proof-item">
       <span class="hero-proof-num">+<span class="proof-count" data-target="40">0</span></span>
-      <span class="hero-proof-label">operaciones</span>
+      <span class="hero-proof-label" data-i18n="hero.proof.deals">operaciones</span>
     </div>
     <div class="hero-proof-sep"></div>
     <div class="hero-proof-item">
-      <span class="hero-proof-num">+<span class="proof-count" data-target="15">0</span> años</span>
-      <span class="hero-proof-label">de experiencia</span>
+      <span class="hero-proof-num">+<span class="proof-count" data-target="15">0</span><span data-i18n="hero.proof.years"> años</span></span>
+      <span class="hero-proof-label" data-i18n="hero.proof.experience">de experiencia</span>
     </div>
   </div>
 
@@ -95,20 +98,20 @@
   <div class="section-inner">
 
     <div class="about-intro reveal">
-      <p class="section-label">Quiénes somos</p>
-      <h2 class="section-title">Especialistas en finanzas y <strong>capital humano.</strong></h2>
-      <p class="about-lead">Acompañamos a PYMES y startups en las decisiones que marcan su rumbo. Nos integramos dentro de tu compañía — en finanzas y en capital humano — para profesionalizar, ordenar y llevar el negocio al siguiente nivel.</p>
+      <p class="section-label" data-i18n="about.label">Quiénes somos</p>
+      <h2 class="section-title" data-i18n="about.title">Especialistas en finanzas y <strong>capital humano.</strong></h2>
+      <p class="about-lead" data-i18n="about.lead">Acompañamos a PYMES y startups en las decisiones que marcan su rumbo. Nos integramos dentro de tu compañía — en finanzas y en capital humano — para profesionalizar, ordenar y llevar el negocio al siguiente nivel.</p>
     </div>
 
     <div class="about-stats reveal reveal-delay-1">
       <div class="about-stat">
         <div class="about-stat-num">Senior</div>
-        <p>Equipo directivo con experiencia en banca de inversión, consultoría y operaciones reales</p>
+        <p data-i18n="about.stat1">Equipo directivo con experiencia en banca de inversión, consultoría y operaciones reales</p>
       </div>
       <div class="about-stat-divider"></div>
       <div class="about-stat">
-        <div class="about-stat-num">3 áreas</div>
-        <p>Finanzas corporativas y capital humano bajo el mismo techo, sin silos</p>
+        <div class="about-stat-num" data-i18n="about.stat2num">3 áreas</div>
+        <p data-i18n="about.stat2desc">Finanzas corporativas y capital humano bajo el mismo techo, sin silos</p>
       </div>
     </div>
 
@@ -116,22 +119,22 @@
       <div class="pillar">
         <span class="pillar-num">01</span>
         <div class="pillar-content">
-          <h4>Finanzas</h4>
-          <p>M&amp;A, dirección financiera part-time, reestructuración y financiación.</p>
+          <h4 data-i18n="nav.finance">Finanzas</h4>
+          <p data-i18n="pillar.finance.desc">M&amp;A, dirección financiera part-time, reestructuración y financiación.</p>
         </div>
       </div>
       <div class="pillar">
         <span class="pillar-num">02</span>
         <div class="pillar-content">
           <h4>Capital Humano</h4>
-          <p>Head hunting y selección de perfiles directivos y estratégicos.</p>
+          <p data-i18n="pillar.hc.desc">Head hunting y selección de perfiles directivos y estratégicos.</p>
         </div>
       </div>
       <div class="pillar">
         <span class="pillar-num">03</span>
         <div class="pillar-content">
-          <h4>Estrategia</h4>
-          <p>Consultoría, control de gestión y crecimiento con criterio y datos.</p>
+          <h4 data-i18n="common.strategy">Estrategia</h4>
+          <p data-i18n="pillar.strategy.desc">Consultoría, control de gestión y crecimiento con criterio y datos.</p>
         </div>
       </div>
     </div>
@@ -144,39 +147,39 @@
 <section id="servicios">
   <div class="section-inner">
     <div class="services-header reveal">
-      <p class="section-label">Servicios · Finanzas</p>
-      <h2 class="section-title">Capacidades financieras de <strong>principio a fin.</strong></h2>
-      <p>No vendemos informes. Nos sentamos en tu mesa, entendemos tu negocio por dentro y tomamos las decisiones difíciles contigo.</p>
+      <p class="section-label" data-i18n="services.label">Servicios · Finanzas</p>
+      <h2 class="section-title" data-i18n="services.title">Capacidades financieras de <strong>principio a fin.</strong></h2>
+      <p data-i18n="services.lead">No vendemos informes. Nos sentamos en tu mesa, entendemos tu negocio por dentro y tomamos las decisiones difíciles contigo.</p>
     </div>
 
     <div class="services-grid">
       <div class="service-card service-card--ma reveal reveal-delay-1">
         <span class="service-num">01</span>
-        <h3>M&amp;A · Venta de Empresas</h3>
-        <p>Compraventa, valoración, due diligence y negociación hasta el cierre. Preparación y proceso para maximizar el valor de salida de tu compañía.</p>
+        <h3 data-i18n="svc.ma.title">M&amp;A · Venta de Empresas</h3>
+        <p data-i18n="svc.ma.desc">Compraventa, valoración, due diligence y negociación hasta el cierre. Preparación y proceso para maximizar el valor de salida de tu compañía.</p>
       </div>
       <div class="service-card reveal reveal-delay-2">
         <span class="service-num">02</span>
         <h3>CFO Part-Time</h3>
-        <p>Dirección financiera senior integrada en tu equipo: reporting, tesorería y control de gestión.</p>
+        <p data-i18n="svc.cfo.desc">Dirección financiera senior integrada en tu equipo: reporting, tesorería y control de gestión.</p>
       </div>
       <div class="service-card reveal reveal-delay-3">
         <span class="service-num">03</span>
-        <h3>Reestructuración</h3>
-        <p>Renegociación de deuda, planes de viabilidad y decisiones para reflotar el negocio.</p>
+        <h3 data-i18n="svc.restructuring.title">Reestructuración</h3>
+        <p data-i18n="svc.restructuring.desc">Renegociación de deuda, planes de viabilidad y decisiones para reflotar el negocio.</p>
       </div>
       <div class="service-card reveal reveal-delay-1">
         <span class="service-num">04</span>
-        <h3>Business Plan &amp; Financiación</h3>
-        <p>Planes que convencen a un comité y levantamiento de deuda, equity y subvenciones.</p>
+        <h3 data-i18n="svc.bp.title">Business Plan &amp; Financiación</h3>
+        <p data-i18n="svc.bp.desc">Planes que convencen a un comité y levantamiento de deuda, equity y subvenciones.</p>
       </div>
       <div class="service-card reveal reveal-delay-2">
         <span class="service-num">05</span>
-        <h3>Consultoría estratégica</h3>
-        <p>EBITDA, control de gestión y datos convertidos en decisiones que generan valor.</p>
+        <h3 data-i18n="svc.consulting.title">Consultoría estratégica</h3>
+        <p data-i18n="svc.consulting.desc">EBITDA, control de gestión y datos convertidos en decisiones que generan valor.</p>
       </div>
       <div class="service-ebitda reveal">
-        <p>Y sí, lo decimos en voz alta: <strong>We love EBITDA.</strong></p>
+        <p data-i18n="services.ebitda">Y sí, lo decimos en voz alta: <strong>We love EBITDA.</strong></p>
       </div>
     </div>
   </div>
@@ -191,9 +194,9 @@
 
     <!-- Cabecera -->
     <div class="methodology-header reveal">
-      <p class="section-label">Human Capital · Selección</p>
-      <h2 class="section-title meth-title">Encontramos el talento que <em>tu empresa necesita.</em></h2>
-      <p class="meth-sub">Identificamos, atraemos y seleccionamos perfiles directivos y estratégicos para PYMES y startups. No usamos bases de datos genéricas, hacemos búsqueda activa, directa y confidencial. Y nos comprometemos con plazos reales.</p>
+      <p class="section-label" data-i18n="meth.label">Human Capital · Selección</p>
+      <h2 class="section-title meth-title" data-i18n="meth.title">Encontramos el talento que <em>tu empresa necesita.</em></h2>
+      <p class="meth-sub" data-i18n="meth.sub">Identificamos, atraemos y seleccionamos perfiles directivos y estratégicos para PYMES y startups. No usamos bases de datos genéricas, hacemos búsqueda activa, directa y confidencial. Y nos comprometemos con plazos reales.</p>
     </div>
 
     <!-- Bloque explicativo de qué hace Human Capital -->
@@ -203,8 +206,8 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         </span>
         <div>
-          <h4>Head hunting directivo</h4>
-          <p>Selección de C-level, directores de área y mandos intermedios clave. Perfiles que marcan la diferencia.</p>
+          <h4 data-i18n="hc.item1.title">Head hunting directivo</h4>
+          <p data-i18n="hc.item1.desc">Selección de C-level, directores de área y mandos intermedios clave. Perfiles que marcan la diferencia.</p>
         </div>
       </div>
       <div class="hc-intro-item">
@@ -213,7 +216,7 @@
         </span>
         <div>
           <h4>Outsourcing</h4>
-          <p>Gestión externa del talento para que tu equipo se centre en lo que importa. Flexible, eficiente y sin fricciones.</p>
+          <p data-i18n="hc.item2.desc">Gestión externa del talento para que tu equipo se centre en lo que importa. Flexible, eficiente y sin fricciones.</p>
         </div>
       </div>
       <div class="hc-intro-item">
@@ -221,8 +224,8 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </span>
         <div>
-          <h4>Shortlist validado</h4>
-          <p>Solo llegan candidatos que encajan de verdad. Cada perfil viene con informe individual y disponibilidad confirmada.</p>
+          <h4 data-i18n="hc.item3.title">Shortlist validado</h4>
+          <p data-i18n="hc.item3.desc">Solo llegan candidatos que encajan de verdad. Cada perfil viene con informe individual y disponibilidad confirmada.</p>
         </div>
       </div>
       <div class="hc-intro-item">
@@ -230,13 +233,13 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </span>
         <div>
-          <h4>Plazos comprometidos</h4>
-          <p>Primer shortlist en 72 horas. Informe de mercado en 7 días. Sin excusas, sin dilaciones.</p>
+          <h4 data-i18n="hc.item4.title">Plazos comprometidos</h4>
+          <p data-i18n="hc.item4.desc">Primer shortlist en 72 horas. Informe de mercado en 7 días. Sin excusas, sin dilaciones.</p>
         </div>
       </div>
     </div>
 
-    <h3 class="meth-numbers-title reveal">Dos números. <strong>Un compromiso.</strong></h3>
+    <h3 class="meth-numbers-title reveal" data-i18n="meth.numbersTitle">Dos números. <strong>Un compromiso.</strong></h3>
 
     <!-- Fila 1: cifras grandes como protagonistas -->
     <div class="meto-numbers reveal">
@@ -245,8 +248,8 @@
           <span class="count-anim" data-target="72">0</span><span class="meto-unit">h</span>
         </div>
         <div class="meto-num-body">
-          <p class="meto-num-label">Primer shortlist</p>
-          <p class="meto-num-desc">Candidatos reales encima de tu mesa. Validados, disponibles y alineados con el rol.</p>
+          <p class="meto-num-label" data-i18n="meto.num1.label">Primer shortlist</p>
+          <p class="meto-num-desc" data-i18n="meto.num1.desc">Candidatos reales encima de tu mesa. Validados, disponibles y alineados con el rol.</p>
         </div>
       </div>
       <div class="meto-num-sep"></div>
@@ -255,8 +258,8 @@
           <span class="count-anim" data-target="7">0</span><span class="meto-unit">d</span>
         </div>
         <div class="meto-num-body">
-          <p class="meto-num-label">Informe de mercado</p>
-          <p class="meto-num-desc">Benchmarking salarial, mapa de talento, competidores y realidades que nadie te cuenta.</p>
+          <p class="meto-num-label" data-i18n="meto.num2.label">Informe de mercado</p>
+          <p class="meto-num-desc" data-i18n="meto.num2.desc">Benchmarking salarial, mapa de talento, competidores y realidades que nadie te cuenta.</p>
         </div>
       </div>
     </div>
@@ -267,33 +270,33 @@
       <div class="tessa-card">
         <div class="tessa-card-top">
           <span class="tessa-logo">Tessa®</span>
-          <span class="tessa-tag">IA propia de selección</span>
+          <span class="tessa-tag" data-i18n="tessa.tag">IA propia de selección</span>
         </div>
-        <p>Nuestra inteligencia artificial rastrea, identifica y prioriza al mejor talento del mercado en cada búsqueda. Tu shortlist no depende del azar, <strong>depende de datos</strong>.</p>
+        <p data-i18n="tessa.desc">Nuestra inteligencia artificial rastrea, identifica y prioriza al mejor talento del mercado en cada búsqueda. Tu shortlist no depende del azar, <strong>depende de datos</strong>.</p>
         <div class="tessa-glow"></div>
       </div>
 
       <div class="progress-section">
-        <h3 class="progress-title">Lo que incluye cada proceso</h3>
+        <h3 class="progress-title" data-i18n="progress.title">Lo que incluye cada proceso</h3>
         <div class="progress-list">
           <div class="progress-item">
-            <div class="progress-header"><span class="progress-label">Identificación de talento</span><span class="progress-value">98%</span></div>
+            <div class="progress-header"><span class="progress-label" data-i18n="progress.item1">Identificación de talento</span><span class="progress-value">98%</span></div>
             <div class="progress-track"><div class="progress-fill" data-width="98"></div></div>
           </div>
           <div class="progress-item">
-            <div class="progress-header"><span class="progress-label">Benchmarking salarial</span><span class="progress-value">95%</span></div>
+            <div class="progress-header"><span class="progress-label" data-i18n="progress.item2">Benchmarking salarial</span><span class="progress-value">95%</span></div>
             <div class="progress-track"><div class="progress-fill" data-width="95"></div></div>
           </div>
           <div class="progress-item">
-            <div class="progress-header"><span class="progress-label">Análisis de mercado</span><span class="progress-value">90%</span></div>
+            <div class="progress-header"><span class="progress-label" data-i18n="progress.item3">Análisis de mercado</span><span class="progress-value">90%</span></div>
             <div class="progress-track"><div class="progress-fill" data-width="90"></div></div>
           </div>
           <div class="progress-item">
-            <div class="progress-header"><span class="progress-label">Shortlist en 72h</span><span class="progress-value">100%</span></div>
+            <div class="progress-header"><span class="progress-label" data-i18n="progress.item4">Shortlist en 72h</span><span class="progress-value">100%</span></div>
             <div class="progress-track"><div class="progress-fill" data-width="100"></div></div>
           </div>
           <div class="progress-item">
-            <div class="progress-header"><span class="progress-label">Tasa de cierre</span><span class="progress-value">87%</span></div>
+            <div class="progress-header"><span class="progress-label" data-i18n="progress.item5">Tasa de cierre</span><span class="progress-value">87%</span></div>
             <div class="progress-track"><div class="progress-fill" data-width="87"></div></div>
           </div>
         </div>
@@ -303,33 +306,33 @@
 
     <!-- Fila 3: timeline a ancho completo -->
     <div class="reveal">
-      <h3 class="timeline-title">Lo que pasa desde que firmamos hasta tu <strong>primer shortlist.</strong></h3>
+      <h3 class="timeline-title" data-i18n="timeline.title">Lo que pasa desde que firmamos hasta tu <strong>primer shortlist.</strong></h3>
       <div class="h-timeline" id="hTimeline">
         <div class="h-cols">
           <div class="h-col">
             <div class="h-col-time">H+0</div>
             <div class="h-col-dot"><div class="h-dot" data-label="Kickoff"></div></div>
-            <div class="h-step"><div class="h-step-name">Kickoff</div><p class="h-step-desc">Briefing profundo con el hiring manager. Nada de formularios genéricos.</p></div>
+            <div class="h-step"><div class="h-step-name">Kickoff</div><p class="h-step-desc" data-i18n="timeline.step1.desc">Briefing profundo con el hiring manager. Nada de formularios genéricos.</p></div>
           </div>
           <div class="h-col">
             <div class="h-col-time">H+12</div>
-            <div class="h-col-dot"><div class="h-dot" data-label="Estrategia"></div></div>
-            <div class="h-step"><div class="h-step-name">Estrategia</div><p class="h-step-desc">Mapa de empresas objetivo, boolean strings y canales activos y pasivos.</p></div>
+            <div class="h-col-dot"><div class="h-dot" data-label="Estrategia" data-i18n-label="common.strategy"></div></div>
+            <div class="h-step"><div class="h-step-name" data-i18n="common.strategy">Estrategia</div><p class="h-step-desc" data-i18n="timeline.step2.desc">Mapa de empresas objetivo, boolean strings y canales activos y pasivos.</p></div>
           </div>
           <div class="h-col">
             <div class="h-col-time">H+24</div>
-            <div class="h-col-dot"><div class="h-dot" data-label="Outreach activo"></div></div>
-            <div class="h-step"><div class="h-step-name">Outreach activo</div><p class="h-step-desc">Contacto directo con talento pasivo. Mensajes personalizados, no plantillas.</p></div>
+            <div class="h-col-dot"><div class="h-dot" data-label="Outreach activo" data-i18n-label="common.activeOutreach"></div></div>
+            <div class="h-step"><div class="h-step-name" data-i18n="common.activeOutreach">Outreach activo</div><p class="h-step-desc" data-i18n="timeline.step3.desc">Contacto directo con talento pasivo. Mensajes personalizados, no plantillas.</p></div>
           </div>
           <div class="h-col">
             <div class="h-col-time">H+48</div>
             <div class="h-col-dot"><div class="h-dot" data-label="Screening"></div></div>
-            <div class="h-step"><div class="h-step-name">Screening</div><p class="h-step-desc">Entrevistas estructuradas. Solo avanzan candidatos que encajan de verdad.</p></div>
+            <div class="h-step"><div class="h-step-name">Screening</div><p class="h-step-desc" data-i18n="timeline.step4.desc">Entrevistas estructuradas. Solo avanzan candidatos que encajan de verdad.</p></div>
           </div>
           <div class="h-col">
             <div class="h-col-time">H+72</div>
             <div class="h-col-dot"><div class="h-dot" data-label="Shortlist"></div></div>
-            <div class="h-step"><div class="h-step-name">Shortlist</div><p class="h-step-desc">Perfiles validados, con informe individual y disponibilidad confirmada.</p></div>
+            <div class="h-step"><div class="h-step-name">Shortlist</div><p class="h-step-desc" data-i18n="timeline.step5.desc">Perfiles validados, con informe individual y disponibilidad confirmada.</p></div>
           </div>
         </div>
       </div>
@@ -341,8 +344,8 @@
 <section id="casos">
   <div class="section-inner">
     <div class="reveal">
-      <p class="section-label">Lo que dicen de nosotros</p>
-      <h2 class="section-title">Empresarios que <strong>ya tomaron la decisión.</strong></h2>
+      <p class="section-label" data-i18n="cases.label">Lo que dicen de nosotros</p>
+      <h2 class="section-title" data-i18n="cases.title">Empresarios que <strong>ya tomaron la decisión.</strong></h2>
     </div>
 
     <!-- Carousel -->
@@ -350,38 +353,38 @@
       <div class="carousel" id="testimonialsCarousel">
         <div class="carousel-track" id="carouselTrack">
           <div class="testimonial-card">
-            <div class="testimonial-result">Financiación conseguida</div>
+            <div class="testimonial-result" data-i18n="t1.result">Financiación conseguida</div>
             <span class="quote-mark">"</span>
-            <p>Para nosotros fue determinante su involucración en profundizar en el entendimiento del negocio. Mejoraron la contabilidad, optimizaron la fiscalidad y nos consiguieron la financiación que necesitábamos.</p>
+            <p data-i18n="t1.quote">Para nosotros fue determinante su involucración en profundizar en el entendimiento del negocio. Mejoraron la contabilidad, optimizaron la fiscalidad y nos consiguieron la financiación que necesitábamos.</p>
             <div class="testimonial-author">
               <div class="author-avatar">AG</div>
               <div class="author-info">
                 <strong>Antonio Gallo</strong>
-                <span>CEO · Sector tecnología</span>
+                <span data-i18n="t1.role">CEO · Sector tecnología</span>
               </div>
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-result">2 adquisiciones cerradas</div>
+            <div class="testimonial-result" data-i18n="t2.result">2 adquisiciones cerradas</div>
             <span class="quote-mark">"</span>
-            <p>Les estoy muy agradecido porque me ayudaron, con un éxito mayor del que imaginaba, a negociar y comprar dos compañías que me permitieron expandir mi negocio.</p>
+            <p data-i18n="t2.quote">Les estoy muy agradecido porque me ayudaron, con un éxito mayor del que imaginaba, a negociar y comprar dos compañías que me permitieron expandir mi negocio.</p>
             <div class="testimonial-author">
               <div class="author-avatar">AM</div>
               <div class="author-info">
                 <strong>Aecio de la Mora</strong>
-                <span>CEO · Expansión internacional</span>
+                <span data-i18n="t2.role">CEO · Expansión internacional</span>
               </div>
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-result">Reestructuración en plazo</div>
+            <div class="testimonial-result" data-i18n="t3.result">Reestructuración en plazo</div>
             <span class="quote-mark">"</span>
-            <p>Entendieron perfectamente la problemática financiera de la compañía y se adentraron hasta el fondo, incluso en fin de semana, para ayudarnos en el plazo que requería.</p>
+            <p data-i18n="t3.quote">Entendieron perfectamente la problemática financiera de la compañía y se adentraron hasta el fondo, incluso en fin de semana, para ayudarnos en el plazo que requería.</p>
             <div class="testimonial-author">
               <div class="author-avatar">EH</div>
               <div class="author-info">
                 <strong>Enrique Huertas</strong>
-                <span>CEO · Reestructuración financiera</span>
+                <span data-i18n="t3.role">CEO · Reestructuración financiera</span>
               </div>
             </div>
           </div>
@@ -390,7 +393,7 @@
 
       <!-- Controles del carousel -->
       <div class="carousel-controls">
-        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Anterior">
+        <button class="carousel-btn carousel-prev" id="carouselPrev" data-i18n-aria="carousel.prev" aria-label="Anterior">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
         <div class="carousel-dots" id="carouselDots">
@@ -398,7 +401,7 @@
           <button class="carousel-dot" data-idx="1"></button>
           <button class="carousel-dot" data-idx="2"></button>
         </div>
-        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Siguiente">
+        <button class="carousel-btn carousel-next" id="carouselNext" data-i18n-aria="carousel.next" aria-label="Siguiente">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
       </div>
@@ -414,12 +417,12 @@
   <div class="section-video-overlay section-video-overlay--dark"></div>
   <div class="section-inner">
     <div class="contact-inner reveal">
-      <p class="section-label">Hablemos</p>
-      <h2 class="contact-title">¿Tu operación merece<br><em>una conversación seria?</em></h2>
-      <p class="contact-sub">Cuéntanos el reto. En 24 horas tienes respuesta y en 72 una propuesta sobre la mesa.</p>
+      <p class="section-label" data-i18n="nav.cta">Hablemos</p>
+      <h2 class="contact-title" data-i18n="contact.title">¿Tu operación merece<br><em>una conversación seria?</em></h2>
+      <p class="contact-sub" data-i18n="contact.sub">Cuéntanos el reto. En 24 horas tienes respuesta y en 72 una propuesta sobre la mesa.</p>
       <div class="contact-actions">
         <button onclick="openModal()" class="btn-primary">
-          Contactar ahora
+          <span data-i18n="contact.ctaPrimary">Contactar ahora</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
         <a href="mailto:info@tesseraservices.com" class="contact-email">
@@ -428,9 +431,9 @@
         </a>
       </div>
       <div class="contact-guarantees">
-        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Respuesta en 24h</span>
-        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Sin compromiso</span>
-        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Confidencial</span>
+        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="contact.g1">Respuesta en 24h</span></span>
+        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="contact.g2">Sin compromiso</span></span>
+        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="contact.g3">Confidencial</span></span>
       </div>
     </div>
   </div>
@@ -440,7 +443,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="#top" class="footer-logo">TESSERA</a>
-      <p>Especialistas en finanzas y capital humano para PYMES y startups en España.</p>
+      <p data-i18n="footer.about">Especialistas en finanzas y capital humano para PYMES y startups en España.</p>
       <div class="footer-social">
         <a href="https://www.linkedin.com/company/tesseraservices" target="_blank" class="social-link" aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin"></i>
@@ -454,26 +457,26 @@
       </div>
     </div>
     <div class="footer-col">
-      <h5>Servicios</h5>
+      <h5 data-i18n="footer.servicesHeading">Servicios</h5>
       <ul>
-        <li><a href="#servicios">M&amp;A · Venta de Empresas</a></li>
+        <li><a href="#servicios" data-i18n="svc.ma.title">M&amp;A · Venta de Empresas</a></li>
         <li><a href="#servicios">CFO Part-Time</a></li>
-        <li><a href="#servicios">Reestructuración</a></li>
-        <li><a href="#servicios">Business Plan &amp; Financiación</a></li>
-        <li><a href="#metodologia">Selección 72h</a></li>
+        <li><a href="#servicios" data-i18n="svc.restructuring.title">Reestructuración</a></li>
+        <li><a href="#servicios" data-i18n="svc.bp.title">Business Plan &amp; Financiación</a></li>
+        <li><a href="#metodologia" data-i18n="footer.selection72">Selección 72h</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h5>Empresa</h5>
+      <h5 data-i18n="footer.companyHeading">Empresa</h5>
       <ul>
-        <li><a href="#about">Nosotros</a></li>
-        <li><a href="#casos">Casos</a></li>
+        <li><a href="#about" data-i18n="nav.about">Nosotros</a></li>
+        <li><a href="#casos" data-i18n="nav.cases">Casos</a></li>
         <li><a href="https://jobs.tesseraservices.com/" target="_blank">Careers</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h5>Contacto</h5>
+      <h5 data-i18n="nav.contact">Contacto</h5>
       <ul>
         <li><a href="mailto:info@tesseraservices.com">info@tesseraservices.com</a></li>
         <li><a href="https://www.linkedin.com/company/tesseraservices" target="_blank">LinkedIn</a></li>
@@ -484,8 +487,8 @@
   <div class="footer-bottom">
     <p>© 2025 Tessera · Better decisions, together.</p>
     <div class="footer-legal">
-      <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank">Aviso legal</a>
-      <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank">Privacidad</a>
+      <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank" data-i18n="footer.legalNotice">Aviso legal</a>
+      <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank" data-i18n="footer.privacy">Privacidad</a>
       <a href="https://jobs.tesseraservices.com/cookie-policy" target="_blank">Cookies</a>
     </div>
   </div>
@@ -494,38 +497,38 @@
 <!-- ══ MODAL DE CONTACTO ══ -->
 <div class="modal-overlay" id="contactModal" onclick="closeModalOutside(event)">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">
+    <button class="modal-close" onclick="closeModal()" data-i18n-aria="modal.close" aria-label="Cerrar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
     <div class="modal-header">
-      <p class="modal-eyebrow">Hablemos</p>
-      <h3 class="modal-title">¿Tu operación merece<br><em>una conversación seria?</em></h3>
-      <p class="modal-sub">Cuéntanos el reto. En 24h tienes respuesta.</p>
+      <p class="modal-eyebrow" data-i18n="nav.cta">Hablemos</p>
+      <h3 class="modal-title" data-i18n="contact.title">¿Tu operación merece<br><em>una conversación seria?</em></h3>
+      <p class="modal-sub" data-i18n="modal.sub">Cuéntanos el reto. En 24h tienes respuesta.</p>
     </div>
     <form class="modal-form" id="contactForm" onsubmit="submitModal(event)">
       <div class="modal-field">
-        <label for="mNombre">Nombre *</label>
-        <input type="text" id="mNombre" name="nombre" placeholder="Tu nombre" required />
+        <label for="mNombre" data-i18n="modal.name">Nombre *</label>
+        <input type="text" id="mNombre" name="nombre" placeholder="Tu nombre" data-i18n-placeholder="modal.namePh" required />
       </div>
       <div class="modal-field">
-        <label for="mEmpresa">Empresa *</label>
-        <input type="text" id="mEmpresa" name="empresa" placeholder="Nombre de tu empresa" required />
+        <label for="mEmpresa" data-i18n="modal.company">Empresa *</label>
+        <input type="text" id="mEmpresa" name="empresa" placeholder="Nombre de tu empresa" data-i18n-placeholder="modal.companyPh" required />
       </div>
       <div class="modal-row">
         <div class="modal-field">
           <label for="mEmail">Email *</label>
-          <input type="email" id="mEmail" name="email" placeholder="correo@empresa.com" required />
+          <input type="email" id="mEmail" name="email" placeholder="correo@empresa.com" data-i18n-placeholder="modal.emailPh" required />
         </div>
         <div class="modal-field">
-          <label for="mTelefono">Teléfono</label>
+          <label for="mTelefono" data-i18n="modal.phone">Teléfono</label>
           <input type="tel" id="mTelefono" name="telefono" placeholder="+34 600 000 000" />
         </div>
       </div>
       <button type="submit" class="modal-submit">
-        Enviar mensaje
+        <span data-i18n="modal.submit">Enviar mensaje</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
-      <p class="modal-legal">Al enviar aceptas nuestra <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank">política de privacidad</a>.</p>
+      <p class="modal-legal" data-i18n="modal.legal">Al enviar aceptas nuestra <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank">política de privacidad</a>.</p>
     </form>
   </div>
 </div>

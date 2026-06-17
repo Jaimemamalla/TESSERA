@@ -6,6 +6,7 @@ const nav       = document.getElementById('mainNav');
 const mobileNav = document.getElementById('mobileNav');
 const hamburger = document.getElementById('hamburger');
 const scrollBar = document.getElementById('scroll-bar');
+const langSwitch = document.getElementById('langSwitch');
 
 window.addEventListener('scroll', () => {
   const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
@@ -51,6 +52,445 @@ Object.keys(sectionThemes).forEach(id => {
   const el = document.getElementById(id);
   if (el) themeObs.observe(el);
 });
+
+/* ══ INTERNACIONALIZACIÓN (ES/EN) ══ */
+let currentLang = 'es';
+
+const translations = {
+  "es": {
+    "meta": {
+      "title": "TESSERA · Finanzas y Capital Humano para PYMES",
+      "description": "Especialistas en M&A, CFO part-time, reestructuración y selección directiva para PYMES y startups en España."
+    },
+    "nav": {
+      "about": "Nosotros",
+      "finance": "Finanzas",
+      "cases": "Casos",
+      "cta": "Hablemos",
+      "contact": "Contacto",
+      "menuOpen": "Abrir menú"
+    },
+    "common": {
+      "strategy": "Estrategia",
+      "activeOutreach": "Outreach activo"
+    },
+    "hero": {
+      "eyebrow": "Finanzas · Capital Humano · Estrategia",
+      "title": "Las decisiones que<br><strong>definen tu empresa.</strong>",
+      "sub": "La profundidad de una gran firma. La cercanía de un equipo que se sienta en tu mesa.",
+      "ctaPrimary": "Hablemos de tu operación",
+      "ctaGhost": "Ver servicios",
+      "proof": {
+        "advised": "asesorados",
+        "deals": "operaciones",
+        "years": " años",
+        "experience": "de experiencia"
+      }
+    },
+    "about": {
+      "label": "Quiénes somos",
+      "title": "Especialistas en finanzas y <strong>capital humano.</strong>",
+      "lead": "Acompañamos a PYMES y startups en las decisiones que marcan su rumbo. Nos integramos dentro de tu compañía — en finanzas y en capital humano — para profesionalizar, ordenar y llevar el negocio al siguiente nivel.",
+      "stat1": "Equipo directivo con experiencia en banca de inversión, consultoría y operaciones reales",
+      "stat2num": "3 áreas",
+      "stat2desc": "Finanzas corporativas y capital humano bajo el mismo techo, sin silos"
+    },
+    "pillar": {
+      "finance": {
+        "desc": "M&amp;A, dirección financiera part-time, reestructuración y financiación."
+      },
+      "hc": {
+        "desc": "Head hunting y selección de perfiles directivos y estratégicos."
+      },
+      "strategy": {
+        "desc": "Consultoría, control de gestión y crecimiento con criterio y datos."
+      }
+    },
+    "services": {
+      "label": "Servicios · Finanzas",
+      "title": "Capacidades financieras de <strong>principio a fin.</strong>",
+      "lead": "No vendemos informes. Nos sentamos en tu mesa, entendemos tu negocio por dentro y tomamos las decisiones difíciles contigo.",
+      "ebitda": "Y sí, lo decimos en voz alta: <strong>We love EBITDA.</strong>"
+    },
+    "svc": {
+      "ma": {
+        "title": "M&amp;A · Venta de Empresas",
+        "desc": "Compraventa, valoración, due diligence y negociación hasta el cierre. Preparación y proceso para maximizar el valor de salida de tu compañía."
+      },
+      "cfo": {
+        "desc": "Dirección financiera senior integrada en tu equipo: reporting, tesorería y control de gestión."
+      },
+      "restructuring": {
+        "title": "Reestructuración",
+        "desc": "Renegociación de deuda, planes de viabilidad y decisiones para reflotar el negocio."
+      },
+      "bp": {
+        "title": "Business Plan &amp; Financiación",
+        "desc": "Planes que convencen a un comité y levantamiento de deuda, equity y subvenciones."
+      },
+      "consulting": {
+        "title": "Consultoría estratégica",
+        "desc": "EBITDA, control de gestión y datos convertidos en decisiones que generan valor."
+      }
+    },
+    "meth": {
+      "label": "Human Capital · Selección",
+      "title": "Encontramos el talento que <em>tu empresa necesita.</em>",
+      "sub": "Identificamos, atraemos y seleccionamos perfiles directivos y estratégicos para PYMES y startups. No usamos bases de datos genéricas, hacemos búsqueda activa, directa y confidencial. Y nos comprometemos con plazos reales.",
+      "numbersTitle": "Dos números. <strong>Un compromiso.</strong>"
+    },
+    "hc": {
+      "item1": {
+        "title": "Head hunting directivo",
+        "desc": "Selección de C-level, directores de área y mandos intermedios clave. Perfiles que marcan la diferencia."
+      },
+      "item2": {
+        "desc": "Gestión externa del talento para que tu equipo se centre en lo que importa. Flexible, eficiente y sin fricciones."
+      },
+      "item3": {
+        "title": "Shortlist validado",
+        "desc": "Solo llegan candidatos que encajan de verdad. Cada perfil viene con informe individual y disponibilidad confirmada."
+      },
+      "item4": {
+        "title": "Plazos comprometidos",
+        "desc": "Primer shortlist en 72 horas. Informe de mercado en 7 días. Sin excusas, sin dilaciones."
+      }
+    },
+    "meto": {
+      "num1": {
+        "label": "Primer shortlist",
+        "desc": "Candidatos reales encima de tu mesa. Validados, disponibles y alineados con el rol."
+      },
+      "num2": {
+        "label": "Informe de mercado",
+        "desc": "Benchmarking salarial, mapa de talento, competidores y realidades que nadie te cuenta."
+      }
+    },
+    "tessa": {
+      "tag": "IA propia de selección",
+      "desc": "Nuestra inteligencia artificial rastrea, identifica y prioriza al mejor talento del mercado en cada búsqueda. Tu shortlist no depende del azar, <strong>depende de datos</strong>."
+    },
+    "progress": {
+      "title": "Lo que incluye cada proceso",
+      "item1": "Identificación de talento",
+      "item2": "Benchmarking salarial",
+      "item3": "Análisis de mercado",
+      "item4": "Shortlist en 72h",
+      "item5": "Tasa de cierre"
+    },
+    "timeline": {
+      "title": "Lo que pasa desde que firmamos hasta tu <strong>primer shortlist.</strong>",
+      "step1": {
+        "desc": "Briefing profundo con el hiring manager. Nada de formularios genéricos."
+      },
+      "step2": {
+        "desc": "Mapa de empresas objetivo, boolean strings y canales activos y pasivos."
+      },
+      "step3": {
+        "desc": "Contacto directo con talento pasivo. Mensajes personalizados, no plantillas."
+      },
+      "step4": {
+        "desc": "Entrevistas estructuradas. Solo avanzan candidatos que encajan de verdad."
+      },
+      "step5": {
+        "desc": "Perfiles validados, con informe individual y disponibilidad confirmada."
+      }
+    },
+    "cases": {
+      "label": "Lo que dicen de nosotros",
+      "title": "Empresarios que <strong>ya tomaron la decisión.</strong>"
+    },
+    "t1": {
+      "result": "Financiación conseguida",
+      "quote": "Para nosotros fue determinante su involucración en profundizar en el entendimiento del negocio. Mejoraron la contabilidad, optimizaron la fiscalidad y nos consiguieron la financiación que necesitábamos.",
+      "role": "CEO · Sector tecnología"
+    },
+    "t2": {
+      "result": "2 adquisiciones cerradas",
+      "quote": "Les estoy muy agradecido porque me ayudaron, con un éxito mayor del que imaginaba, a negociar y comprar dos compañías que me permitieron expandir mi negocio.",
+      "role": "CEO · Expansión internacional"
+    },
+    "t3": {
+      "result": "Reestructuración en plazo",
+      "quote": "Entendieron perfectamente la problemática financiera de la compañía y se adentraron hasta el fondo, incluso en fin de semana, para ayudarnos en el plazo que requería.",
+      "role": "CEO · Reestructuración financiera"
+    },
+    "carousel": {
+      "prev": "Anterior",
+      "next": "Siguiente"
+    },
+    "contact": {
+      "title": "¿Tu operación merece<br><em>una conversación seria?</em>",
+      "sub": "Cuéntanos el reto. En 24 horas tienes respuesta y en 72 una propuesta sobre la mesa.",
+      "ctaPrimary": "Contactar ahora",
+      "g1": "Respuesta en 24h",
+      "g2": "Sin compromiso",
+      "g3": "Confidencial"
+    },
+    "footer": {
+      "about": "Especialistas en finanzas y capital humano para PYMES y startups en España.",
+      "servicesHeading": "Servicios",
+      "selection72": "Selección 72h",
+      "companyHeading": "Empresa",
+      "legalNotice": "Aviso legal",
+      "privacy": "Privacidad"
+    },
+    "modal": {
+      "close": "Cerrar",
+      "sub": "Cuéntanos el reto. En 24h tienes respuesta.",
+      "name": "Nombre *",
+      "namePh": "Tu nombre",
+      "company": "Empresa *",
+      "companyPh": "Nombre de tu empresa",
+      "emailPh": "correo@empresa.com",
+      "phone": "Teléfono",
+      "submit": "Enviar mensaje",
+      "legal": "Al enviar aceptas nuestra <a href=\"https://jobs.tesseraservices.com/privacy-policy\" target=\"_blank\">política de privacidad</a>.",
+      "sending": "Enviando…",
+      "sent": "✓ Mensaje enviado",
+      "error": "Error — inténtalo de nuevo"
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "TESSERA · Finance and Human Capital for SMEs",
+      "description": "Specialists in M&A, part-time CFO, restructuring and executive search for SMEs and startups in Spain."
+    },
+    "nav": {
+      "about": "About",
+      "finance": "Finance",
+      "cases": "Cases",
+      "cta": "Let's talk",
+      "contact": "Contact",
+      "menuOpen": "Open menu"
+    },
+    "common": {
+      "strategy": "Strategy",
+      "activeOutreach": "Active outreach"
+    },
+    "hero": {
+      "eyebrow": "Finance · Human Capital · Strategy",
+      "title": "The decisions that<br><strong>define your company.</strong>",
+      "sub": "The depth of a major firm. The closeness of a team that sits at your table.",
+      "ctaPrimary": "Let's talk about your deal",
+      "ctaGhost": "View services",
+      "proof": {
+        "advised": "advised",
+        "deals": "deals",
+        "years": " years",
+        "experience": "of experience"
+      }
+    },
+    "about": {
+      "label": "Who we are",
+      "title": "Specialists in finance and <strong>human capital.</strong>",
+      "lead": "We support SMEs and startups through the decisions that shape their direction. We embed within your company — in finance and human capital — to professionalize, organize and take the business to the next level.",
+      "stat1": "Leadership team with experience in investment banking, consulting and real-world deals",
+      "stat2num": "3 areas",
+      "stat2desc": "Corporate finance and human capital under one roof, no silos"
+    },
+    "pillar": {
+      "finance": {
+        "desc": "M&amp;A, part-time financial leadership, restructuring and financing."
+      },
+      "hc": {
+        "desc": "Head hunting and search for executive and strategic profiles."
+      },
+      "strategy": {
+        "desc": "Consulting, management control and growth driven by judgment and data."
+      }
+    },
+    "services": {
+      "label": "Services · Finance",
+      "title": "Financial capabilities from <strong>start to finish.</strong>",
+      "lead": "We don't sell reports. We sit at your table, understand your business from the inside, and make the hard decisions with you.",
+      "ebitda": "And yes, we say it out loud: <strong>We love EBITDA.</strong>"
+    },
+    "svc": {
+      "ma": {
+        "title": "M&amp;A · Company Sales",
+        "desc": "Buy-side and sell-side deals, valuation, due diligence and negotiation through to closing. Preparation and process to maximize your company's exit value."
+      },
+      "cfo": {
+        "desc": "Senior financial leadership embedded in your team: reporting, treasury and management control."
+      },
+      "restructuring": {
+        "title": "Restructuring",
+        "desc": "Debt renegotiation, viability plans and the decisions needed to turn the business around."
+      },
+      "bp": {
+        "title": "Business Plan &amp; Financing",
+        "desc": "Plans that convince a committee, and raising debt, equity and grants."
+      },
+      "consulting": {
+        "title": "Strategic Consulting",
+        "desc": "EBITDA, management control and data turned into decisions that create value."
+      }
+    },
+    "meth": {
+      "label": "Human Capital · Search",
+      "title": "We find the talent <em>your company needs.</em>",
+      "sub": "We identify, attract and select executive and strategic profiles for SMEs and startups. We don't rely on generic databases — we run active, direct and confidential search. And we commit to real deadlines.",
+      "numbersTitle": "Two numbers. <strong>One commitment.</strong>"
+    },
+    "hc": {
+      "item1": {
+        "title": "Executive head hunting",
+        "desc": "Search for C-level executives, department heads and key middle management. Profiles that make the difference."
+      },
+      "item2": {
+        "desc": "Outsourced talent management so your team can focus on what matters. Flexible, efficient and frictionless."
+      },
+      "item3": {
+        "title": "Validated shortlist",
+        "desc": "Only candidates who genuinely fit make it through. Every profile comes with an individual report and confirmed availability."
+      },
+      "item4": {
+        "title": "Committed deadlines",
+        "desc": "First shortlist in 72 hours. Market report in 7 days. No excuses, no delays."
+      }
+    },
+    "meto": {
+      "num1": {
+        "label": "First shortlist",
+        "desc": "Real candidates on your desk. Validated, available and aligned with the role."
+      },
+      "num2": {
+        "label": "Market report",
+        "desc": "Salary benchmarking, talent mapping, competitors and realities no one tells you about."
+      }
+    },
+    "tessa": {
+      "tag": "Proprietary search AI",
+      "desc": "Our artificial intelligence tracks, identifies and prioritizes the best talent in the market for every search. Your shortlist doesn't depend on luck, <strong>it depends on data</strong>."
+    },
+    "progress": {
+      "title": "What every process includes",
+      "item1": "Talent identification",
+      "item2": "Salary benchmarking",
+      "item3": "Market analysis",
+      "item4": "Shortlist in 72h",
+      "item5": "Closing rate"
+    },
+    "timeline": {
+      "title": "What happens from signing to your <strong>first shortlist.</strong>",
+      "step1": {
+        "desc": "In-depth briefing with the hiring manager. No generic forms."
+      },
+      "step2": {
+        "desc": "Map of target companies, boolean strings, and active and passive channels."
+      },
+      "step3": {
+        "desc": "Direct contact with passive talent. Personalized messages, not templates."
+      },
+      "step4": {
+        "desc": "Structured interviews. Only candidates who truly fit move forward."
+      },
+      "step5": {
+        "desc": "Validated profiles, with an individual report and confirmed availability."
+      }
+    },
+    "cases": {
+      "label": "What people say about us",
+      "title": "Business owners who <strong>already made the decision.</strong>"
+    },
+    "t1": {
+      "result": "Financing secured",
+      "quote": "Their commitment to truly understanding our business was decisive for us. They improved our accounting, optimized our tax position and secured the financing we needed.",
+      "role": "CEO · Technology sector"
+    },
+    "t2": {
+      "result": "2 acquisitions closed",
+      "quote": "I'm very grateful to them — they helped me, with greater success than I imagined, negotiate and acquire two companies that allowed me to expand my business.",
+      "role": "CEO · International expansion"
+    },
+    "t3": {
+      "result": "Restructuring on schedule",
+      "quote": "They fully understood the company's financial challenges and got deeply involved, even on weekends, to help us meet the deadline it required.",
+      "role": "CEO · Financial restructuring"
+    },
+    "carousel": {
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "contact": {
+      "title": "Does your deal deserve<br><em>a serious conversation?</em>",
+      "sub": "Tell us the challenge. You'll have an answer in 24 hours and a proposal on the table in 72.",
+      "ctaPrimary": "Contact us now",
+      "g1": "Response in 24h",
+      "g2": "No obligation",
+      "g3": "Confidential"
+    },
+    "footer": {
+      "about": "Specialists in finance and human capital for SMEs and startups in Spain.",
+      "servicesHeading": "Services",
+      "selection72": "72h Search",
+      "companyHeading": "Company",
+      "legalNotice": "Legal notice",
+      "privacy": "Privacy"
+    },
+    "modal": {
+      "close": "Close",
+      "sub": "Tell us the challenge. You'll have an answer in 24h.",
+      "name": "Name *",
+      "namePh": "Your name",
+      "company": "Company *",
+      "companyPh": "Your company name",
+      "emailPh": "email@company.com",
+      "phone": "Phone",
+      "submit": "Send message",
+      "legal": "By submitting, you accept our <a href=\"https://jobs.tesseraservices.com/privacy-policy\" target=\"_blank\">privacy policy</a>.",
+      "sending": "Sending…",
+      "sent": "✓ Message sent",
+      "error": "Error — please try again"
+    }
+  }
+};
+
+function i18nGet(lang, key) {
+  return key.split('.').reduce((obj, k) => (obj && obj[k] !== undefined) ? obj[k] : null, translations[lang]);
+}
+
+function applyLanguage(lang) {
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const val = i18nGet(lang, el.dataset.i18n);
+    if (val !== null) el.innerHTML = val;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const val = i18nGet(lang, el.dataset.i18nPlaceholder);
+    if (val !== null) el.placeholder = val;
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const val = i18nGet(lang, el.dataset.i18nAria);
+    if (val !== null) el.setAttribute('aria-label', val);
+  });
+  document.querySelectorAll('[data-i18n-label]').forEach(el => {
+    const val = i18nGet(lang, el.dataset.i18nLabel);
+    if (val !== null) el.setAttribute('data-label', val);
+  });
+
+  document.title = translations[lang].meta.title;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', translations[lang].meta.description);
+
+  if (langSwitch) {
+    if (lang === 'es') {
+      langSwitch.textContent = 'ENG';
+      langSwitch.setAttribute('aria-label', 'Cambiar idioma a inglés');
+    } else {
+      langSwitch.textContent = 'ESP';
+      langSwitch.setAttribute('aria-label', 'Switch language to Spanish');
+    }
+  }
+
+  currentLang = lang;
+}
+
+function toggleLanguage() {
+  applyLanguage(currentLang === 'es' ? 'en' : 'es');
+}
 
 const heroVideo = document.querySelector('.hero-video');
 let isTicking = false;
@@ -238,7 +678,7 @@ function submitModal(e) {
   const data    = new FormData(form);
 
   const btn = form.querySelector('.modal-submit');
-  btn.textContent = 'Enviando…';
+  btn.textContent = translations[currentLang].modal.sending;
   btn.disabled = true;
 
   fetch('https://formspree.io/f/xpqebwbb', {
@@ -248,16 +688,16 @@ function submitModal(e) {
   })
   .then(res => {
     if (res.ok) {
-      btn.textContent = '✓ Mensaje enviado';
+      btn.textContent = translations[currentLang].modal.sent;
       form.reset();
       setTimeout(() => closeModal(), 1800);
     } else {
-      btn.textContent = 'Error — inténtalo de nuevo';
+      btn.textContent = translations[currentLang].modal.error;
       btn.disabled = false;
     }
   })
   .catch(() => {
-    btn.textContent = 'Error — inténtalo de nuevo';
+    btn.textContent = translations[currentLang].modal.error;
     btn.disabled = false;
   });
 }
