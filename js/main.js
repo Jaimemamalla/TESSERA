@@ -1,7 +1,4 @@
-/* ════════════════════════════════════════════
-   TESSERA · main.js
-   ════════════════════════════════════════════ */
-
+/* == NAV ADAPTABLE == */
 const nav       = document.getElementById('mainNav');
 const mobileNav = document.getElementById('mobileNav');
 const hamburger = document.getElementById('hamburger');
@@ -17,7 +14,7 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-/* ══ NAV ADAPTABLE ══ */
+/* == NAV ADAPTABLE == */
 const sectionThemes = {
   'top':         'dark',
   'about':       'light',
@@ -53,7 +50,7 @@ Object.keys(sectionThemes).forEach(id => {
   if (el) themeObs.observe(el);
 });
 
-/* ══ INTERNACIONALIZACIÓN (ES/EN) ══ */
+/* == CAMBIO DE IDIOMA == */
 let currentLang = 'es';
 
 const translations = {

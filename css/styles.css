@@ -761,12 +761,12 @@ section {
   left: 0;
   width: 0;
   height: 3px;
-  background: #c0392b;
+  background: var(--teal);
   transition: width .4s var(--ease);
 }
 
 .service-card:hover {
-  background: #c0392b;
+  background: var(--navy);
 }
 
 .service-card:hover::before {
