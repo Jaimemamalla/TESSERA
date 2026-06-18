@@ -123,16 +123,20 @@ const translations = {
         "desc": "Renegociación de deuda, planes de viabilidad y decisiones para reflotar el negocio."
       },
       "bp": {
-        "title": "Business Plan &amp; Financiación",
-        "desc": "Planes que convencen a un comité y levantamiento de deuda, equity y subvenciones."
+        "title": "Business Plan",
+        "desc": "Planes de negocio que convencen a un comité de inversión y respaldan tus decisiones de crecimiento."
+      },
+      "financing": {
+        "title": "Financiación",
+        "desc": "Levantamiento de deuda, equity y subvenciones para impulsar tu compañía."
       },
       "consulting": {
         "title": "Consultoría estratégica",
         "desc": "EBITDA, control de gestión y datos convertidos en decisiones que generan valor."
       },
       "erp": {
-        "title": "Implementación de ERP · Odoo &amp; Holded",
-        "desc": "Implementación y migración de ERP. Ponemos en marcha y migramos Odoo y Holded para ordenar tu operativa financiera y de negocio."
+        "title": "Implementación de ERP",
+        "desc": "Implementación y migración de ERP. Somos partners de diferentes ERP y te ayudamos con la migración o implementación de los más actuales del mercado como: Odoo, Holded…"
       }
     },
     "meth": {
@@ -327,16 +331,20 @@ const translations = {
         "desc": "Debt renegotiation, viability plans and the decisions needed to turn the business around."
       },
       "bp": {
-        "title": "Business Plan &amp; Financing",
-        "desc": "Plans that convince a committee, and raising debt, equity and grants."
+        "title": "Business Plan",
+        "desc": "Business plans that convince an investment committee and back your growth decisions."
+      },
+      "financing": {
+        "title": "Financing",
+        "desc": "Raising debt, equity and grants to drive your company forward."
       },
       "consulting": {
         "title": "Strategic Consulting",
         "desc": "EBITDA, management control and data turned into decisions that create value."
       },
       "erp": {
-        "title": "ERP Implementation · Odoo &amp; Holded",
-        "desc": "ERP implementation and migration. We set up and migrate Odoo and Holded to streamline your financial and business operations."
+        "title": "ERP Implementation",
+        "desc": "ERP implementation and migration. We are partners of several ERPs and help you migrate or implement the most current ones on the market, such as: Odoo, Holded…"
       }
     },
     "meth": {

@@ -806,7 +806,7 @@ section {
 
 
 .service-ebitda {
-  grid-column: 1/-1;
+  grid-column: span 2;
   padding: 2.5rem;
   background: var(--navy);
   display: flex;
