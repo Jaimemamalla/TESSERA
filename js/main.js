@@ -88,6 +88,7 @@ const translations = {
       "label": "Quiénes somos",
       "title": "Especialistas en finanzas y <strong>capital humano.</strong>",
       "lead": "Acompañamos a PYMES y startups en las decisiones que marcan su rumbo. Nos integramos dentro de tu compañía — en finanzas y en capital humano — para profesionalizar, ordenar y llevar el negocio al siguiente nivel.",
+      "stat1num": "Senior",
       "stat1": "Equipo directivo con experiencia en banca de inversión, consultoría y operaciones reales",
       "stat2num": "3 áreas",
       "stat2desc": "Finanzas corporativas y capital humano bajo el mismo techo, sin silos"
@@ -111,7 +112,7 @@ const translations = {
     },
     "svc": {
       "ma": {
-        "title": "M&amp;A · Venta de Empresas",
+        "title": "M&amp;A · Compraventa de Empresas",
         "desc": "Compraventa, valoración, due diligence y negociación hasta el cierre. Preparación y proceso para maximizar el valor de salida de tu compañía."
       },
       "cfo": {
@@ -128,6 +129,10 @@ const translations = {
       "consulting": {
         "title": "Consultoría estratégica",
         "desc": "EBITDA, control de gestión y datos convertidos en decisiones que generan valor."
+      },
+      "erp": {
+        "title": "Implementación de ERP · Odoo &amp; Holded",
+        "desc": "Implementación y migración de ERP. Ponemos en marcha y migramos Odoo y Holded para ordenar tu operativa financiera y de negocio."
       }
     },
     "meth": {
@@ -152,6 +157,11 @@ const translations = {
         "title": "Plazos comprometidos",
         "desc": "Primer shortlist en 72 horas. Informe de mercado en 7 días. Sin excusas, sin dilaciones."
       }
+    },
+    "salary": {
+      "label": "Transparencia salarial",
+      "title": "Estudio y consultoría de <strong>transparencia salarial.</strong>",
+      "desc": "Te ayudamos a anticiparte a la nueva normativa europea de transparencia salarial: análisis y diseño de bandas retributivas, auditoría de equidad y brecha salarial, y planes de acción para tu plantilla."
     },
     "meto": {
       "num1": {
@@ -282,6 +292,7 @@ const translations = {
       "label": "Who we are",
       "title": "Specialists in finance and <strong>human capital.</strong>",
       "lead": "We support SMEs and startups through the decisions that shape their direction. We embed within your company — in finance and human capital — to professionalize, organize and take the business to the next level.",
+      "stat1num": "We are seniors",
       "stat1": "Leadership team with experience in investment banking, consulting and real-world deals",
       "stat2num": "3 areas",
       "stat2desc": "Corporate finance and human capital under one roof, no silos"
@@ -299,13 +310,13 @@ const translations = {
     },
     "services": {
       "label": "Services · Finance",
-      "title": "Financial capabilities from <strong>start to finish.</strong>",
+      "title": "Financial capabilities from the <strong>beginning to the end.</strong>",
       "lead": "We don't sell reports. We sit at your table, understand your business from the inside, and make the hard decisions with you.",
       "ebitda": "And yes, we say it out loud: <strong>We love EBITDA.</strong>"
     },
     "svc": {
       "ma": {
-        "title": "M&amp;A · Company Sales",
+        "title": "M&amp;A · Buy-Side &amp; Sell-Side",
         "desc": "Buy-side and sell-side deals, valuation, due diligence and negotiation through to closing. Preparation and process to maximize your company's exit value."
       },
       "cfo": {
@@ -322,6 +333,10 @@ const translations = {
       "consulting": {
         "title": "Strategic Consulting",
         "desc": "EBITDA, management control and data turned into decisions that create value."
+      },
+      "erp": {
+        "title": "ERP Implementation · Odoo &amp; Holded",
+        "desc": "ERP implementation and migration. We set up and migrate Odoo and Holded to streamline your financial and business operations."
       }
     },
     "meth": {
@@ -346,6 +361,11 @@ const translations = {
         "title": "Committed deadlines",
         "desc": "First shortlist in 72 hours. Market report in 7 days. No excuses, no delays."
       }
+    },
+    "salary": {
+      "label": "Pay transparency",
+      "title": "Pay transparency <strong>study &amp; consulting.</strong>",
+      "desc": "We help you get ahead of the new European pay transparency regulations: analysis and design of salary bands, pay equity and gender pay gap audits, and action plans for your workforce."
     },
     "meto": {
       "num1": {

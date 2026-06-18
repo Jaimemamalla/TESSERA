@@ -1153,6 +1153,64 @@ section {
   font-weight: 700;
 }
 
+/* ── Transparencia salarial ── */
+.salary-block {
+  position: relative;
+  margin-top: 4rem;
+  padding: 3rem 3.5rem;
+  background: rgba(88,117,121,.1);
+  border: 1px solid rgba(88,117,121,.25);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background .3s, border-color .3s;
+}
+
+.salary-block:hover {
+  background: rgba(88,117,121,.16);
+  border-color: rgba(88,117,121,.4);
+}
+
+.salary-glow {
+  position: absolute;
+  top: -60px;
+  left: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(88,117,121,.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.salary-content {
+  position: relative;
+  max-width: 62ch;
+}
+
+.salary-label {
+  color: var(--teal-lt);
+  margin-top: 0;
+}
+
+.salary-title {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 200;
+  line-height: 1.2;
+  color: var(--beige);
+  margin: .6rem 0 1rem;
+}
+
+.salary-title strong {
+  font-weight: 800;
+  color: var(--yellow);
+}
+
+.salary-desc {
+  font-size: .95rem;
+  color: rgba(240,232,222,.78);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
 .h-timeline {
   position: relative;
 }
@@ -1529,6 +1587,13 @@ section {
 
 .contact-inner .section-label {
   color: var(--teal-lt);
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 
 .contact-title {
@@ -2040,6 +2105,8 @@ section > .section-inner {
   .tessa-card { padding: 2rem 1.5rem; }
   .tessa-logo { font-size: 1.1rem; }
   .tessa-card > p { font-size: .86rem; }
+  .salary-block { padding: 2rem 1.5rem; margin-top: 2.5rem; }
+  .salary-desc { font-size: .86rem; }
   .progress-section { padding: 1.8rem 1.4rem; }
   .progress-title { font-size: .9rem; margin-bottom: 1.5rem; }
   .progress-label { font-size: .78rem; }
