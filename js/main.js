@@ -113,30 +113,30 @@ const translations = {
     "svc": {
       "ma": {
         "title": "M&amp;A · Compraventa de Empresas",
-        "desc": "Compraventa, valoración, due diligence y negociación hasta el cierre. Preparación y proceso para maximizar el valor de salida de tu compañía."
+        "desc": "Te acompañamos en todo el proceso de compraventa: valoración, preparación de la compañía, due diligence, negociación y cierre. Buscamos y filtramos contrapartes, estructuramos la operación y defendemos tus intereses en cada mesa. El objetivo es uno: maximizar el valor de salida y que firmes en las mejores condiciones, sin sorpresas de última hora."
       },
       "cfo": {
-        "desc": "Dirección financiera senior integrada en tu equipo: reporting, tesorería y control de gestión."
+        "desc": "Incorporamos una dirección financiera senior a tu equipo sin el coste de un CFO a tiempo completo. Nos hacemos cargo del reporting, la tesorería, el control de gestión y la relación con bancos e inversores. Te damos visibilidad real sobre tus números y un cuadro de mando con el que decidir con criterio, mes a mes."
       },
       "restructuring": {
         "title": "Reestructuración",
-        "desc": "Renegociación de deuda, planes de viabilidad y decisiones para reflotar el negocio."
+        "desc": "Cuando el negocio aprieta, ponemos orden y un plan encima de la mesa. Renegociamos la deuda con bancos y acreedores, diseñamos planes de viabilidad realistas y tomamos contigo las decisiones difíciles para reflotar la compañía. Priorizamos la caja, frenamos la sangría y devolvemos el control de la situación a tus manos."
       },
       "bp": {
         "title": "Business Plan",
-        "desc": "Planes de negocio que convencen a un comité de inversión y respaldan tus decisiones de crecimiento."
+        "desc": "Construimos planes de negocio que resisten el escrutinio de un comité de inversión o de cualquier banco. Modelizamos escenarios, proyecciones financieras y necesidades de financiación con hipótesis defendibles, no con humo. El resultado es un documento que convence a terceros y, sobre todo, una hoja de ruta que respalda tus decisiones de crecimiento."
       },
       "financing": {
         "title": "Financiación",
-        "desc": "Levantamiento de deuda, equity y subvenciones para impulsar tu compañía."
+        "desc": "Diseñamos la estructura de financiación que tu compañía necesita y salimos a buscarla: deuda bancaria, equity, deuda alternativa y subvenciones. Preparamos el material, abrimos las puertas de nuestra red de inversores y entidades y negociamos las condiciones contigo. Conseguimos los recursos para crecer sin que pierdas el control de tu empresa."
       },
       "consulting": {
         "title": "Consultoría estratégica",
-        "desc": "EBITDA, control de gestión y datos convertidos en decisiones que generan valor."
+        "desc": "Convertimos tus datos en decisiones que generan valor. Analizamos márgenes, EBITDA, costes y unidades de negocio para entender de dónde sale —y por dónde se escapa— tu rentabilidad. Montamos el control de gestión y los KPIs que de verdad importan, y nos sentamos contigo a definir la estrategia y a ejecutarla, no solo a recomendarla."
       },
       "erp": {
         "title": "Implementación de ERP",
-        "desc": "Implementación y migración de ERP. Somos partners de diferentes ERP y te ayudamos con la migración o implementación de los más actuales del mercado como: Odoo, Holded…"
+        "desc": "Te ayudamos a elegir, implementar y migrar el ERP que encaja con tu operativa, no el que más comisión deja. Somos partners de varias plataformas líderes del mercado —Odoo, Holded y otras— y nos encargamos de la configuración, la migración de datos y la formación de tu equipo. Dejamos tus procesos integrados, tu información ordenada y a tu gente trabajando con la herramienta desde el primer día."
       }
     },
     "meth": {
@@ -321,30 +321,30 @@ const translations = {
     "svc": {
       "ma": {
         "title": "M&amp;A · Buy-Side &amp; Sell-Side",
-        "desc": "Buy-side and sell-side deals, valuation, due diligence and negotiation through to closing. Preparation and process to maximize your company's exit value."
+        "desc": "We guide you through the entire buy-side or sell-side process: valuation, preparing the company, due diligence, negotiation and closing. We source and screen counterparties, structure the deal and defend your interests at every table. The goal is one: to maximize your exit value and get you signing on the best possible terms, with no last-minute surprises."
       },
       "cfo": {
-        "desc": "Senior financial leadership embedded in your team: reporting, treasury and management control."
+        "desc": "We bring senior financial leadership into your team without the cost of a full-time CFO. We take charge of reporting, treasury, management control and your relationship with banks and investors. You get real visibility over your numbers and a dashboard to make sound decisions, month after month."
       },
       "restructuring": {
         "title": "Restructuring",
-        "desc": "Debt renegotiation, viability plans and the decisions needed to turn the business around."
+        "desc": "When the business gets tight, we bring order and a plan to the table. We renegotiate debt with banks and creditors, design realistic viability plans and make the hard decisions with you to turn the company around. We prioritize cash, stop the bleeding and put control of the situation back in your hands."
       },
       "bp": {
         "title": "Business Plan",
-        "desc": "Business plans that convince an investment committee and back your growth decisions."
+        "desc": "We build business plans that withstand the scrutiny of an investment committee or any bank. We model scenarios, financial projections and funding needs with defensible assumptions, not smoke. The result is a document that convinces third parties and, above all, a roadmap that backs your growth decisions."
       },
       "financing": {
         "title": "Financing",
-        "desc": "Raising debt, equity and grants to drive your company forward."
+        "desc": "We design the financing structure your company needs and go out to secure it: bank debt, equity, alternative debt and grants. We prepare the materials, open the doors of our network of investors and institutions and negotiate the terms with you. We get the resources to grow without you losing control of your company."
       },
       "consulting": {
         "title": "Strategic Consulting",
-        "desc": "EBITDA, management control and data turned into decisions that create value."
+        "desc": "We turn your data into decisions that create value. We analyze margins, EBITDA, costs and business units to understand where your profitability comes from —and where it leaks away. We set up the management control and the KPIs that truly matter, and we sit down with you to define the strategy and execute it, not just recommend it."
       },
       "erp": {
         "title": "ERP Implementation",
-        "desc": "ERP implementation and migration. We are partners of several ERPs and help you migrate or implement the most current ones on the market, such as: Odoo, Holded…"
+        "desc": "We help you choose, implement and migrate the ERP that fits your operations, not the one that pays the biggest commission. We are partners of several leading platforms —Odoo, Holded and others— and we handle the configuration, data migration and training of your team. We leave your processes integrated, your information organized and your people working with the tool from day one."
       }
     },
     "meth": {

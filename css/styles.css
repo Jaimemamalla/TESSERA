@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Ailerons';
-  src: url('fonts/Ailerons-Typeface.otf') format('opentype');
+  src: url('../fonts/Ailerons-Typeface.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -28,6 +28,8 @@
   --mid:     #4a4858;
   --light:   #8a879a;
   --dust:    #ddd5c8;
+  --duo-shadow: #232d63;
+  --duo-light:  #f0d35e;
   --ff-logo: 'Ailerons', 'Raleway', sans-serif;
   --ff:      'Raleway', sans-serif;
   --ease:    cubic-bezier(0.16, 1, 0.3, 1);
@@ -830,7 +832,7 @@ section {
   display: grid;
   grid-template-columns: 1.1fr .9fr;
   gap: 2.5rem;
-  align-items: center;
+  align-items: start;
   padding: 1.8rem 2.5rem .6rem;
 }
 
@@ -847,7 +849,7 @@ section {
   aspect-ratio: 4 / 3;
   border-radius: 18px;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+  background: linear-gradient(145deg, var(--duo-light) 0%, var(--duo-shadow) 60%, #1b2350 100%);
 }
 
 /* Marca de agua con el nº — visible si aún no hay foto */
@@ -870,6 +872,9 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
+  /* Duotono de marca: sombras azul-índigo, luces dorado.
+     Sube fotos normales en color — el filtro las tiñe solo. */
+  filter: url(#tessera-duotone);
 }
 
 /* ── Banner EBITDA (ahora fuera de la cuadrícula) ── */
