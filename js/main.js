@@ -23,6 +23,8 @@ const sectionThemes = {
   'entregable':  'light',
   'casos':       'light',
   'contacto':    'dark',
+  'careers-hero':'dark',
+  'careers-why': 'light',
 };
 
 function setNavTheme(theme) {
@@ -470,6 +472,40 @@ const translations = {
       "error": "Error — please try again"
     }
   }
+};
+
+/* Traducciones de la página de Careers (careers.html) */
+translations.es.careers = {
+  "eyebrow": "Carreras · Talento",
+  "title": "Construye tu carrera<br><strong>con nosotros.</strong>",
+  "sub": "Buscamos personas que quieran sentarse en la mesa donde se toman las decisiones. Si te mueve la exigencia y el impacto real, este es tu sitio.",
+  "ctaJobs": "Ver vacantes",
+  "ctaTalk": "Hablemos",
+  "whyLabel": "Por qué Tessera",
+  "whyTitle": "Un sitio donde <strong>se decide de verdad.</strong>",
+  "c1t": "Decisiones reales",
+  "c1d": "Desde el primer día te sientas en operaciones de verdad: M&amp;A, financiación, reestructuración. Nada de tareas de relleno.",
+  "c2t": "Aprendizaje acelerado",
+  "c2d": "Finanzas, estrategia y capital humano en proyectos reales con PYMES y startups. Aprendes haciendo, junto a un equipo senior.",
+  "c3t": "Equipo cercano",
+  "c3d": "Sin burocracia ni capas infinitas. Un equipo que se sienta a tu lado, te acompaña y te deja crecer.",
+  "ctaBottom": "Ver vacantes abiertas"
+};
+translations.en.careers = {
+  "eyebrow": "Careers · Talent",
+  "title": "Build your career<br><strong>with us.</strong>",
+  "sub": "We look for people who want a seat at the table where decisions get made. If you're driven by high standards and real impact, this is your place.",
+  "ctaJobs": "View openings",
+  "ctaTalk": "Let's talk",
+  "whyLabel": "Why Tessera",
+  "whyTitle": "A place where <strong>real decisions happen.</strong>",
+  "c1t": "Real decisions",
+  "c1d": "From day one you sit in on real deals: M&amp;A, financing, restructuring. No filler tasks.",
+  "c2t": "Accelerated learning",
+  "c2d": "Finance, strategy and human capital on real projects with SMEs and startups. You learn by doing, alongside a senior team.",
+  "c3t": "A close-knit team",
+  "c3d": "No bureaucracy, no endless layers. A team that sits beside you, supports you and lets you grow.",
+  "ctaBottom": "View open positions"
 };
 
 function i18nGet(lang, key) {
