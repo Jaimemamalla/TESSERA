@@ -152,45 +152,136 @@
       <p data-i18n="services.lead">No vendemos informes. Nos sentamos en tu mesa, entendemos tu negocio por dentro y tomamos las decisiones difíciles contigo.</p>
     </div>
 
-    <div class="services-grid">
-      <div class="service-card service-card--ma reveal reveal-delay-1">
-        <span class="service-num">01</span>
-        <h3 data-i18n="svc.ma.title">M&amp;A</h3>
-        <p data-i18n="svc.ma.desc">Compraventa, valoración, due diligence y negociación hasta el cierre. Preparación y proceso para maximizar el valor de salida de tu compañía.</p>
+    <div class="services-accordion">
+      <div class="service-item reveal reveal-delay-1">
+        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-01" onclick="toggleService(this)">
+          <span class="service-num">01</span>
+          <span class="service-name" data-i18n="svc.ma.title">M&amp;A</span>
+          <span class="service-plus" aria-hidden="true"></span>
+        </button>
+        <div class="service-panel" id="svc-panel-01" role="region" aria-hidden="true">
+          <div class="service-panel-inner">
+            <div class="service-panel-content">
+              <p data-i18n="svc.ma.desc">Compraventa, valoración, due diligence y negociación hasta el cierre. Preparación y proceso para maximizar el valor de salida de tu compañía.</p>
+              <div class="service-photo" data-num="01">
+                <img src="media/serv-ma.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-card reveal reveal-delay-2">
-        <span class="service-num">02</span>
-        <h3>CFO Part-Time</h3>
-        <p data-i18n="svc.cfo.desc">Dirección financiera senior integrada en tu equipo: reporting, tesorería y control de gestión.</p>
+
+      <div class="service-item reveal reveal-delay-2">
+        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-02" onclick="toggleService(this)">
+          <span class="service-num">02</span>
+          <span class="service-name">CFO Part-Time</span>
+          <span class="service-plus" aria-hidden="true"></span>
+        </button>
+        <div class="service-panel" id="svc-panel-02" role="region" aria-hidden="true">
+          <div class="service-panel-inner">
+            <div class="service-panel-content">
+              <p data-i18n="svc.cfo.desc">Dirección financiera senior integrada en tu equipo: reporting, tesorería y control de gestión.</p>
+              <div class="service-photo" data-num="02">
+                <img src="media/serv-cfo.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-card reveal reveal-delay-3">
-        <span class="service-num">03</span>
-        <h3 data-i18n="svc.restructuring.title">Reestructuración</h3>
-        <p data-i18n="svc.restructuring.desc">Renegociación de deuda, planes de viabilidad y decisiones para reflotar el negocio.</p>
+
+      <div class="service-item reveal reveal-delay-3">
+        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-03" onclick="toggleService(this)">
+          <span class="service-num">03</span>
+          <span class="service-name" data-i18n="svc.restructuring.title">Reestructuración</span>
+          <span class="service-plus" aria-hidden="true"></span>
+        </button>
+        <div class="service-panel" id="svc-panel-03" role="region" aria-hidden="true">
+          <div class="service-panel-inner">
+            <div class="service-panel-content">
+              <p data-i18n="svc.restructuring.desc">Renegociación de deuda, planes de viabilidad y decisiones para reflotar el negocio.</p>
+              <div class="service-photo" data-num="03">
+                <img src="media/serv-restructuring.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-card reveal reveal-delay-1">
-        <span class="service-num">04</span>
-        <h3 data-i18n="svc.bp.title">Business Plan</h3>
-        <p data-i18n="svc.bp.desc">Planes de negocio que convencen a un comité de inversión y respaldan tus decisiones de crecimiento.</p>
+
+      <div class="service-item reveal reveal-delay-1">
+        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-04" onclick="toggleService(this)">
+          <span class="service-num">04</span>
+          <span class="service-name" data-i18n="svc.bp.title">Business Plan</span>
+          <span class="service-plus" aria-hidden="true"></span>
+        </button>
+        <div class="service-panel" id="svc-panel-04" role="region" aria-hidden="true">
+          <div class="service-panel-inner">
+            <div class="service-panel-content">
+              <p data-i18n="svc.bp.desc">Planes de negocio que convencen a un comité de inversión y respaldan tus decisiones de crecimiento.</p>
+              <div class="service-photo" data-num="04">
+                <img src="media/serv-bp.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-card reveal reveal-delay-2">
-        <span class="service-num">05</span>
-        <h3 data-i18n="svc.financing.title">Financiación</h3>
-        <p data-i18n="svc.financing.desc">Levantamiento de deuda, equity y subvenciones para impulsar tu compañía.</p>
+
+      <div class="service-item reveal reveal-delay-2">
+        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-05" onclick="toggleService(this)">
+          <span class="service-num">05</span>
+          <span class="service-name" data-i18n="svc.financing.title">Financiación</span>
+          <span class="service-plus" aria-hidden="true"></span>
+        </button>
+        <div class="service-panel" id="svc-panel-05" role="region" aria-hidden="true">
+          <div class="service-panel-inner">
+            <div class="service-panel-content">
+              <p data-i18n="svc.financing.desc">Levantamiento de deuda, equity y subvenciones para impulsar tu compañía.</p>
+              <div class="service-photo" data-num="05">
+                <img src="media/serv-financing.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-card reveal reveal-delay-3">
-        <span class="service-num">06</span>
-        <h3 data-i18n="svc.consulting.title">Consultoría estratégica</h3>
-        <p data-i18n="svc.consulting.desc">EBITDA, control de gestión y datos convertidos en decisiones que generan valor.</p>
+
+      <div class="service-item reveal reveal-delay-3">
+        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-06" onclick="toggleService(this)">
+          <span class="service-num">06</span>
+          <span class="service-name" data-i18n="svc.consulting.title">Consultoría estratégica</span>
+          <span class="service-plus" aria-hidden="true"></span>
+        </button>
+        <div class="service-panel" id="svc-panel-06" role="region" aria-hidden="true">
+          <div class="service-panel-inner">
+            <div class="service-panel-content">
+              <p data-i18n="svc.consulting.desc">EBITDA, control de gestión y datos convertidos en decisiones que generan valor.</p>
+              <div class="service-photo" data-num="06">
+                <img src="media/serv-consulting.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-card reveal reveal-delay-1">
-        <span class="service-num">07</span>
-        <h3 data-i18n="svc.erp.title">Implementación de ERP</h3>
-        <p data-i18n="svc.erp.desc">Implementación y migración de ERP. Somos partners de diferentes ERP y te ayudamos con la migración o implementación de los más actuales del mercado como: Odoo, Holded…</p>
+
+      <div class="service-item reveal reveal-delay-1">
+        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-07" onclick="toggleService(this)">
+          <span class="service-num">07</span>
+          <span class="service-name" data-i18n="svc.erp.title">Implementación de ERP</span>
+          <span class="service-plus" aria-hidden="true"></span>
+        </button>
+        <div class="service-panel" id="svc-panel-07" role="region" aria-hidden="true">
+          <div class="service-panel-inner">
+            <div class="service-panel-content">
+              <p data-i18n="svc.erp.desc">Implementación y migración de ERP. Somos partners de diferentes ERP y te ayudamos con la migración o implementación de los más actuales del mercado como: Odoo, Holded…</p>
+              <div class="service-photo" data-num="07">
+                <img src="media/serv-erp.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-ebitda reveal">
-        <p data-i18n="services.ebitda">Y sí, lo decimos en voz alta: <strong>We love EBITDA.</strong></p>
-      </div>
+    </div>
+
+    <div class="service-ebitda reveal">
+      <p data-i18n="services.ebitda">Y sí, lo decimos en voz alta: <strong>We love EBITDA.</strong></p>
     </div>
   </div>
 </section>

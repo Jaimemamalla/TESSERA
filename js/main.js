@@ -552,6 +552,25 @@ const revealObs = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
+/* ══ ACORDEÓN DE SERVICIOS ══ */
+function toggleService(btn) {
+  const item = btn.closest('.service-item');
+  const isOpen = item.classList.contains('open');
+
+  // Comportamiento acordeón: cerrar el resto antes de abrir
+  document.querySelectorAll('.service-item.open').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.service-toggle').setAttribute('aria-expanded', 'false');
+    el.querySelector('.service-panel').setAttribute('aria-hidden', 'true');
+  });
+
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    item.querySelector('.service-panel').setAttribute('aria-hidden', 'false');
+  }
+}
+
 const statObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.3 });
