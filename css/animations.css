@@ -1,0 +1,42 @@
+/* ═══════════════════════════════════════════════════════════════
+   TESSERA · Paquete de animaciones (OPCIONAL) — estilos de apoyo
+   ───────────────────────────────────────────────────────────────
+   Para QUITARLAS TODAS:
+     1) borra este archivo y js/animations.js
+     2) quita en index.html y careers.html las 3 etiquetas de
+        animaciones (este <link> + los 2 <script> de lenis y animations)
+   Todo va dentro de prefers-reduced-motion: no-preference, así que
+   quien tenga el movimiento reducido en su sistema no ve nada de esto.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* 1 · Scroll suave (Lenis) */
+  html.lenis,
+  html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+  /* 2 · Titulares que se revelan palabra a palabra */
+  .split-ready .sr-word {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding-bottom: .12em;
+    margin-bottom: -.12em;
+  }
+  .split-ready .sr-word > span {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform .7s cubic-bezier(.16, 1, .3, 1);
+  }
+  .split-in .sr-word > span { transform: translateY(0); }
+
+  /* 4 · Tilt 3D — transición suave al soltar */
+  .testimonial-card,
+  .svc-detail-photo { transition: transform .3s cubic-bezier(.16, 1, .3, 1); }
+
+  /* 5 · Parallax — la foto debe poder deslizarse dentro de su marco */
+  .svc-detail-photo img { will-change: transform; }
+}
