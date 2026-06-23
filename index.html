@@ -166,130 +166,94 @@
       <p data-i18n="services.lead">No vendemos informes. Nos sentamos en tu mesa, entendemos tu negocio por dentro y tomamos las decisiones difíciles contigo.</p>
     </div>
 
-    <div class="services-accordion">
-      <div class="service-item reveal reveal-delay-1">
-        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-01" onclick="toggleService(this)">
+    <div class="services-md reveal">
+      <div class="services-md-list" role="tablist" aria-label="Servicios">
+        <button type="button" class="svc-tab active" role="tab" aria-selected="true" aria-controls="svc-detail-01" data-svc="01" onclick="selectService(this)">
           <span class="service-num">01</span>
           <span class="service-name" data-i18n="svc.ma.title">M&amp;A</span>
-          <span class="service-plus" aria-hidden="true"></span>
+          <span class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
         </button>
-        <div class="service-panel" id="svc-panel-01" role="region" aria-hidden="true">
-          <div class="service-panel-inner">
-            <div class="service-panel-content">
-              <p data-i18n="svc.ma.desc">Te acompañamos en todo el proceso de compraventa: valoración, preparación de la compañía, due diligence, negociación y cierre. Buscamos y filtramos contrapartes, estructuramos la operación y defendemos tus intereses en cada mesa. El objetivo es uno: maximizar el valor de salida y que firmes en las mejores condiciones, sin sorpresas de última hora.</p>
-              <div class="service-photo" data-num="01">
-                <img src="media/serv-ma.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="service-item reveal reveal-delay-2">
-        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-02" onclick="toggleService(this)">
+        <button type="button" class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-detail-02" data-svc="02" onclick="selectService(this)">
           <span class="service-num">02</span>
           <span class="service-name">CFO Part-Time</span>
-          <span class="service-plus" aria-hidden="true"></span>
+          <span class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
         </button>
-        <div class="service-panel" id="svc-panel-02" role="region" aria-hidden="true">
-          <div class="service-panel-inner">
-            <div class="service-panel-content">
-              <p data-i18n="svc.cfo.desc">Incorporamos una dirección financiera senior a tu equipo sin el coste de un CFO a tiempo completo. Nos hacemos cargo del reporting, la tesorería, el control de gestión y la relación con bancos e inversores. Te damos visibilidad real sobre tus números y un cuadro de mando con el que decidir con criterio, mes a mes.</p>
-              <div class="service-photo" data-num="02">
-                <img src="media/serv-cfo.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="service-item reveal reveal-delay-3">
-        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-03" onclick="toggleService(this)">
+        <button type="button" class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-detail-03" data-svc="03" onclick="selectService(this)">
           <span class="service-num">03</span>
           <span class="service-name" data-i18n="svc.restructuring.title">Reestructuración</span>
-          <span class="service-plus" aria-hidden="true"></span>
+          <span class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
         </button>
-        <div class="service-panel" id="svc-panel-03" role="region" aria-hidden="true">
-          <div class="service-panel-inner">
-            <div class="service-panel-content">
-              <p data-i18n="svc.restructuring.desc">Cuando el negocio aprieta, ponemos orden y un plan encima de la mesa. Renegociamos la deuda con bancos y acreedores, diseñamos planes de viabilidad realistas y tomamos contigo las decisiones difíciles para reflotar la compañía. Priorizamos la caja, frenamos la sangría y devolvemos el control de la situación a tus manos.</p>
-              <div class="service-photo" data-num="03">
-                <img src="media/serv-restructuring.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="service-item reveal reveal-delay-1">
-        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-04" onclick="toggleService(this)">
+        <button type="button" class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-detail-04" data-svc="04" onclick="selectService(this)">
           <span class="service-num">04</span>
           <span class="service-name" data-i18n="svc.bp.title">Business Plan</span>
-          <span class="service-plus" aria-hidden="true"></span>
+          <span class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
         </button>
-        <div class="service-panel" id="svc-panel-04" role="region" aria-hidden="true">
-          <div class="service-panel-inner">
-            <div class="service-panel-content">
-              <p data-i18n="svc.bp.desc">Construimos planes de negocio que resisten el escrutinio de un comité de inversión o de cualquier banco. Modelizamos escenarios, proyecciones financieras y necesidades de financiación con hipótesis defendibles, no con humo. El resultado es un documento que convence a terceros y, sobre todo, una hoja de ruta que respalda tus decisiones de crecimiento.</p>
-              <div class="service-photo" data-num="04">
-                <img src="media/serv-bp.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="service-item reveal reveal-delay-2">
-        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-05" onclick="toggleService(this)">
+        <button type="button" class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-detail-05" data-svc="05" onclick="selectService(this)">
           <span class="service-num">05</span>
           <span class="service-name" data-i18n="svc.financing.title">Financiación</span>
-          <span class="service-plus" aria-hidden="true"></span>
+          <span class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
         </button>
-        <div class="service-panel" id="svc-panel-05" role="region" aria-hidden="true">
-          <div class="service-panel-inner">
-            <div class="service-panel-content">
-              <p data-i18n="svc.financing.desc">Diseñamos la estructura de financiación que tu compañía necesita y salimos a buscarla: deuda bancaria, equity, deuda alternativa y subvenciones. Preparamos el material, abrimos las puertas de nuestra red de inversores y entidades y negociamos las condiciones contigo. Conseguimos los recursos para crecer sin que pierdas el control de tu empresa.</p>
-              <div class="service-photo" data-num="05">
-                <img src="media/serv-financing.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="service-item reveal reveal-delay-3">
-        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-06" onclick="toggleService(this)">
+        <button type="button" class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-detail-06" data-svc="06" onclick="selectService(this)">
           <span class="service-num">06</span>
           <span class="service-name" data-i18n="svc.consulting.title">Consultoría estratégica</span>
-          <span class="service-plus" aria-hidden="true"></span>
+          <span class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
         </button>
-        <div class="service-panel" id="svc-panel-06" role="region" aria-hidden="true">
-          <div class="service-panel-inner">
-            <div class="service-panel-content">
-              <p data-i18n="svc.consulting.desc">Convertimos tus datos en decisiones que generan valor. Analizamos márgenes, EBITDA, costes y unidades de negocio para entender de dónde sale —y por dónde se escapa— tu rentabilidad. Montamos el control de gestión y los KPIs que de verdad importan, y nos sentamos contigo a definir la estrategia y a ejecutarla, no solo a recomendarla.</p>
-              <div class="service-photo" data-num="06">
-                <img src="media/serv-consulting.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="service-item reveal reveal-delay-1">
-        <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-panel-07" onclick="toggleService(this)">
+        <button type="button" class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-detail-07" data-svc="07" onclick="selectService(this)">
           <span class="service-num">07</span>
           <span class="service-name" data-i18n="svc.erp.title">Implementación de ERP</span>
-          <span class="service-plus" aria-hidden="true"></span>
+          <span class="svc-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></span>
         </button>
-        <div class="service-panel" id="svc-panel-07" role="region" aria-hidden="true">
-          <div class="service-panel-inner">
-            <div class="service-panel-content">
-              <p data-i18n="svc.erp.desc">Te ayudamos a elegir, implementar y migrar el ERP que encaja con tu operativa, no el que más comisión deja. Somos partners de varias plataformas líderes del mercado —Odoo, Holded y otras— y nos encargamos de la configuración, la migración de datos y la formación de tu equipo. Dejamos tus procesos integrados, tu información ordenada y a tu gente trabajando con la herramienta desde el primer día.</p>
-              <div class="service-photo" data-num="07">
-                <img src="media/serv-erp.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-              </div>
-            </div>
+      </div>
+
+      <div class="services-md-detail">
+        <div class="svc-detail active" id="svc-detail-01" role="tabpanel" data-svc="01">
+          <div class="svc-detail-photo" data-num="01">
+            <img src="media/serv-ma.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
           </div>
+          <h3 class="svc-detail-title" data-i18n="svc.ma.title">M&amp;A</h3>
+          <p data-i18n="svc.ma.desc">Te acompañamos en todo el proceso de compraventa: valoración, preparación de la compañía, due diligence, negociación y cierre. Buscamos y filtramos contrapartes, estructuramos la operación y defendemos tus intereses en cada mesa. El objetivo es uno: maximizar el valor de salida y que firmes en las mejores condiciones, sin sorpresas de última hora.</p>
+        </div>
+        <div class="svc-detail" id="svc-detail-02" role="tabpanel" data-svc="02">
+          <div class="svc-detail-photo" data-num="02">
+            <img src="media/serv-cfo.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <h3 class="svc-detail-title">CFO Part-Time</h3>
+          <p data-i18n="svc.cfo.desc">Incorporamos una dirección financiera senior a tu equipo sin el coste de un CFO a tiempo completo. Nos hacemos cargo del reporting, la tesorería, el control de gestión y la relación con bancos e inversores. Te damos visibilidad real sobre tus números y un cuadro de mando con el que decidir con criterio, mes a mes.</p>
+        </div>
+        <div class="svc-detail" id="svc-detail-03" role="tabpanel" data-svc="03">
+          <div class="svc-detail-photo" data-num="03">
+            <img src="media/serv-restructuring.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <h3 class="svc-detail-title" data-i18n="svc.restructuring.title">Reestructuración</h3>
+          <p data-i18n="svc.restructuring.desc">Cuando el negocio aprieta, ponemos orden y un plan encima de la mesa. Renegociamos la deuda con bancos y acreedores, diseñamos planes de viabilidad realistas y tomamos contigo las decisiones difíciles para reflotar la compañía. Priorizamos la caja, frenamos la sangría y devolvemos el control de la situación a tus manos.</p>
+        </div>
+        <div class="svc-detail" id="svc-detail-04" role="tabpanel" data-svc="04">
+          <div class="svc-detail-photo" data-num="04">
+            <img src="media/serv-bp.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <h3 class="svc-detail-title" data-i18n="svc.bp.title">Business Plan</h3>
+          <p data-i18n="svc.bp.desc">Construimos planes de negocio que resisten el escrutinio de un comité de inversión o de cualquier banco. Modelizamos escenarios, proyecciones financieras y necesidades de financiación con hipótesis defendibles, no con humo. El resultado es un documento que convence a terceros y, sobre todo, una hoja de ruta que respalda tus decisiones de crecimiento.</p>
+        </div>
+        <div class="svc-detail" id="svc-detail-05" role="tabpanel" data-svc="05">
+          <div class="svc-detail-photo" data-num="05">
+            <img src="media/serv-financing.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <h3 class="svc-detail-title" data-i18n="svc.financing.title">Financiación</h3>
+          <p data-i18n="svc.financing.desc">Diseñamos la estructura de financiación que tu compañía necesita y salimos a buscarla: deuda bancaria, equity, deuda alternativa y subvenciones. Preparamos el material, abrimos las puertas de nuestra red de inversores y entidades y negociamos las condiciones contigo. Conseguimos los recursos para crecer sin que pierdas el control de tu empresa.</p>
+        </div>
+        <div class="svc-detail" id="svc-detail-06" role="tabpanel" data-svc="06">
+          <div class="svc-detail-photo" data-num="06">
+            <img src="media/serv-consulting.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <h3 class="svc-detail-title" data-i18n="svc.consulting.title">Consultoría estratégica</h3>
+          <p data-i18n="svc.consulting.desc">Convertimos tus datos en decisiones que generan valor. Analizamos márgenes, EBITDA, costes y unidades de negocio para entender de dónde sale —y por dónde se escapa— tu rentabilidad. Montamos el control de gestión y los KPIs que de verdad importan, y nos sentamos contigo a definir la estrategia y a ejecutarla, no solo a recomendarla.</p>
+        </div>
+        <div class="svc-detail" id="svc-detail-07" role="tabpanel" data-svc="07">
+          <div class="svc-detail-photo" data-num="07">
+            <img src="media/serv-erp.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <h3 class="svc-detail-title" data-i18n="svc.erp.title">Implementación de ERP</h3>
+          <p data-i18n="svc.erp.desc">Te ayudamos a elegir, implementar y migrar el ERP que encaja con tu operativa, no el que más comisión deja. Somos partners de varias plataformas líderes del mercado —Odoo, Holded y otras— y nos encargamos de la configuración, la migración de datos y la formación de tu equipo. Dejamos tus procesos integrados, tu información ordenada y a tu gente trabajando con la herramienta desde el primer día.</p>
         </div>
       </div>
     </div>
