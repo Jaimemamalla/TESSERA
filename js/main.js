@@ -89,7 +89,7 @@ const translations = {
     "about": {
       "label": "Quiénes somos",
       "title": "Especialistas en finanzas y <strong>capital humano.</strong>",
-      "lead": "Acompañamos a PYMES y startups en las decisiones que marcan su rumbo. Nos integramos dentro de tu compañía — en finanzas y en capital humano — para profesionalizar, ordenar y llevar el negocio al siguiente nivel.",
+      "lead": "Acompañamos a PYMES y startups en las decisiones que marcan su rumbo. Nos integramos dentro de tu compañía, en finanzas y en capital humano, para profesionalizar, ordenar y llevar el negocio al siguiente nivel.",
       "stat1num": "Senior",
       "stat1": "Equipo directivo con experiencia en banca de inversión, consultoría y operaciones reales",
       "stat2num": "3 áreas",
@@ -134,11 +134,11 @@ const translations = {
       },
       "consulting": {
         "title": "Consultoría estratégica",
-        "desc": "Convertimos tus datos en decisiones que generan valor. Analizamos márgenes, EBITDA, costes y unidades de negocio para entender de dónde sale —y por dónde se escapa— tu rentabilidad. Montamos el control de gestión y los KPIs que de verdad importan, y nos sentamos contigo a definir la estrategia y a ejecutarla, no solo a recomendarla."
+        "desc": "Convertimos tus datos en decisiones que generan valor. Analizamos márgenes, EBITDA, costes y unidades de negocio para entender de dónde sale, y por dónde se escapa, tu rentabilidad. Montamos el control de gestión y los KPIs que de verdad importan, y nos sentamos contigo a definir la estrategia y a ejecutarla, no solo a recomendarla."
       },
       "erp": {
         "title": "Implementación de ERP",
-        "desc": "Te ayudamos a elegir, implementar y migrar el ERP que encaja con tu operativa, no el que más comisión deja. Somos partners de varias plataformas líderes del mercado —Odoo, Holded y otras— y nos encargamos de la configuración, la migración de datos y la formación de tu equipo. Dejamos tus procesos integrados, tu información ordenada y a tu gente trabajando con la herramienta desde el primer día."
+        "desc": "Te ayudamos a elegir, implementar y migrar el ERP que encaja con tu operativa, no el que más comisión deja. Somos partners de varias plataformas líderes del mercado, como Odoo, Holded y otras, y nos encargamos de la configuración, la migración de datos y la formación de tu equipo. Dejamos tus procesos integrados, tu información ordenada y a tu gente trabajando con la herramienta desde el primer día."
       }
     },
     "meth": {
@@ -234,9 +234,9 @@ const translations = {
     },
     "contact": {
       "title": "¿Tu operación merece<br><em>una conversación seria?</em>",
-      "sub": "Cuéntanos el reto. En 24 horas tienes respuesta y en 72 una propuesta sobre la mesa.",
+      "sub": "Cuéntanos el reto. En <span class=\"num\">24</span> horas tienes respuesta y en <span class=\"num\">72</span> una propuesta sobre la mesa.",
       "ctaPrimary": "Contactar ahora",
-      "g1": "Respuesta en 24h",
+      "g1": "Respuesta en <span class=\"num\">24h</span>",
       "g2": "Sin compromiso",
       "g3": "Confidencial"
     },
@@ -261,7 +261,7 @@ const translations = {
       "legal": "Al enviar aceptas nuestra <a href=\"https://jobs.tesseraservices.com/privacy-policy\" target=\"_blank\">política de privacidad</a>.",
       "sending": "Enviando…",
       "sent": "✓ Mensaje enviado",
-      "error": "Error — inténtalo de nuevo"
+      "error": "Error. Inténtalo de nuevo"
     }
   },
   "en": {
@@ -442,9 +442,9 @@ const translations = {
     },
     "contact": {
       "title": "Does your deal deserve<br><em>a serious conversation?</em>",
-      "sub": "Tell us the challenge. You'll have an answer in 24 hours and a proposal on the table in 72.",
+      "sub": "Tell us the challenge. You'll have an answer in <span class=\"num\">24</span> hours and a proposal on the table in <span class=\"num\">72</span>.",
       "ctaPrimary": "Contact us now",
-      "g1": "Response in 24h",
+      "g1": "Response in <span class=\"num\">24h</span>",
       "g2": "No obligation",
       "g3": "Confidential"
     },

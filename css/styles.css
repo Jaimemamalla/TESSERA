@@ -32,7 +32,21 @@
   --duo-light:  #f0d35e;
   --ff-logo: 'Ailerons', 'Raleway', sans-serif;
   --ff:      'Raleway', sans-serif;
+  --ff-num:  'Manrope', sans-serif;
   --ease:    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Números en serif — toque editorial sobre el cuerpo sans */
+.service-num,
+.hero-proof-num,
+.meto-big,
+.progress-value,
+.h-col-time,
+.pillar-num,
+.about-stat-num,
+.testimonial-result,
+.num {
+  font-family: var(--ff-num);
 }
 
 html {
