@@ -250,7 +250,7 @@ const translations = {
     },
     "modal": {
       "close": "Cerrar",
-      "sub": "Cuéntanos el reto. En 24h tienes respuesta.",
+      "sub": "Cuéntanos el reto. En <span class=\"num\">24h</span> tienes respuesta.",
       "name": "Nombre *",
       "namePh": "Tu nombre",
       "company": "Empresa *",
@@ -458,7 +458,7 @@ const translations = {
     },
     "modal": {
       "close": "Close",
-      "sub": "Tell us the challenge. You'll have an answer in 24h.",
+      "sub": "Tell us the challenge. You'll have an answer in <span class=\"num\">24h</span>.",
       "name": "Name *",
       "namePh": "Your name",
       "company": "Company *",

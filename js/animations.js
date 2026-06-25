@@ -89,7 +89,7 @@
 
   /* ── 3 · TILT 3D en tarjetas y foto ── */
   if (canHover) {
-    document.querySelectorAll('.testimonial-card, .svc-detail-photo, .careers-card').forEach(function (card) {
+    document.querySelectorAll('.svc-detail-photo, .careers-card').forEach(function (card) {
       card.addEventListener('mousemove', function (e) {
         var r = card.getBoundingClientRect();
         var px = (e.clientX - r.left) / r.width - 0.5;
