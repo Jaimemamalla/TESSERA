@@ -28,8 +28,8 @@
   --mid:     #4a4858;
   --light:   #8a879a;
   --dust:    #ddd5c8;
-  --duo-shadow: #232d63;
-  --duo-light:  #f0d35e;
+  --duo-shadow: #454f75;
+  --duo-light:  #f2e099;
   --ff-logo: 'Ailerons', 'Raleway', sans-serif;
   --ff:      'Raleway', sans-serif;
   --ff-num:  'Manrope', sans-serif;
@@ -1315,7 +1315,7 @@ section {
   left: 10%;
   height: 1px;
   width: 0;
-  background: linear-gradient(90deg, rgba(110,145,149,.4) 0%, var(--teal-lt) 100%);
+  background: linear-gradient(90deg, rgba(240,232,222,.25) 0%, rgba(240,232,222,.55) 70%, var(--yellow) 100%);
   z-index: 0;
   transition: width 1.5s linear;
 }
@@ -1351,23 +1351,22 @@ section {
 }
 
 .h-dot {
-  width: 16px;
-  height: 16px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
-  background: rgba(240,232,222,.18);
+  background: var(--navy);
+  box-shadow: 0 0 0 2px rgba(240,232,222,.4);
   border: none;
   outline: none;
   cursor: pointer;
   opacity: 0;
   transform: scale(0);
-  transition: opacity .4s ease, transform .4s cubic-bezier(0.34,1.56,0.64,1), background .5s ease, box-shadow .3s;
+  transition: opacity .35s ease, transform .35s cubic-bezier(0.34,1.56,0.64,1), background .3s, box-shadow .3s;
 }
 
-/* Pasos que se rellenan en secuencia — todos iguales (estilo progress bar) */
 .h-timeline.animated .h-dot {
   opacity: 1;
   transform: scale(1);
-  background: var(--teal-lt);
 }
 
 .h-dot:hover {

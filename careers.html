@@ -74,7 +74,7 @@
   <a href="index.html#metodologia" onclick="closeMobile()">Human Capital</a>
   <a href="index.html#casos"       onclick="closeMobile()" data-i18n="nav.cases">Casos</a>
   <a href="careers.html">Careers</a>
-  <a href="index.html#contacto"    onclick="closeMobile()" class="mobile-cta" data-i18n="nav.cta">Hablemos</a>
+  <a href="#" onclick="closeMobile(); openModal(); return false;" class="mobile-cta" data-i18n="nav.cta">Hablemos</a>
 </nav>
 
 <nav id="mainNav">
@@ -85,7 +85,7 @@
       <li><a href="index.html#metodologia">Human Capital</a></li>
       <li><a href="index.html#casos" data-i18n="nav.cases">Casos</a></li>
       <li><a href="careers.html">Careers</a></li>
-      <li><a href="index.html#contacto" class="nav-cta" data-i18n="nav.cta">Hablemos</a></li>
+      <li><a href="#" onclick="openModal(); return false;" class="nav-cta" data-i18n="nav.cta">Hablemos</a></li>
     </ul>
     <button class="lang-switch" id="langSwitch" type="button" onclick="toggleLanguage()" aria-label="Cambiar idioma a inglés">ENG</button>
     <button class="hamburger" id="hamburger" aria-label="Abrir menú" data-i18n-aria="nav.menuOpen" aria-expanded="false" onclick="toggleMobile()">

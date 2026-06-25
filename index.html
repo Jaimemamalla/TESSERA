@@ -31,7 +31,7 @@
   <a href="#metodologia" onclick="closeMobile()">Human Capital</a>
   <a href="#casos"       onclick="closeMobile()" data-i18n="nav.cases">Casos</a>
   <a href="https://jobs.tesseraservices.com/" target="_blank">Careers</a>
-  <a href="#contacto"    onclick="closeMobile()" class="mobile-cta" data-i18n="nav.cta">Hablemos</a>
+  <a href="#" onclick="closeMobile(); openModal(); return false;" class="mobile-cta" data-i18n="nav.cta">Hablemos</a>
 </nav>
 
 <nav id="mainNav">
@@ -42,7 +42,7 @@
       <li><a href="#metodologia">Human Capital</a></li>
       <li><a href="#casos" data-i18n="nav.cases">Casos</a></li>
       <li><a href="https://jobs.tesseraservices.com/" target="_blank">Careers</a></li>
-      <li><a href="#contacto" class="nav-cta" data-i18n="nav.cta">Hablemos</a></li>
+      <li><a href="#" onclick="openModal(); return false;" class="nav-cta" data-i18n="nav.cta">Hablemos</a></li>
     </ul>
     <button class="lang-switch" id="langSwitch" type="button" onclick="toggleLanguage()" aria-label="Cambiar idioma a inglés">ENG</button>
     <button class="hamburger" id="hamburger" aria-label="Abrir menú" data-i18n-aria="nav.menuOpen" aria-expanded="false" onclick="toggleMobile()">
@@ -98,7 +98,7 @@
 
 <section id="about">
   <video class="section-video" autoplay muted loop playsinline preload="none">
-    <source src="media/video2.webm" type="video/webm" />
+    <source src="media/videociudadcampo.webm" type="video/webm" />
   </video>
   <div class="section-video-overlay"></div>
   <div class="section-inner">
@@ -158,9 +158,9 @@
                                            0.2126 0.7152 0.0722 0 0
                                            0      0      0      1 0"/>
       <feComponentTransfer>
-        <feFuncR type="table" tableValues="0.137 0.941"/>
-        <feFuncG type="table" tableValues="0.176 0.827"/>
-        <feFuncB type="table" tableValues="0.388 0.369"/>
+        <feFuncR type="table" tableValues="0.27 0.95"/>
+        <feFuncG type="table" tableValues="0.31 0.88"/>
+        <feFuncB type="table" tableValues="0.46 0.60"/>
       </feComponentTransfer>
     </filter>
   </svg>
