@@ -1315,7 +1315,7 @@ section {
   left: 10%;
   height: 1px;
   width: 0;
-  background: linear-gradient(90deg, rgba(240,232,222,.25) 0%, rgba(240,232,222,.55) 70%, var(--yellow) 100%);
+  background: linear-gradient(90deg, rgba(110,145,149,.4) 0%, var(--teal-lt) 100%);
   z-index: 0;
   transition: width 1.5s linear;
 }
@@ -1351,22 +1351,23 @@ section {
 }
 
 .h-dot {
-  width: 13px;
-  height: 13px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--navy);
-  box-shadow: 0 0 0 2px rgba(240,232,222,.4);
+  background: rgba(240,232,222,.18);
   border: none;
   outline: none;
   cursor: pointer;
   opacity: 0;
   transform: scale(0);
-  transition: opacity .35s ease, transform .35s cubic-bezier(0.34,1.56,0.64,1), background .3s, box-shadow .3s;
+  transition: opacity .4s ease, transform .4s cubic-bezier(0.34,1.56,0.64,1), background .5s ease, box-shadow .3s;
 }
 
+/* Pasos que se rellenan en secuencia — todos iguales (estilo progress bar) */
 .h-timeline.animated .h-dot {
   opacity: 1;
   transform: scale(1);
+  background: var(--teal-lt);
 }
 
 .h-dot:hover {
@@ -1878,6 +1879,25 @@ footer {
 #contacto    { background: #0a1a1c; }
 #servicios   { background: var(--bg-lt); }
 #casos       { background: var(--bg-lt); }
+
+/* Vídeo de fondo único (fijo) detrás del hero y de "Quiénes somos" */
+.home-bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+/* hero + quiénes somos transparentes y por encima del vídeo fijo */
+#top,
+#about {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
 
 .section-video {
   position: absolute;
