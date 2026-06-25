@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<!-- Cortinilla de carga (parte del paquete de animaciones — borrar esta línea para quitarla) -->
+<!-- Cortinilla de carga -->
 <div class="page-curtain" aria-hidden="true"><span>TESSERA</span></div>
 
 <div id="scroll-bar"></div>
@@ -74,7 +74,6 @@
     <a href="#servicios" class="btn-ghost" data-i18n="hero.ctaGhost">Ver servicios</a>
   </div>
 
-  <!-- Cifras abajo a la derecha con contador animado -->
   <div class="hero-social-proof">
     <div class="hero-proof-item">
       <span class="hero-proof-num">+€<span class="proof-count" data-target="500">0</span>M</span>
@@ -152,7 +151,6 @@
 <div class="divider"></div>
 
 <section id="servicios">
-  <!-- Filtro duotono de marca para las fotos de servicios (sombras azul-índigo · luces dorado) -->
   <svg class="duotone-def" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">
     <filter id="tessera-duotone" color-interpolation-filters="sRGB">
       <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
@@ -260,7 +258,7 @@
             <img src="media/serv-erp.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
           </div>
           <h3 class="svc-detail-title" data-i18n="svc.erp.title">Implementación de ERP</h3>
-          <p data-i18n="svc.erp.desc">Te ayudamos a elegir, implementar y migrar el ERP que encaja con tu operativa, no el que más comisión deja. Somos partners de varias plataformas líderes del mercado, como Odoo, Holded y otras, y nos encargamos de la configuración, la migración de datos y la formación de tu equipo. Dejamos tus procesos integrados, tu información ordenada y a tu gente trabajando con la herramienta desde el primer día.</p>
+          <p data-i18n="svc.erp.desc">Implementación y migración de ERP. Somos partners de diferentes ERP y te ayudamos con la migración o implementación de los más actuales del mercado como: Odoo, Holded...</p>
         </div>
       </div>
     </div>
@@ -509,6 +507,14 @@
 </section>
 
 <section id="contacto">
+  <!-- ══ AÑADIDO: VÍDEO DE FONDO EN CONTACTO ══ -->
+  <video class="section-video" autoplay muted loop playsinline preload="none">
+    <!-- Pon aquí la ruta de tu vídeo de contacto -->
+    <source src="media/video3.webm" type="video/webm" />
+  </video>
+  <!-- Capa de superposición para asegurar que el texto se lea bien -->
+  <div class="section-video-overlay section-video-overlay--dark"></div>
+
   <div class="section-inner">
     <div class="contact-inner reveal">
       <p class="section-label" data-i18n="nav.cta">Hablemos</p>

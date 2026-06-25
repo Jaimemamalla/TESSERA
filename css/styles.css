@@ -1876,7 +1876,7 @@ footer {
 
 #about       { background: transparent; }
 #metodologia { background: transparent; }
-#contacto    { background: var(--navy); }
+#contacto    { background: #0a1a1c; }
 #servicios   { background: var(--bg-lt); }
 #casos       { background: var(--bg-lt); }
 
@@ -2234,5 +2234,5 @@ section > .section-inner {
   .section-video { display: none; }
   #about       { background: var(--bg); }
   #metodologia { background: var(--navy); }
-  #contacto    { background: var(--navy); }
+  #contacto    { background: #0a1a1c; }
 }
