@@ -16,8 +16,8 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: var(--navy) url('../deagradado.png') no-repeat center center;
-    background-size: cover;
+    /* Aplicamos el degradado solicitado en lugar de la foto */
+    background: linear-gradient(135deg, #202031 0%, #587579 50%, #FBE0A0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
