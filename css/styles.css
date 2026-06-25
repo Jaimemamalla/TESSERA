@@ -1300,7 +1300,7 @@ section {
 .h-cols::before {
   content: '';
   position: absolute;
-  top: calc(1.45rem + 6px);
+  top: calc(1.37rem + 7.5px);
   left: 10%;
   right: 10%;
   height: 1px;
@@ -1311,13 +1311,13 @@ section {
 .h-cols::after {
   content: '';
   position: absolute;
-  top: calc(1.45rem + 6px);
+  top: calc(1.37rem + 7.5px);
   left: 10%;
   height: 1px;
   width: 0;
   background: linear-gradient(90deg, rgba(110,145,149,.4) 0%, var(--teal-lt) 100%);
   z-index: 0;
-  transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: width 1.5s linear;
 }
 
 .h-timeline.animated .h-cols::after {
@@ -1336,6 +1336,7 @@ section {
   font-weight: 700;
   color: rgba(240,232,222,.7);
   letter-spacing: .1em;
+  line-height: 1;
   margin-bottom: .65rem;
 }
 
@@ -1430,16 +1431,16 @@ section {
   font-weight: 300;
 }
 
-.h-col:nth-child(1) .h-dot  { transition-delay:  150ms; }
-.h-col:nth-child(2) .h-dot  { transition-delay:  350ms; }
-.h-col:nth-child(3) .h-dot  { transition-delay:  550ms; }
-.h-col:nth-child(4) .h-dot  { transition-delay:  750ms; }
-.h-col:nth-child(5) .h-dot  { transition-delay:  950ms; }
-.h-col:nth-child(1) .h-step { transition-delay:  300ms; }
-.h-col:nth-child(2) .h-step { transition-delay:  480ms; }
-.h-col:nth-child(3) .h-step { transition-delay:  660ms; }
-.h-col:nth-child(4) .h-step { transition-delay:  840ms; }
-.h-col:nth-child(5) .h-step { transition-delay: 1020ms; }
+.h-col:nth-child(1) .h-dot  { transition-delay: 0ms; }
+.h-col:nth-child(2) .h-dot  { transition-delay: 375ms; }
+.h-col:nth-child(3) .h-dot  { transition-delay: 750ms; }
+.h-col:nth-child(4) .h-dot  { transition-delay: 1125ms; }
+.h-col:nth-child(5) .h-dot  { transition-delay: 1500ms; }
+.h-col:nth-child(1) .h-step { transition-delay: 150ms; }
+.h-col:nth-child(2) .h-step { transition-delay: 525ms; }
+.h-col:nth-child(3) .h-step { transition-delay: 900ms; }
+.h-col:nth-child(4) .h-step { transition-delay: 1275ms; }
+.h-col:nth-child(5) .h-step { transition-delay: 1650ms; }
 
 /* ══════════════════ TESTIMONIOS ══════════════════ */
 
@@ -1654,11 +1655,12 @@ section {
 
 #contacto {
   padding: 10rem 0;
+  background: #0a1a1c;
 }
 
 .contact-inner {
   text-align: center;
-  max-width: 680px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
