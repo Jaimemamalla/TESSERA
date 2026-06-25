@@ -11,6 +11,32 @@
 
 @media (prefers-reduced-motion: no-preference) {
 
+  /* 0 · Cortinilla de carga / transición entre páginas */
+  .page-curtain {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transform: translateY(0);
+    animation: curtainUp .7s .5s cubic-bezier(.76, 0, .24, 1) forwards;
+  }
+  .page-curtain span {
+    font-family: var(--ff-logo);
+    font-size: clamp(2rem, 7vw, 3.6rem);
+    letter-spacing: .28em;
+    text-indent: .28em;
+    color: var(--beige);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: curtainWord .45s ease forwards;
+  }
+  @keyframes curtainWord { to { opacity: 1; transform: translateY(0); } }
+  @keyframes curtainUp   { to { transform: translateY(-100%); } }
+
   /* 1 · Scroll suave (Lenis) */
   html.lenis,
   html.lenis body { height: auto; }
@@ -40,3 +66,60 @@
   /* 5 · Parallax — la foto debe poder deslizarse dentro de su marco */
   .svc-detail-photo img { will-change: transform; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   Testimonios sobre fondo de partículas WebGL (parte del paquete)
+   Va fuera de prefers-reduced-motion: la sección queda oscura igual,
+   solo que sin movimiento de partículas si está desactivado.
+   ═══════════════════════════════════════════════════════════════ */
+#casos { background: var(--navy); }
+#casos .section-inner { position: relative; z-index: 1; }
+
+.casos-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.casos-particles canvas { position: absolute; inset: 0; display: block; }
+
+/* Cabecera y controles en claro sobre el navy */
+#casos .section-label { color: var(--teal-lt); }
+#casos .section-title { color: var(--beige); }
+#casos .section-title strong { color: var(--yellow); }
+#casos .carousel-btn { border-color: rgba(240,232,222,.3); color: var(--beige); }
+#casos .carousel-btn:hover { background: var(--teal); border-color: var(--teal); color: var(--beige); }
+#casos .carousel-dot { background: rgba(240,232,222,.3); }
+#casos .carousel-dot.active { background: var(--yellow); }
+
+/* Tarjetas "glass" oscuras — texto claro en reposo y en hover */
+#casos .testimonial-card,
+#casos .testimonial-card:hover {
+  background: rgba(32,32,49,.45);
+  border-color: rgba(240,232,222,.14);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  box-shadow: none;
+}
+#casos .testimonial-card:hover {
+  background: rgba(32,32,49,.62);
+  border-color: rgba(240,232,222,.22);
+  box-shadow: 0 20px 50px rgba(0,0,0,.28);
+}
+#casos .testimonial-card > p,
+#casos .testimonial-card:hover > p { color: rgba(240,232,222,.82); }
+#casos .testimonial-result,
+#casos .testimonial-card:hover .testimonial-result {
+  color: var(--yellow);
+  border-color: rgba(251,224,160,.45);
+  background: transparent;
+}
+#casos .quote-mark,
+#casos .testimonial-card:hover .quote-mark { color: var(--teal-lt); opacity: .35; }
+#casos .author-avatar,
+#casos .testimonial-card:hover .author-avatar { background: var(--teal); color: var(--navy); }
+#casos .author-info strong,
+#casos .testimonial-card:hover .author-info strong { color: var(--beige); }
+#casos .author-info span,
+#casos .testimonial-card:hover .author-info span { color: rgba(240,232,222,.55); }

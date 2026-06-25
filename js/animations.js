@@ -3,12 +3,13 @@
    ───────────────────────────────────────────────────────────────
    1 · Scroll suave (Lenis)
    2 · Titulares que se revelan palabra a palabra
-   3 · Botones magnéticos
-   4 · Tilt 3D en tarjetas y foto
-   5 · Parallax de la foto al hacer scroll
+   3 · Tilt 3D en tarjetas y foto
+   4 · Parallax de la foto al hacer scroll
+   5 · Partículas WebGL (fondo de la sección de testimonios)
 
-   Para QUITARLAS TODAS: borra este archivo y css/animations.css, y
-   las 3 etiquetas de animaciones en index.html y careers.html.
+   Para QUITARLAS TODAS: borra este archivo y css/animations.css, las
+   etiquetas de animaciones (three.js · lenis · animations.js) y los
+   div .page-curtain y #casosParticles en index.html / careers.html.
    Respeta prefers-reduced-motion (si está activo, no se ejecuta nada).
    ═══════════════════════════════════════════════════════════════ */
 (function () {
@@ -17,7 +18,7 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  /* ── 1 · SCROLL SUAVE (Lenis) ───────────────────────────────── */
+  /* ── 1 · SCROLL SUAVE (Lenis) ── */
   var lenis = null;
   if (typeof window.Lenis === 'function') {
     lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
@@ -35,7 +36,7 @@
     });
   }
 
-  /* ── 2 · TITULARES QUE SE REVELAN (palabra a palabra) ───────── */
+  /* ── 2 · TITULARES QUE SE REVELAN (palabra a palabra) ── */
   var splitTargets = document.querySelectorAll('.hero-title, .section-title, .contact-title, .meth-title');
 
   function splitWords(el) {
@@ -86,20 +87,7 @@
     }
   } catch (err) {}
 
-  /* ── 3 · BOTONES MAGNÉTICOS ─────────────────────────────────── */
-  if (canHover) {
-    document.querySelectorAll('.btn-primary, .btn-ghost').forEach(function (btn) {
-      btn.addEventListener('mousemove', function (e) {
-        var r = btn.getBoundingClientRect();
-        var x = e.clientX - (r.left + r.width / 2);
-        var y = e.clientY - (r.top + r.height / 2);
-        btn.style.transform = 'translate(' + (x * 0.25) + 'px,' + (y * 0.35) + 'px)';
-      });
-      btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
-    });
-  }
-
-  /* ── 4 · TILT 3D en tarjetas y foto ─────────────────────────── */
+  /* ── 3 · TILT 3D en tarjetas y foto ── */
   if (canHover) {
     document.querySelectorAll('.testimonial-card, .svc-detail-photo, .careers-card').forEach(function (card) {
       card.addEventListener('mousemove', function (e) {
@@ -112,7 +100,7 @@
     });
   }
 
-  /* ── 5 · PARALLAX (la foto se desliza dentro de su marco) ───── */
+  /* ── 4 · PARALLAX (la foto se desliza dentro de su marco) ── */
   var pEls = [];
   document.querySelectorAll('.svc-detail-photo img').forEach(function (el) { pEls.push(el); });
 
@@ -131,6 +119,90 @@
     else window.addEventListener('scroll', updateParallax, { passive: true });
     window.addEventListener('resize', updateParallax);
     updateParallax();
+  }
+
+  /* ── 5 · PARTÍCULAS WebGL (fondo de #casos) ── */
+  var pWrap = document.getElementById('casosParticles');
+  if (pWrap && typeof THREE !== 'undefined') {
+    var W = pWrap.clientWidth, H = pWrap.clientHeight || 600;
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(55, W / H, 0.1, 1000);
+    camera.position.z = 80;
+    var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(W, H);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    pWrap.appendChild(renderer.domElement);
+
+    var dotTex = (function () {
+      var c = document.createElement('canvas'); c.width = c.height = 64;
+      var x = c.getContext('2d');
+      var g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+      g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(.55, 'rgba(255,255,255,.85)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+      x.fillStyle = g; x.beginPath(); x.arc(32, 32, 32, 0, Math.PI * 2); x.fill();
+      var t = new THREE.Texture(c); t.needsUpdate = true; return t;
+    })();
+
+    var N = 80, RX = 64, RY = 40, RZ = 26, THR = 320;
+    var parr = new Float32Array(N * 3), vel = [];
+    for (var i = 0; i < N; i++) {
+      parr[i * 3]     = (Math.random() - 0.5) * RX * 2;
+      parr[i * 3 + 1] = (Math.random() - 0.5) * RY * 2;
+      parr[i * 3 + 2] = (Math.random() - 0.5) * RZ * 2;
+      vel.push([(Math.random() - 0.5) * 0.045, (Math.random() - 0.5) * 0.045, (Math.random() - 0.5) * 0.045]);
+    }
+    var pgeo = new THREE.BufferGeometry();
+    pgeo.setAttribute('position', new THREE.BufferAttribute(parr, 3));
+    var pmat = new THREE.PointsMaterial({ color: 0xf0d35e, size: 2.2, map: dotTex, transparent: true, opacity: 0.9, depthWrite: false, sizeAttenuation: true, blending: THREE.AdditiveBlending });
+    var points = new THREE.Points(pgeo, pmat);
+
+    var lpos = new Float32Array(N * (N - 1) / 2 * 6);
+    var lgeo = new THREE.BufferGeometry();
+    lgeo.setAttribute('position', new THREE.BufferAttribute(lpos, 3));
+    var lines = new THREE.LineSegments(lgeo, new THREE.LineBasicMaterial({ color: 0x6e9195, transparent: true, opacity: 0.18 }));
+
+    var group = new THREE.Group(); group.add(lines); group.add(points); scene.add(group);
+
+    var mx = 0, my = 0, base = 0, visible = true;
+    var casos = document.getElementById('casos');
+    (casos || pWrap).addEventListener('mousemove', function (e) {
+      var r = pWrap.getBoundingClientRect();
+      mx = ((e.clientX - r.left) / r.width - 0.5);
+      my = ((e.clientY - r.top) / r.height - 0.5);
+    });
+    if ('IntersectionObserver' in window && casos) {
+      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(casos);
+    }
+
+    (function frame() {
+      requestAnimationFrame(frame);
+      if (!visible) return;
+      for (var i = 0; i < N; i++) {
+        parr[i * 3] += vel[i][0]; parr[i * 3 + 1] += vel[i][1]; parr[i * 3 + 2] += vel[i][2];
+        if (parr[i * 3] > RX || parr[i * 3] < -RX)         vel[i][0] *= -1;
+        if (parr[i * 3 + 1] > RY || parr[i * 3 + 1] < -RY) vel[i][1] *= -1;
+        if (parr[i * 3 + 2] > RZ || parr[i * 3 + 2] < -RZ) vel[i][2] *= -1;
+      }
+      pgeo.attributes.position.needsUpdate = true;
+      var c = 0;
+      for (var a = 0; a < N; a++) for (var b = a + 1; b < N; b++) {
+        var dx = parr[a * 3] - parr[b * 3], dy = parr[a * 3 + 1] - parr[b * 3 + 1], dz = parr[a * 3 + 2] - parr[b * 3 + 2];
+        if (dx * dx + dy * dy + dz * dz < THR) {
+          lpos[c++] = parr[a * 3]; lpos[c++] = parr[a * 3 + 1]; lpos[c++] = parr[a * 3 + 2];
+          lpos[c++] = parr[b * 3]; lpos[c++] = parr[b * 3 + 1]; lpos[c++] = parr[b * 3 + 2];
+        }
+      }
+      lgeo.setDrawRange(0, c / 3);
+      lgeo.attributes.position.needsUpdate = true;
+      base += 0.0007;
+      group.rotation.y += ((base + mx * 0.45) - group.rotation.y) * 0.05;
+      group.rotation.x += ((my * 0.28) - group.rotation.x) * 0.05;
+      renderer.render(scene, camera);
+    })();
+
+    window.addEventListener('resize', function () {
+      W = pWrap.clientWidth; H = pWrap.clientHeight || 600;
+      camera.aspect = W / H; camera.updateProjectionMatrix(); renderer.setSize(W, H);
+    });
   }
 
 })();

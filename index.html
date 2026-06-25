@@ -20,6 +20,9 @@
 </head>
 <body>
 
+<!-- Cortinilla de carga (parte del paquete de animaciones — borrar esta línea para quitarla) -->
+<div class="page-curtain" aria-hidden="true"><span>TESSERA</span></div>
+
 <div id="scroll-bar"></div>
 
 <nav class="mobile-nav" id="mobileNav">
@@ -436,6 +439,8 @@
 </section>
 
 <section id="casos">
+  <!-- Fondo de partículas WebGL (parte del paquete de animaciones — borrar este div para quitarlo) -->
+  <div class="casos-particles" id="casosParticles" aria-hidden="true"></div>
   <div class="section-inner">
     <div class="reveal">
       <p class="section-label" data-i18n="cases.label">Lo que dicen de nosotros</p>
@@ -631,7 +636,8 @@
 </div>
 
 <script src="js/main.js"></script>
-<!-- Animaciones (opcional) — quitar estas 2 líneas + css/animations.css para desactivarlas -->
+<!-- Animaciones (opcional) — quitar estas líneas + css/animations.css para desactivarlas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
 <script src="js/animations.js"></script>
 </body>
