@@ -16,7 +16,6 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    /* Aplicamos el degradado solicitado en lugar de la foto */
     background: linear-gradient(135deg, #202031 0%, #587579 50%, #FBE0A0 100%);
     display: flex;
     align-items: center;
@@ -89,38 +88,66 @@
 #casos .section-label { color: var(--teal-lt); }
 #casos .section-title { color: var(--beige); }
 #casos .section-title strong { color: var(--yellow); }
-#casos .carousel-btn { border-color: rgba(240,232,222,.3); color: var(--beige); }
+#casos .carousel-btn { border-color: rgba(240,232,222,.4); color: rgba(240,232,222,.8); }
 #casos .carousel-btn:hover { background: var(--teal); border-color: var(--teal); color: var(--beige); }
-#casos .carousel-dot { background: rgba(240,232,222,.3); }
-#casos .carousel-dot.active { background: var(--yellow); }
+#casos .carousel-dot { background: rgba(240,232,222,.4); }
+#casos .carousel-dot.active { background: var(--yellow); box-shadow: 0 0 8px rgba(251,224,160,.4); }
 
-/* Tarjetas "glass" oscuras — texto claro en reposo y en hover */
-#casos .testimonial-card,
-#casos .testimonial-card:hover {
-  background: var(--teal-dk);
-  border-color: rgba(240,232,222,.14);
-  -webkit-backdrop-filter: blur(7px);
-  backdrop-filter: blur(7px);
-  box-shadow: none;
+/* Tarjetas "glass" brillantes para que destaquen sobre el fondo oscuro */
+#casos .testimonial-card {
+  background: rgba(240, 232, 222, 0.06);
+  border-color: rgba(240, 232, 222, 0.15);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
+
+/* Solo cambia el fondo y la sombra al pasar el ratón, los textos NO */
 #casos .testimonial-card:hover {
-  background: var(--teal-dk);
-  border-color: rgba(240,232,222,.22);
-  box-shadow: 0 20px 50px rgba(0,0,0,.28);
+  background: rgba(240, 232, 222, 0.12);
+  border-color: rgba(240, 232, 222, 0.35);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
 }
+
+/* ── TEXTOS Y ELEMENTOS FIJOS (Forzamos a que ignoren los hover de styles.css) ── */
+
+/* Texto principal de la cita */
 #casos .testimonial-card > p,
-#casos .testimonial-card:hover > p { color: rgba(240,232,222,.82); }
+#casos .testimonial-card:hover > p { 
+  color: var(--beige) !important; 
+}
+
+/* Nombre del autor */
+#casos .author-info strong,
+#casos .testimonial-card:hover .author-info strong { 
+  color: #fff !important; 
+}
+
+/* Cargo del autor */
+#casos .author-info span,
+#casos .testimonial-card:hover .author-info span { 
+  color: rgba(240,232,222,.75) !important; 
+}
+
+/* Avatar del autor (círculo con las iniciales) */
+#casos .author-avatar,
+#casos .testimonial-card:hover .author-avatar {
+  background: var(--teal) !important;
+  color: var(--beige) !important;
+  border: 1px solid var(--teal) !important;
+}
+
+/* Comillas gigantes */
+#casos .quote-mark,
+#casos .testimonial-card:hover .quote-mark { 
+  color: var(--teal-lt) !important; 
+  opacity: .4 !important; 
+}
+
+/* Etiqueta de resultado (ej. "Financiación conseguida") */
 #casos .testimonial-result,
 #casos .testimonial-card:hover .testimonial-result {
-  color: var(--yellow);
-  border-color: rgba(251,224,160,.45);
-  background: transparent;
+  color: var(--yellow) !important;
+  border-color: var(--yellow) !important;
+  background: rgba(251,224,160,.08) !important;
 }
-#casos .quote-mark,
-#casos .testimonial-card:hover .quote-mark { color: var(--teal-lt); opacity: .35; }
-#casos .author-avatar,
-#casos .testimonial-card:hover .author-avatar { background: var(--teal); color: var(--navy); }
-#casos .author-info strong,
-#casos .testimonial-card:hover .author-info strong { color: var(--beige); }
-#casos .author-info span,
-#casos .testimonial-card:hover .author-info span { color: rgba(240,232,222,.55); }
