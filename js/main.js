@@ -709,6 +709,14 @@ if (carouselTrack && prevBtn && nextBtn) {
   nextBtn.addEventListener('click', () => goTo(currentIdx + 1));
   carouselDots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
 
+  let autoPlay = setInterval(() => goTo(currentIdx + 1), 5000);
+  const wrap = carouselTrack.closest('.carousel-wrap');
+  wrap.addEventListener('mouseenter', () => clearInterval(autoPlay));
+  wrap.addEventListener('mouseleave', () => {
+    clearInterval(autoPlay);
+    autoPlay = setInterval(() => goTo(currentIdx + 1), 5000);
+  });
+
   window.addEventListener('resize', () => goTo(currentIdx), { passive: true });
 
   let startX = 0;
