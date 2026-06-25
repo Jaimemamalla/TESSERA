@@ -155,9 +155,10 @@
                                            0.2126 0.7152 0.0722 0 0
                                            0      0      0      1 0"/>
       <feComponentTransfer>
-        <feFuncR type="table" tableValues="0.27 0.95"/>
-        <feFuncG type="table" tableValues="0.31 0.88"/>
-        <feFuncB type="table" tableValues="0.46 0.60"/>
+        <!-- Sombras: Negro puro (0) | Luces: Blanco puro (1) -->
+        <feFuncR type="table" tableValues="0 1"/>
+        <feFuncG type="table" tableValues="0 1"/>
+        <feFuncB type="table" tableValues="0 1"/>
       </feComponentTransfer>
     </filter>
   </svg>

@@ -859,7 +859,6 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* Duotono de marca: sombras azul-indigo, luces dorado */
   filter: url(#tessera-duotone);
 }
 
@@ -1888,7 +1887,7 @@ footer {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 /* hero + quiénes somos transparentes y por encima del vídeo fijo */
