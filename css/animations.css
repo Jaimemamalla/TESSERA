@@ -60,11 +60,7 @@
   .split-in .sr-word > span { transform: translateY(0); }
 
   /* 4 · Tilt 3D — transición suave al soltar */
-  .testimonial-card,
-  .svc-detail-photo { transition: transform .3s cubic-bezier(.16, 1, .3, 1); }
-
-  /* 5 · Parallax — la foto debe poder deslizarse dentro de su marco */
-  .svc-detail-photo img { will-change: transform; }
+  .testimonial-card { transition: transform .3s cubic-bezier(.16, 1, .3, 1); }
 }
 
 /* ═══════════════════════════════════════════════════════════════

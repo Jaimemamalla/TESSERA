@@ -860,6 +860,7 @@ section {
   object-fit: cover;
   display: block;
   filter: url(#tessera-duotone);
+  transform: none !important;
 }
 
 .svc-detail-title {

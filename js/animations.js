@@ -89,7 +89,7 @@
 
   /* ── 3 · TILT 3D en tarjetas y foto ── */
   if (canHover) {
-    document.querySelectorAll('.svc-detail-photo, .careers-card').forEach(function (card) {
+    document.querySelectorAll('.careers-card').forEach(function (card) {
       card.addEventListener('mousemove', function (e) {
         var r = card.getBoundingClientRect();
         var px = (e.clientX - r.left) / r.width - 0.5;
@@ -102,7 +102,7 @@
 
   /* ── 4 · PARALLAX (la foto se desliza dentro de su marco) ── */
   var pEls = [];
-  document.querySelectorAll('.svc-detail-photo img').forEach(function (el) { pEls.push(el); });
+  document.querySelectorAll('.section-video-parallax img').forEach(function (el) { pEls.push(el); });
 
   function updateParallax() {
     var vh = window.innerHeight;
