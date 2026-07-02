@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel='icon' type='image/png' href='https://images.teamtailor-cdn.com/images/s3/teamtailor-production/favicon-v3/image_uploads/30564067-d582-4b42-8b3f-ea7ff035dd05/original.png'>
@@ -64,6 +65,11 @@
 </head>
 <body>
 
+<!-- Vídeo de fondo único, compartido por el hero -->
+<video class="home-bg-video" autoplay muted loop playsinline preload="auto">
+  <source src="media/videociudadcampo.webm" type="video/webm" />
+</video>
+
 <!-- Cortinilla de carga (parte del paquete de animaciones — borrar esta línea para quitarla) -->
 <div class="page-curtain" aria-hidden="true"><span>TESSERA</span></div>
 
@@ -96,9 +102,6 @@
 </nav>
 
 <section id="careers-hero" class="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto">
-    <source src="media/videociudadcampo.webm" type="video/webm" />
-  </video>
   <div class="hero-overlay"></div>
   <div class="hero-grain"></div>
 

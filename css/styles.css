@@ -1892,7 +1892,8 @@ footer {
 }
 /* hero + quiénes somos transparentes y por encima del vídeo fijo */
 #top,
-#about {
+#about,
+#careers-hero {
   position: relative;
   z-index: 1;
   background: transparent;
