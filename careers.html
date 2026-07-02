@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TESSERA · Careers · Únete al equipo</title>
+  <meta name="description" content="Trabaja en Tessera: finanzas, M&A, estrategia y capital humano para PYMES y startups. Descubre nuestras vacantes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel='icon' type='image/png' href='https://images.teamtailor-cdn.com/images/s3/teamtailor-production/favicon-v3/image_uploads/30564067-d582-4b42-8b3f-ea7ff035dd05/original.png'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.cdnfonts.com/css/ailerons" rel="stylesheet">
+  <style>
+    /* ── Página de Careers (estilos propios mínimos, reutiliza el resto del sistema) ── */
+    #careers-why { padding: 7rem 0; background: var(--bg-lt); }
+    .careers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .careers-card {
+      padding: 2.4rem 2rem;
+      background: #fff;
+      border: 1px solid var(--dust);
+      border-radius: 16px;
+      transition: transform .3s var(--ease), border-color .3s var(--ease);
+    }
+    .careers-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+    .careers-card .c-ico {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy);
+      color: var(--yellow);
+      font-size: 1.2rem;
+      margin-bottom: 1.3rem;
+    }
+    .careers-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+    .careers-card p {
+      font-size: .92rem;
+      line-height: 1.7;
+      color: var(--mid);
+      font-weight: 300;
+    }
+    .careers-cta { margin-top: 3rem; }
+    @media (max-width: 860px) {
+      .careers-grid { grid-template-columns: 1fr; }
+      #careers-why { padding: 4.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cortinilla de carga (parte del paquete de animaciones — borrar esta línea para quitarla) -->
+<div class="page-curtain" aria-hidden="true"><span>TESSERA</span></div>
+
+<div id="scroll-bar"></div>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html#about"       onclick="closeMobile()" data-i18n="nav.about">Nosotros</a>
+  <a href="index.html#servicios"   onclick="closeMobile()" data-i18n="nav.finance">Finanzas</a>
+  <a href="index.html#metodologia" onclick="closeMobile()">Human Capital</a>
+  <a href="index.html#casos"       onclick="closeMobile()" data-i18n="nav.cases">Casos</a>
+  <a href="careers.html">Careers</a>
+  <a href="#" onclick="closeMobile(); openModal(); return false;" class="mobile-cta" data-i18n="nav.cta">Hablemos</a>
+</nav>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo" aria-label="Tessera">TESSERA</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html#servicios" data-i18n="nav.finance">Finanzas</a></li>
+      <li><a href="index.html#metodologia">Human Capital</a></li>
+      <li><a href="index.html#casos" data-i18n="nav.cases">Casos</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="#" onclick="openModal(); return false;" class="nav-cta" data-i18n="nav.cta">Hablemos</a></li>
+    </ul>
+    <button class="lang-switch" id="langSwitch" type="button" onclick="toggleLanguage()" aria-label="Cambiar idioma a inglés">ENG</button>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" data-i18n-aria="nav.menuOpen" aria-expanded="false" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section id="careers-hero" class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="media/videociudadcampo.webm" type="video/webm" />
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+
+  <p class="hero-eyebrow" data-i18n="careers.eyebrow">Carreras · Talento</p>
+  <h1 class="hero-title" data-i18n="careers.title">
+    Construye tu carrera<br>
+    <strong>con nosotros.</strong>
+  </h1>
+  <p class="hero-sub" data-i18n="careers.sub">
+    Buscamos personas que quieran sentarse en la mesa donde se toman las decisiones. Si te mueve la exigencia y el impacto real, este es tu sitio.
+  </p>
+  <div class="hero-actions">
+    <a href="https://jobs.tesseraservices.com/" target="_blank" rel="noopener" class="btn-primary">
+      <span data-i18n="careers.ctaJobs">Ver vacantes</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#" onclick="openModal(); return false;" class="btn-ghost" data-i18n="careers.ctaTalk">Hablemos</a>
+  </div>
+</section>
+
+<section id="careers-why">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label" data-i18n="careers.whyLabel">Por qué Tessera</p>
+      <h2 class="section-title" data-i18n="careers.whyTitle">Un sitio donde <strong>se decide de verdad.</strong></h2>
+    </div>
+
+    <div class="careers-grid">
+      <div class="careers-card reveal reveal-delay-1">
+        <div class="c-ico"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
+        <h3 data-i18n="careers.c1t">Decisiones reales</h3>
+        <p data-i18n="careers.c1d">Desde el primer día te sientas en operaciones de verdad: M&amp;A, financiación, reestructuración. Nada de tareas de relleno.</p>
+      </div>
+      <div class="careers-card reveal reveal-delay-2">
+        <div class="c-ico"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i></div>
+        <h3 data-i18n="careers.c2t">Aprendizaje acelerado</h3>
+        <p data-i18n="careers.c2d">Finanzas, estrategia y capital humano en proyectos reales con PYMES y startups. Aprendes haciendo, junto a un equipo senior.</p>
+      </div>
+      <div class="careers-card reveal reveal-delay-3">
+        <div class="c-ico"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+        <h3 data-i18n="careers.c3t">Equipo cercano</h3>
+        <p data-i18n="careers.c3d">Sin burocracia ni capas infinitas. Un equipo que se sienta a tu lado, te acompaña y te deja crecer.</p>
+      </div>
+    </div>
+
+    <div class="careers-cta reveal">
+      <a href="https://jobs.tesseraservices.com/" target="_blank" rel="noopener" class="btn-primary">
+        <span data-i18n="careers.ctaBottom">Ver vacantes abiertas</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">TESSERA</a>
+      <p data-i18n="footer.about">Especialistas en finanzas y capital humano para PYMES y startups en España.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/tesseraservices" target="_blank" class="social-link" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/tessera.services/" target="_blank" class="social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@tessera.services" target="_blank" class="social-link" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.servicesHeading">Servicios</h5>
+      <ul>
+        <li><a href="index.html#servicios" data-i18n="svc.ma.title">M&amp;A · Compraventa de Empresas</a></li>
+        <li><a href="index.html#servicios">CFO Part-Time</a></li>
+        <li><a href="index.html#servicios" data-i18n="svc.restructuring.title">Reestructuración</a></li>
+        <li><a href="index.html#servicios" data-i18n="svc.bp.title">Business Plan</a></li>
+        <li><a href="index.html#servicios" data-i18n="svc.financing.title">Financiación</a></li>
+        <li><a href="index.html#servicios" data-i18n="svc.consulting.title">Consultoría estratégica</a></li>
+        <li><a href="index.html#servicios" data-i18n="svc.erp.title">Implementación de ERP</a></li>
+        <li><a href="index.html#metodologia" data-i18n="footer.selection72">Selección 72h</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.companyHeading">Empresa</h5>
+      <ul>
+        <li><a href="index.html#about" data-i18n="nav.about">Nosotros</a></li>
+        <li><a href="index.html#casos" data-i18n="nav.cases">Casos</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="nav.contact">Contacto</h5>
+      <ul>
+        <li><a href="mailto:info@tesseraservices.com">info@tesseraservices.com</a></li>
+        <li><a href="https://www.linkedin.com/company/tesseraservices" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/tessera.services/" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Tessera · Better decisions, together.</p>
+    <div class="footer-legal">
+      <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank" data-i18n="footer.legalNotice">Aviso legal</a>
+      <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank" data-i18n="footer.privacy">Privacidad</a>
+      <a href="https://jobs.tesseraservices.com/cookie-policy" target="_blank">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ MODAL DE CONTACTO ══ -->
+<div class="modal-overlay" id="contactModal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" data-i18n-aria="modal.close" aria-label="Cerrar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-header">
+      <p class="modal-eyebrow" data-i18n="nav.cta">Hablemos</p>
+      <h3 class="modal-title" data-i18n="contact.title">¿Tu operación merece<br><em>una conversación seria?</em></h3>
+      <p class="modal-sub" data-i18n="modal.sub">Cuéntanos el reto. En <span class="num">24h</span> tienes respuesta.</p>
+    </div>
+    <form class="modal-form" id="contactForm" onsubmit="submitModal(event)">
+      <div class="modal-field">
+        <label for="mNombre" data-i18n="modal.name">Nombre *</label>
+        <input type="text" id="mNombre" name="nombre" placeholder="Tu nombre" data-i18n-placeholder="modal.namePh" required />
+      </div>
+      <div class="modal-field">
+        <label for="mEmpresa" data-i18n="modal.company">Empresa *</label>
+        <input type="text" id="mEmpresa" name="empresa" placeholder="Nombre de tu empresa" data-i18n-placeholder="modal.companyPh" required />
+      </div>
+      <div class="modal-row">
+        <div class="modal-field">
+          <label for="mEmail">Email *</label>
+          <input type="email" id="mEmail" name="email" placeholder="correo@empresa.com" data-i18n-placeholder="modal.emailPh" required />
+        </div>
+        <div class="modal-field">
+          <label for="mTelefono" data-i18n="modal.phone">Teléfono</label>
+          <input type="tel" id="mTelefono" name="telefono" placeholder="+34 600 000 000" />
+        </div>
+      </div>
+      <button type="submit" class="modal-submit">
+        <span data-i18n="modal.submit">Enviar mensaje</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="modal-legal" data-i18n="modal.legal">Al enviar aceptas nuestra <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank">política de privacidad</a>.</p>
+    </form>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<!-- Animaciones (opcional) — quitar estas 2 líneas + css/animations.css para desactivarlas -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
