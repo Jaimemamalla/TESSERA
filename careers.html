@@ -3,65 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TESSERA · Careers · Únete al equipo</title>
-  <meta name="description" content="Trabaja en Tessera: finanzas, M&A, estrategia y capital humano para PYMES y startups. Descubre nuestras vacantes." />
+  <title>TESSERA · Careers · Better decisions, together</title>
+  <meta name="description" content="Trabaja en Tessera Human Capital: acompañamos a compañías en su crecimiento combinando talento y estrategia. Descubre nuestras vacantes en Madrid." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/careers.css" />
   <link rel='icon' type='image/png' href='https://images.teamtailor-cdn.com/images/s3/teamtailor-production/favicon-v3/image_uploads/30564067-d582-4b42-8b3f-ea7ff035dd05/original.png'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link href="https://fonts.cdnfonts.com/css/ailerons" rel="stylesheet">
-  <style>
-    /* ── Página de Careers (estilos propios mínimos, reutiliza el resto del sistema) ── */
-    #careers-why { padding: 7rem 0; background: var(--bg-lt); }
-    .careers-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .careers-card {
-      padding: 2.4rem 2rem;
-      background: #fff;
-      border: 1px solid var(--dust);
-      border-radius: 16px;
-      transition: transform .3s var(--ease), border-color .3s var(--ease);
-    }
-    .careers-card:hover { transform: translateY(-4px); border-color: var(--teal); }
-    .careers-card .c-ico {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--navy);
-      color: var(--yellow);
-      font-size: 1.2rem;
-      margin-bottom: 1.3rem;
-    }
-    .careers-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: .6rem;
-    }
-    .careers-card p {
-      font-size: .92rem;
-      line-height: 1.7;
-      color: var(--mid);
-      font-weight: 300;
-    }
-    .careers-cta { margin-top: 3rem; }
-    @media (max-width: 860px) {
-      .careers-grid { grid-template-columns: 1fr; }
-      #careers-why { padding: 4.5rem 0; }
-    }
-  </style>
 </head>
 <body>
 
@@ -75,6 +28,7 @@
 
 <div id="scroll-bar"></div>
 
+<!-- ══ NAV — idéntica a index.html ══ -->
 <nav class="mobile-nav" id="mobileNav">
   <a href="index.html#about"       onclick="closeMobile()" data-i18n="nav.about">Nosotros</a>
   <a href="index.html#servicios"   onclick="closeMobile()" data-i18n="nav.finance">Finanzas</a>
@@ -101,27 +55,92 @@
   </div>
 </nav>
 
+<!-- ══ 1 · HERO ══ -->
 <section id="careers-hero" class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-grain"></div>
 
-  <p class="hero-eyebrow" data-i18n="careers.eyebrow">Carreras · Talento</p>
+  <p class="hero-eyebrow" data-i18n="careers.eyebrow">Human Capital · Careers</p>
   <h1 class="hero-title" data-i18n="careers.title">
-    Construye tu carrera<br>
-    <strong>con nosotros.</strong>
+    Better decisions,<br>
+    <strong>together.</strong>
   </h1>
   <p class="hero-sub" data-i18n="careers.sub">
     Buscamos personas que quieran sentarse en la mesa donde se toman las decisiones. Si te mueve la exigencia y el impacto real, este es tu sitio.
   </p>
   <div class="hero-actions">
-    <a href="https://jobs.tesseraservices.com/" target="_blank" rel="noopener" class="btn-primary">
+    <a href="#vacantes" class="btn-primary">
       <span data-i18n="careers.ctaJobs">Ver vacantes</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-    <a href="#" onclick="openModal(); return false;" class="btn-ghost" data-i18n="careers.ctaTalk">Hablemos</a>
+    <a href="https://jobs.tesseraservices.com/connect" target="_blank" rel="noopener" class="btn-ghost">Connect</a>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>scroll</span>
   </div>
 </section>
 
+<!-- ══ 2 · BIENVENIDA · HUMAN CAPITAL ══ -->
+<section id="careers-about">
+  <div class="section-inner">
+    <div class="cab-grid">
+      <div class="reveal">
+        <p class="section-label" data-i18n="careers.aboutLabel">Bienvenido a Tessera Human Capital</p>
+        <h2 class="section-title" data-i18n="careers.aboutTitle">Talento y estrategia <strong>bajo el mismo techo.</strong></h2>
+        <p class="cab-lead" data-i18n="careers.aboutLead">En Tessera Human Capital acompañamos a compañías en su crecimiento desde una visión integral de personas, negocio y estructura. Trabajamos como partners en la construcción de equipos y en la toma de decisiones importantes, combinando talento y estrategia para profesionalizar procesos críticos allí donde más impacto se genera.</p>
+        <p class="cab-tagline"><span data-i18n="careers.aboutTagline">Better decisions,</span> <strong>together.</strong></p>
+        <div class="cab-actions">
+          <a href="#careers-values" class="btn-primary">
+            <span data-i18n="careers.aboutCta">Conócenos</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="cab-media reveal reveal-delay-1">
+        <video class="section-video" muted loop playsinline preload="none">
+          <source src="media/videotessera2.webm" type="video/webm" />
+        </video>
+        <span class="cab-media-caption">Tessera · Human Capital</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3 · VALORES · CONÓCENOS ══ -->
+<section id="careers-values">
+  <div class="section-inner">
+    <div class="values-head reveal">
+      <p class="section-label" data-i18n="careers.valuesLabel">Conócenos</p>
+      <h2 class="section-title" data-i18n="careers.valuesTitle">Creemos en tomar <strong>mejores decisiones, juntos.</strong></h2>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-item reveal reveal-delay-1">
+        <div class="value-num">01</div>
+        <h3 data-i18n="careers.v1t">Cercanía y confianza</h3>
+        <p data-i18n="careers.v1d">Tratamos a las personas como adultos responsables. Procesos para ayudar, no para controlar.</p>
+      </div>
+      <div class="value-item reveal reveal-delay-2">
+        <div class="value-num">02</div>
+        <h3 data-i18n="careers.v2t">Pensamiento estratégico</h3>
+        <p data-i18n="careers.v2d">Decisiones con criterio antes que con urgencia. Sentido antes que ruido.</p>
+      </div>
+      <div class="value-item reveal reveal-delay-2">
+        <div class="value-num">03</div>
+        <h3 data-i18n="careers.v3t">Aprendizaje constante</h3>
+        <p data-i18n="careers.v3d">Crecer forma parte del trabajo, no algo aparte. A nuestro ritmo, sin pausa.</p>
+      </div>
+      <div class="value-item reveal reveal-delay-3">
+        <div class="value-num">04</div>
+        <h3 data-i18n="careers.v4t">Mejores decisiones, juntos</h3>
+        <p data-i18n="careers.v4d">El equipo decide mejor que el individuo. Por eso construimos en compañía.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4 · POR QUÉ TESSERA ══ -->
 <section id="careers-why">
   <div class="section-inner">
     <div class="reveal">
@@ -146,16 +165,171 @@
         <p data-i18n="careers.c3d">Sin burocracia ni capas infinitas. Un equipo que se sienta a tu lado, te acompaña y te deja crecer.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="careers-cta reveal">
-      <a href="https://jobs.tesseraservices.com/" target="_blank" rel="noopener" class="btn-primary">
-        <span data-i18n="careers.ctaBottom">Ver vacantes abiertas</span>
+<!-- ══ 5 · TESTIMONIOS (fondo navy con partículas WebGL, como en index) ══ -->
+<section id="casos">
+  <div class="casos-particles" id="casosParticles" aria-hidden="true"></div>
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label" data-i18n="careers.testLabel">Nuestro equipo</p>
+      <h2 class="section-title" data-i18n="careers.testTitle">Personas reales, <strong>experiencias auténticas.</strong></h2>
+    </div>
+
+    <div class="t-grid">
+      <div class="t-card reveal reveal-delay-1">
+        <span class="t-mark">“</span>
+        <p data-i18n="careers.q1">En Tessera encontré un equipo donde la confianza no se pide, se da desde el primer día. Las decisiones se toman con criterio y siempre sientes que tu opinión cuenta. Aquí crecer no es una promesa, es parte del día a día.</p>
+        <div class="t-author">
+          <div class="t-avatar">E</div>
+          <div>
+            <div class="t-name">Eddy</div>
+            <div class="t-role">Head of Talent</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card reveal reveal-delay-2">
+        <span class="t-mark">“</span>
+        <p data-i18n="careers.q2">Lo que más valoro es el pensamiento estratégico que impregna cada decisión. No hay urgencia gratuita ni ruido: se reflexiona, se consulta y se actúa con sentido. Un equipo que te desafía a ser mejor cada semana.</p>
+        <div class="t-author">
+          <div class="t-avatar">M</div>
+          <div>
+            <div class="t-name">Manuel</div>
+            <div class="t-role">CFO &amp; Partner</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card reveal reveal-delay-3">
+        <span class="t-mark">“</span>
+        <p data-i18n="careers.q3">Desde el primer proyecto sentí que el aprendizaje es parte del trabajo, no algo extra. El equipo te acompaña, te da espacio para equivocarte y para crecer. Pocas empresas tienen esa coherencia entre lo que dicen y lo que hacen.</p>
+        <div class="t-author">
+          <div class="t-avatar">I</div>
+          <div>
+            <div class="t-name">Iker</div>
+            <div class="t-role">Senior Consultant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6 · VACANTES ══
+     Las vacantes vienen de Teamtailor (jobs.tesseraservices.com).
+     Para actualizar: añade/edita un bloque <a class="job-row"> con
+     el enlace de la oferta, el título y sus etiquetas.              ══ -->
+<section id="vacantes">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label" data-i18n="careers.jobsLabel">Únete al equipo</p>
+      <h2 class="section-title" data-i18n="careers.jobsTitle">Descubre nuestras <strong>oportunidades.</strong></h2>
+    </div>
+
+    <div class="jobs-list">
+      <a class="job-row reveal" href="https://jobs.tesseraservices.com/jobs/8009566-mecanico-industrial-de-panificadora" target="_blank" rel="noopener">
+        <span class="job-idx">01</span>
+        <div class="job-main">
+          <h3>Mecánico Industrial de Panificadora</h3>
+          <div class="job-meta">
+            <span class="job-tag" data-i18n="careers.tagEng">Ingeniería</span>
+            <span class="job-tag">Madrid</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="job-row reveal reveal-delay-1" href="https://jobs.tesseraservices.com/jobs/8004110-encargado-de-obra-burgos" target="_blank" rel="noopener">
+        <span class="job-idx">02</span>
+        <div class="job-main">
+          <h3>Encargado de Obra (Burgos)</h3>
+          <div class="job-meta">
+            <span class="job-tag">Madrid</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="job-row reveal reveal-delay-1" href="https://jobs.tesseraservices.com/jobs/7996037-programador-plc-y-robotica-industrial" target="_blank" rel="noopener">
+        <span class="job-idx">03</span>
+        <div class="job-main">
+          <h3>Programador PLC y Robótica Industrial</h3>
+          <div class="job-meta">
+            <span class="job-tag">Madrid</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="job-row reveal reveal-delay-2" href="https://jobs.tesseraservices.com/jobs/7989498-vacante-interna" target="_blank" rel="noopener">
+        <span class="job-idx">04</span>
+        <div class="job-main">
+          <h3>Vacante Interna</h3>
+          <div class="job-meta">
+            <span class="job-tag">Sales</span>
+            <span class="job-tag">Madrid</span>
+            <span class="job-tag" data-i18n="careers.tagHybrid">Híbrido</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="job-row reveal reveal-delay-2" href="https://jobs.tesseraservices.com/jobs/7976299-jefe-de-obra-de-instalaciones-electromecanicas" target="_blank" rel="noopener">
+        <span class="job-idx">05</span>
+        <div class="job-main">
+          <h3>Jefe de Obra de Instalaciones Electromecánicas</h3>
+          <div class="job-meta">
+            <span class="job-tag" data-i18n="careers.tagEng">Ingeniería</span>
+            <span class="job-tag">Madrid</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+
+    <div class="jobs-foot reveal">
+      <p class="jobs-connect" data-i18n="careers.connectNote">¿No encuentras tu puesto? <a href="https://jobs.tesseraservices.com/connect" target="_blank" rel="noopener">Conecta con nosotros</a> y te avisamos.</p>
+      <a href="https://jobs.tesseraservices.com/jobs" target="_blank" rel="noopener" class="btn-primary">
+        <span data-i18n="careers.ctaBottom">Todas las vacantes</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </section>
 
+<!-- ══ 7 · ACERCA DE · UBICACIÓN ══ -->
+<section id="ubicacion">
+  <div class="section-inner">
+    <div class="ubi-grid">
+      <div class="reveal">
+        <p class="section-label" data-i18n="careers.ubiLabel">Acerca de Tessera Human Capital</p>
+        <div class="ubi-facts">
+          <div>
+            <span class="ubi-fact-num">2023</span>
+            <span class="ubi-fact-label" data-i18n="careers.ubiFounded">Fundación</span>
+          </div>
+          <div>
+            <span class="ubi-fact-num"><span class="count-anim" data-target="22">0</span></span>
+            <span class="ubi-fact-label" data-i18n="careers.ubiTeam">Compañeros</span>
+          </div>
+          <div>
+            <span class="ubi-fact-num">1</span>
+            <span class="ubi-fact-label" data-i18n="careers.ubiOffice">Oficina · Madrid</span>
+          </div>
+        </div>
+      </div>
+      <a class="ubi-pin reveal reveal-delay-1" href="https://www.google.com/maps/search/?api=1&query=Madrid%2C+Espa%C3%B1a" target="_blank" rel="noopener">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <div>
+          <span class="ubi-pin-city">Madrid</span>
+          <span class="ubi-pin-sub">tesseraservices.com</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER — idéntico a index.html ══ -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -253,8 +427,9 @@
   </div>
 </div>
 
-<script src="js/main.js"></script>
-<!-- Animaciones (opcional) — quitar estas 2 líneas + css/animations.css para desactivarlas -->
+<script src="js/main2.js"></script>
+<!-- Animaciones (opcional) — quitar estas 3 líneas + css/animations.css para desactivarlas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
 <script src="js/animations.js"></script>
 </body>
