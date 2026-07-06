@@ -18,23 +18,30 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  /* ── 1 · SCROLL SUAVE (Lenis) ── */
+  /* ── 1 · SCROLL SUAVE (Lenis) — ligero y solo en escritorio ──
+     En táctil se usa el scroll nativo (más fluido, sin tirones). */
   var lenis = null;
-  if (typeof window.Lenis === 'function') {
-    lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
+  if (canHover && typeof window.Lenis === 'function') {
+    lenis = new window.Lenis({ lerp: 0.12, smoothWheel: true, wheelMultiplier: 1 });
     requestAnimationFrame(function raf(t) { lenis.raf(t); requestAnimationFrame(raf); });
-
-    // Anclas internas (#seccion) con desplazamiento suave
-    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-      var sel = a.getAttribute('href');
-      if (sel.length > 1 && document.querySelector(sel)) {
-        a.addEventListener('click', function (e) {
-          e.preventDefault();
-          lenis.scrollTo(sel, { offset: -80 });
-        });
-      }
-    });
   }
+
+  // Anclas internas (#seccion) con desplazamiento suave (con Lenis o nativo)
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var sel = a.getAttribute('href');
+    if (sel.length > 1 && document.querySelector(sel)) {
+      a.addEventListener('click', function (e) {
+        var target = document.querySelector(sel);
+        if (!target) return;
+        e.preventDefault();
+        if (lenis) {
+          lenis.scrollTo(sel, { offset: -80 });
+        } else {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+        }
+      });
+    }
+  });
 
   /* ── 2 · TITULARES QUE SE REVELAN (palabra a palabra) ── */
   var splitTargets = document.querySelectorAll('.hero-title, .section-title, .contact-title, .meth-title');
@@ -142,7 +149,7 @@
       var t = new THREE.Texture(c); t.needsUpdate = true; return t;
     })();
 
-    var N = 80, RX = 64, RY = 40, RZ = 26, THR = 320;
+    var N = 60, RX = 64, RY = 40, RZ = 26, THR = 320;
     var parr = new Float32Array(N * 3), vel = [];
     for (var i = 0; i < N; i++) {
       parr[i * 3]     = (Math.random() - 0.5) * RX * 2;
@@ -173,6 +180,7 @@
       new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(casos);
     }
 
+    var lineTick = 0;
     (function frame() {
       requestAnimationFrame(frame);
       if (!visible) return;
@@ -183,16 +191,19 @@
         if (parr[i * 3 + 2] > RZ || parr[i * 3 + 2] < -RZ) vel[i][2] *= -1;
       }
       pgeo.attributes.position.needsUpdate = true;
-      var c = 0;
-      for (var a = 0; a < N; a++) for (var b = a + 1; b < N; b++) {
-        var dx = parr[a * 3] - parr[b * 3], dy = parr[a * 3 + 1] - parr[b * 3 + 1], dz = parr[a * 3 + 2] - parr[b * 3 + 2];
-        if (dx * dx + dy * dy + dz * dz < THR) {
-          lpos[c++] = parr[a * 3]; lpos[c++] = parr[a * 3 + 1]; lpos[c++] = parr[a * 3 + 2];
-          lpos[c++] = parr[b * 3]; lpos[c++] = parr[b * 3 + 1]; lpos[c++] = parr[b * 3 + 2];
+      // El recálculo de líneas es O(N²): lo hacemos cada 2 frames para aligerar CPU
+      if ((lineTick++ & 1) === 0) {
+        var c = 0;
+        for (var a = 0; a < N; a++) for (var b = a + 1; b < N; b++) {
+          var dx = parr[a * 3] - parr[b * 3], dy = parr[a * 3 + 1] - parr[b * 3 + 1], dz = parr[a * 3 + 2] - parr[b * 3 + 2];
+          if (dx * dx + dy * dy + dz * dz < THR) {
+            lpos[c++] = parr[a * 3]; lpos[c++] = parr[a * 3 + 1]; lpos[c++] = parr[a * 3 + 2];
+            lpos[c++] = parr[b * 3]; lpos[c++] = parr[b * 3 + 1]; lpos[c++] = parr[b * 3 + 2];
+          }
         }
+        lgeo.setDrawRange(0, c / 3);
+        lgeo.attributes.position.needsUpdate = true;
       }
-      lgeo.setDrawRange(0, c / 3);
-      lgeo.attributes.position.needsUpdate = true;
       base += 0.0007;
       group.rotation.y += ((base + mx * 0.45) - group.rotation.y) * 0.05;
       group.rotation.x += ((my * 0.28) - group.rotation.x) * 0.05;

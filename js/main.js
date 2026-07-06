@@ -569,6 +569,33 @@ if (heroVideo) {
   }, { passive: true });
 }
 
+/* ── Vídeo de fondo fijo: carga diferida y solo cuando conviene ──
+   Evita descargar ~5 MB en la carga inicial. En móvil / movimiento
+   reducido / ahorro de datos se queda el gradiente CSS de reserva. */
+const bgVideo = document.querySelector('.home-bg-video');
+if (bgVideo) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const desktop      = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const saveData     = navigator.connection && navigator.connection.saveData;
+
+  if (desktop && !reduceMotion && !saveData) {
+    const startBgVideo = () => {
+      if (bgVideo.dataset.loaded) return;
+      bgVideo.dataset.loaded = '1';
+      bgVideo.load();
+      bgVideo.play().catch(() => {});
+    };
+    const whenIdle = window.requestIdleCallback || (fn => setTimeout(fn, 400));
+    window.addEventListener('load', () => whenIdle(startBgVideo), { once: true });
+
+    document.addEventListener('visibilitychange', () => {
+      if (!bgVideo.dataset.loaded) return;
+      if (document.hidden) bgVideo.pause();
+      else bgVideo.play().catch(() => {});
+    });
+  }
+}
+
 function toggleMobile() {
   const open = mobileNav.classList.toggle('open');
   hamburger.classList.toggle('open', open);

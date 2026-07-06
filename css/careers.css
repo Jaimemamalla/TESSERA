@@ -410,6 +410,65 @@
 .ubi-pin-city { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
 .ubi-pin-sub { display: block; font-size: .72rem; color: var(--mid); margin-top: .15rem; letter-spacing: .06em; }
 
+/* ══════════════════ FONDO AURORA (reemplaza vídeo + partículas WebGL) ══════════════════
+   Gradientes suaves que se desplazan muy lento. Sin canvas, sin librerías:
+   solo transform sobre 2 pseudo-elementos → coste de GPU mínimo.            */
+
+.aurora-bg,
+.aurora-layer {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Fondo fijo detrás del hero de Careers */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(120% 85% at 50% -10%, #26404e 0%, #16242c 46%, #0e181d 100%);
+}
+
+/* Capa de aurora dentro de la sección de testimonios (sobre navy) */
+.aurora-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+#casos .section-inner { position: relative; z-index: 1; }
+
+/* Manchas de color que derivan */
+.aurora-bg::before,  .aurora-bg::after,
+.aurora-layer::before, .aurora-layer::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  transform: translateZ(0);
+}
+.aurora-bg::before,  .aurora-layer::before {
+  width: 75vmax; height: 75vmax;
+  top: -26vmax; left: -20vmax;
+  background: radial-gradient(circle at center, rgba(88,117,121,.55) 0%, rgba(88,117,121,0) 62%);
+}
+.aurora-bg::after,   .aurora-layer::after {
+  width: 62vmax; height: 62vmax;
+  bottom: -26vmax; right: -18vmax;
+  background: radial-gradient(circle at center, rgba(251,224,160,.24) 0%, rgba(251,224,160,0) 62%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .aurora-bg::before, .aurora-layer::before { animation: auroraDrift1 30s ease-in-out infinite alternate; }
+  .aurora-bg::after,  .aurora-layer::after  { animation: auroraDrift2 38s ease-in-out infinite alternate; }
+}
+@keyframes auroraDrift1 {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(14vmax, 10vmax, 0) scale(1.25); }
+}
+@keyframes auroraDrift2 {
+  from { transform: translate3d(0, 0, 0) scale(1.15); }
+  to   { transform: translate3d(-12vmax, -8vmax, 0) scale(.9); }
+}
+
 /* ══════════════════ RESPONSIVE ══════════════════ */
 
 @media (max-width: 960px) {
