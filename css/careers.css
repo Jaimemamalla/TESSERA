@@ -78,50 +78,130 @@
 
 #careers-values {
   padding: 8rem 0;
-  background: var(--bg);
+  /* Oscuro, un punto más profundo que el navy de las tarjetas para que destaquen */
+  background: #1a1a27;
+  position: relative;
+  overflow: hidden;
 }
+#careers-values .section-inner { position: relative; z-index: 1; }
 
-.values-head { max-width: 640px; }
+/* Cabecera en claro sobre el fondo oscuro */
+#careers-values .section-label { color: var(--teal-lt); }
+#careers-values .section-title { color: var(--beige); }
+#careers-values .section-title strong { color: var(--yellow); }
+
+/* Lavados de color en movimiento muy lento: teal y dorado derivando por la sección */
+#careers-values::before,
+#careers-values::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+#careers-values::before {
+  width: 55vmax; height: 55vmax;
+  top: -22vmax; right: -16vmax;
+  background: radial-gradient(circle, rgba(88,117,121,.22) 0%, transparent 65%);
+}
+#careers-values::after {
+  width: 48vmax; height: 48vmax;
+  bottom: -20vmax; left: -14vmax;
+  background: radial-gradient(circle, rgba(251,224,160,.12) 0%, transparent 65%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  #careers-values::before { animation: valuesDrift1 28s ease-in-out infinite alternate; }
+  #careers-values::after  { animation: valuesDrift2 36s ease-in-out infinite alternate; }
+}
+@keyframes valuesDrift1 {
+  from { transform: translate3d(0,0,0) scale(1); }
+  to   { transform: translate3d(-10vmax, 8vmax, 0) scale(1.18); }
+}
+@keyframes valuesDrift2 {
+  from { transform: translate3d(0,0,0) scale(1.12); }
+  to   { transform: translate3d(9vmax, -7vmax, 0) scale(.92); }
+}.values-head { max-width: 640px; }
 
 .values-grid {
   margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0 4rem;
+  gap: 1.5rem;
 }
 
+/* Tarjetas navy: número teal que al hover se funde con el numeral Tessera (SVG) */
 .value-item {
   position: relative;
-  padding: 2.6rem 0 2.8rem;
-  border-top: 1px solid var(--dust);
-  transition: border-color .4s var(--ease);
+  padding: 2.6rem 2.4rem 2.8rem;
+  background: linear-gradient(155deg, #272738 0%, var(--navy) 55%);
+  border: 1px solid rgba(88,117,121,.35);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease);
 }
-.value-item:hover { border-top-color: var(--teal); }
+.value-item:hover {
+  border-color: rgba(88,117,121,.7);
+  box-shadow: 0 16px 36px rgba(0,0,0,.4);
+}
+
+/* Halo teal tras el número — aparece despacio al hover */
+.value-item::before {
+  content: '';
+  position: absolute;
+  top: -50px; left: -50px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(88,117,121,.28) 0%, transparent 68%);
+  opacity: 0;
+  transition: opacity .7s var(--ease);
+  pointer-events: none;
+}
+.value-item:hover::before { opacity: 1; }
 
 .value-num {
+  position: relative;
+  height: 3.4rem;
+}
+.vn-text {
+  display: block;
   font-family: var(--ff-num);
   font-size: 3.4rem;
   font-weight: 800;
   line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--teal);
-  opacity: .55;
-  transition: opacity .4s var(--ease), color .4s var(--ease);
+  color: var(--teal);
+  transition: opacity .5s var(--ease);
 }
-.value-item:hover .value-num { opacity: 1; color: var(--teal); -webkit-text-stroke: 0; }
+.vn-svg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: .35rem;
+  padding-bottom: .34rem; /* base de la tinta del texto medida: 5.4px sobre el borde del row */
+  opacity: 0;
+  transition: opacity .5s var(--ease);
+}
+.vn-svg img {
+  height: 2.56rem; /* altura de tinta medida de las cifras Manrope 800 a 3.4rem: 41px */
+  width: auto;
+  display: block;
+}
+/* Fundido puro: el número de texto se disuelve y aparece el numeral Tessera, sin moverse nada */
+.value-item:hover .vn-text { opacity: 0; }
+.value-item:hover .vn-svg  { opacity: 1; }
 
 .value-item h3 {
   margin-top: 1.2rem;
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--beige);
 }
 
 .value-item p {
   margin-top: .7rem;
   font-size: .95rem;
   line-height: 1.75;
-  color: var(--mid);
+  color: rgba(240,232,222,.65);
   font-weight: 300;
   max-width: 42ch;
 }
@@ -174,109 +254,7 @@
   font-weight: 300;
 }
 
-/* ══════════════════ 4 · TESTIMONIOS (sobre partículas, fondo navy) ══════════════════ */
-
-#casos { padding: 8rem 0; position: relative; }
-
-#casos .section-label { color: var(--teal-lt); }
-#casos .section-title { color: var(--beige); }
-
-.t-grid {
-  margin-top: 3.6rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  max-width: 840px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.t-card {
-  background: rgba(240,232,222,.04);
-  border: 1px solid rgba(240,232,222,.14);
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  transition: transform .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
-}
-.t-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 0; height: 3px;
-  background: var(--yellow);
-  transition: width .45s var(--ease);
-  z-index: 3;
-}
-.t-card:hover { transform: translateY(-6px); background: rgba(240,232,222,.06); border-color: rgba(240,232,222,.28); box-shadow: 0 24px 50px rgba(0,0,0,.35); }
-.t-card:hover::before { width: 100%; }
-
-/* Foto grande arriba: recorte cabeza-torso (cutout sobre el navy) que se funde con la tarjeta */
-.t-photo {
-  position: relative;
-  height: 300px;
-  background: radial-gradient(110% 85% at 50% 12%, rgba(88,117,121,.28) 0%, transparent 62%);
-  overflow: hidden;
-}
-.t-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-.t-photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(30,30,44,.55) 80%, #20202f 100%);
-  pointer-events: none;
-}
-
-.t-body {
-  padding: 1.4rem 2.1rem 2.3rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.t-mark {
-  font-family: var(--ff-num);
-  font-size: 3.4rem;
-  font-weight: 800;
-  line-height: .5;
-  color: var(--yellow);
-  opacity: .35;
-  margin-bottom: .8rem;
-}
-
-.t-body p {
-  font-size: .93rem;
-  line-height: 1.8;
-  color: rgba(240,232,222,.82);
-  font-weight: 300;
-  font-style: italic;
-  flex: 1;
-  margin-bottom: 1.6rem;
-}
-
-.t-author {
-  padding-top: 1.4rem;
-  border-top: 1px solid rgba(240,232,222,.12);
-}
-.t-name { font-size: 1rem; font-weight: 700; color: var(--beige); }
-.t-role {
-  font-size: .62rem;
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--teal-lt);
-  margin-top: .25rem;
-}
-
-/* ══════════════════ 5 · VACANTES ══════════════════ */
+/* ══════════════════ 4 · VACANTES ══════════════════ */
 
 #vacantes { padding: 8rem 0; background: var(--bg); }
 
@@ -434,65 +412,6 @@
 .ubi-pin-city { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
 .ubi-pin-sub { display: block; font-size: .72rem; color: var(--mid); margin-top: .15rem; letter-spacing: .06em; }
 
-/* ══════════════════ FONDO AURORA (reemplaza vídeo + partículas WebGL) ══════════════════
-   Gradientes suaves que se desplazan muy lento. Sin canvas, sin librerías:
-   solo transform sobre 2 pseudo-elementos → coste de GPU mínimo.            */
-
-.aurora-bg,
-.aurora-layer {
-  overflow: hidden;
-  pointer-events: none;
-}
-
-/* Fondo fijo detrás del hero de Careers */
-.aurora-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(120% 85% at 50% -10%, #26404e 0%, #16242c 46%, #0e181d 100%);
-}
-
-/* Capa de aurora dentro de la sección de testimonios (sobre navy) */
-.aurora-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-#casos .section-inner { position: relative; z-index: 1; }
-
-/* Manchas de color que derivan */
-.aurora-bg::before,  .aurora-bg::after,
-.aurora-layer::before, .aurora-layer::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  will-change: transform;
-  transform: translateZ(0);
-}
-.aurora-bg::before,  .aurora-layer::before {
-  width: 75vmax; height: 75vmax;
-  top: -26vmax; left: -20vmax;
-  background: radial-gradient(circle at center, rgba(88,117,121,.55) 0%, rgba(88,117,121,0) 62%);
-}
-.aurora-bg::after,   .aurora-layer::after {
-  width: 62vmax; height: 62vmax;
-  bottom: -26vmax; right: -18vmax;
-  background: radial-gradient(circle at center, rgba(251,224,160,.24) 0%, rgba(251,224,160,0) 62%);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .aurora-bg::before, .aurora-layer::before { animation: auroraDrift1 30s ease-in-out infinite alternate; }
-  .aurora-bg::after,  .aurora-layer::after  { animation: auroraDrift2 38s ease-in-out infinite alternate; }
-}
-@keyframes auroraDrift1 {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to   { transform: translate3d(14vmax, 10vmax, 0) scale(1.25); }
-}
-@keyframes auroraDrift2 {
-  from { transform: translate3d(0, 0, 0) scale(1.15); }
-  to   { transform: translate3d(-12vmax, -8vmax, 0) scale(.9); }
-}
-
 /* ══════════════════ HERO CAREERS — centrado (distinto del index) ══════════════════ */
 #careers-hero {
   justify-content: center;
@@ -511,13 +430,12 @@
 @media (max-width: 960px) {
   .cab-grid { grid-template-columns: 1fr; gap: 3rem; }
   .cab-media { aspect-ratio: 16 / 10; }
-  .values-grid { grid-template-columns: 1fr; gap: 0; margin-top: 3rem; }
-  .t-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; gap: 1.25rem; margin-top: 3rem; }
   .careers-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
-  #careers-about, #careers-values, #casos, #vacantes { padding: 5rem 0; }
+  #careers-about, #careers-values, #vacantes { padding: 5rem 0; }
   #careers-why { padding: 4.5rem 0; }
   #ubicacion { padding: 4rem 0; }
   .job-row { grid-template-columns: 1fr auto; }

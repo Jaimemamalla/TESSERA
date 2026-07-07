@@ -25,7 +25,7 @@ const sectionThemes = {
   'contacto':    'dark',
   'careers-hero':  'dark',
   'careers-about': 'light',
-  'careers-values':'light',
+  'careers-values':'dark',
   'careers-why':   'light',
   'vacantes':      'light',
   'ubicacion':     'light',

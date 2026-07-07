@@ -18,9 +18,6 @@
 </head>
 <body>
 
-<!-- Fondo aurora animado (CSS puro, muy ligero) — sustituye al vídeo pesado -->
-<div class="aurora-bg" aria-hidden="true"></div>
-
 <!-- Cortinilla de carga (parte del paquete de animaciones — borrar esta línea para quitarla) -->
 <div class="page-curtain" aria-hidden="true"><span>TESSERA</span></div>
 
@@ -55,6 +52,9 @@
 
 <!-- ══ 1 · HERO ══ -->
 <section id="careers-hero" class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="media/hero-bg.webm" type="video/webm" />
+  </video>
   <div class="hero-overlay"></div>
   <div class="hero-grain"></div>
 
@@ -113,22 +113,34 @@
 
     <div class="values-grid">
       <div class="value-item reveal reveal-delay-1">
-        <div class="value-num">01</div>
+        <div class="value-num" aria-hidden="true">
+          <span class="vn-text">01</span>
+          <span class="vn-svg"><img src="media/tessera-num-0.svg" alt="" /><img src="media/tessera-num-1.svg" alt="" /></span>
+        </div>
         <h3 data-i18n="careers.v1t">Cercanía y confianza</h3>
         <p data-i18n="careers.v1d">Tratamos a las personas como adultos responsables. Procesos para ayudar, no para controlar.</p>
       </div>
       <div class="value-item reveal reveal-delay-2">
-        <div class="value-num">02</div>
+        <div class="value-num" aria-hidden="true">
+          <span class="vn-text">02</span>
+          <span class="vn-svg"><img src="media/tessera-num-0.svg" alt="" /><img src="media/tessera-num-2.svg" alt="" /></span>
+        </div>
         <h3 data-i18n="careers.v2t">Pensamiento estratégico</h3>
         <p data-i18n="careers.v2d">Decisiones con criterio antes que con urgencia. Sentido antes que ruido.</p>
       </div>
       <div class="value-item reveal reveal-delay-2">
-        <div class="value-num">03</div>
+        <div class="value-num" aria-hidden="true">
+          <span class="vn-text">03</span>
+          <span class="vn-svg"><img src="media/tessera-num-0.svg" alt="" /><img src="media/tessera-num-3.svg" alt="" /></span>
+        </div>
         <h3 data-i18n="careers.v3t">Aprendizaje constante</h3>
         <p data-i18n="careers.v3d">Crecer forma parte del trabajo, no algo aparte. A nuestro ritmo, sin pausa.</p>
       </div>
       <div class="value-item reveal reveal-delay-3">
-        <div class="value-num">04</div>
+        <div class="value-num" aria-hidden="true">
+          <span class="vn-text">04</span>
+          <span class="vn-svg"><img src="media/tessera-num-0.svg" alt="" /><img src="media/tessera-num-4.svg" alt="" /></span>
+        </div>
         <h3 data-i18n="careers.v4t">Mejores decisiones, juntos</h3>
         <p data-i18n="careers.v4d">El equipo decide mejor que el individuo. Por eso construimos en compañía.</p>
       </div>
@@ -164,43 +176,7 @@
   </div>
 </section>
 
-<!-- ══ 5 · TESTIMONIOS (fondo navy con partículas WebGL, como en index) ══ -->
-<section id="casos">
-  <div class="aurora-layer" aria-hidden="true"></div>
-  <div class="section-inner">
-    <div class="reveal">
-      <p class="section-label" data-i18n="careers.testLabel">Nuestro equipo</p>
-      <h2 class="section-title" data-i18n="careers.testTitle">Personas reales, <strong>experiencias auténticas.</strong></h2>
-    </div>
-
-    <div class="t-grid">
-      <div class="t-card reveal reveal-delay-1">
-        <div class="t-photo"><img src="media/eddy.webp" alt="Eddy" loading="lazy" /></div>
-        <div class="t-body">
-          <span class="t-mark">“</span>
-          <p data-i18n="careers.q1">En Tessera encontré un equipo donde la confianza no se pide, se da desde el primer día. Las decisiones se toman con criterio y siempre sientes que tu opinión cuenta. Aquí crecer no es una promesa, es parte del día a día.</p>
-          <div class="t-author">
-            <div class="t-name">Eddy</div>
-            <div class="t-role">Head of Talent</div>
-          </div>
-        </div>
-      </div>
-      <div class="t-card reveal reveal-delay-2">
-        <div class="t-photo"><img src="media/manu.webp" alt="Manu" loading="lazy" /></div>
-        <div class="t-body">
-          <span class="t-mark">“</span>
-          <p data-i18n="careers.q2">Lo que más valoro es el pensamiento estratégico que impregna cada decisión. No hay urgencia gratuita ni ruido: se reflexiona, se consulta y se actúa con sentido. Un equipo que te desafía a ser mejor cada semana.</p>
-          <div class="t-author">
-            <div class="t-name">Manu</div>
-            <div class="t-role">Partner</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 6 · VACANTES ══
+<!-- ══ 5 · VACANTES ══
      Las vacantes vienen de Teamtailor (jobs.tesseraservices.com).
      Para actualizar: añade/edita un bloque <a class="job-row"> con
      el enlace de la oferta, el título y sus etiquetas.              ══ -->
@@ -289,10 +265,6 @@
       <div class="reveal">
         <p class="section-label" data-i18n="careers.ubiLabel">Acerca de Tessera Human Capital</p>
         <div class="ubi-facts">
-          <div>
-            <span class="ubi-fact-num">2023</span>
-            <span class="ubi-fact-label" data-i18n="careers.ubiFounded">Fundación</span>
-          </div>
           <div>
             <span class="ubi-fact-num"><span class="count-anim" data-target="22">0</span></span>
             <span class="ubi-fact-label" data-i18n="careers.ubiTeam">Compañeros</span>

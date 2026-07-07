@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1058 1550" width="1058" height="1550">
+  <defs>
+    <linearGradient id="tessera_teal_pearl" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#587579"/>
+      <stop offset="55%" stop-color="#8FA49E"/>
+      <stop offset="85%" stop-color="#E3DCCB"/>
+      <stop offset="100%" stop-color="#F0E8DE"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(-60,1480) scale(1,-1)">
+    <path d="M568 -30Q459 -30 363.5 15.0Q268 60 199.0 140.0Q130 220 100 326L362 396Q375 345 408.5 308.0Q442 271 486.5 250.5Q531 230 578 230Q640 230 691.5 260.0Q743 290 773.5 341.0Q804 392 804 454Q804 516 773.5 567.0Q743 618 691.5 648.0Q640 678 578 678Q502 678 454.0 652.5Q406 627 382 604L152 674L196 1440H982V1186H346L442 1276L412 782L366 838Q420 882 489.0 902.0Q558 922 618 922Q754 922 857.5 861.5Q961 801 1019.5 695.5Q1078 590 1078 454Q1078 318 1007.0 208.5Q936 99 820.0 34.5Q704 -30 568 -30Z" fill="url(#tessera_teal_pearl)"/>
+  </g>
+</svg>
