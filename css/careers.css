@@ -47,13 +47,14 @@
   aspect-ratio: 4 / 5;
   box-shadow: 0 30px 70px rgba(32,32,49,.18);
 }
-.cab-media video {
+.cab-media video,
+.cab-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transform: scale(1.06);
 }
+.cab-media video { transform: scale(1.06); }
 .cab-media::after {
   content: '';
   position: absolute;
@@ -183,21 +184,22 @@
 .t-grid {
   margin-top: 3.6rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .t-card {
   background: rgba(240,232,222,.04);
   border: 1px solid rgba(240,232,222,.14);
-  border-radius: 4px;
-  padding: 2.4rem 2.1rem;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(4px);
-  transition: transform .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease);
+  transition: transform .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
 }
 .t-card::before {
   content: '';
@@ -206,50 +208,72 @@
   width: 0; height: 3px;
   background: var(--yellow);
   transition: width .45s var(--ease);
+  z-index: 3;
 }
-.t-card:hover { transform: translateY(-5px); background: rgba(240,232,222,.07); border-color: rgba(240,232,222,.3); }
+.t-card:hover { transform: translateY(-6px); background: rgba(240,232,222,.06); border-color: rgba(240,232,222,.28); box-shadow: 0 24px 50px rgba(0,0,0,.35); }
 .t-card:hover::before { width: 100%; }
+
+/* Foto grande arriba: recorte cabeza-torso (cutout sobre el navy) que se funde con la tarjeta */
+.t-photo {
+  position: relative;
+  height: 300px;
+  background: radial-gradient(110% 85% at 50% 12%, rgba(88,117,121,.28) 0%, transparent 62%);
+  overflow: hidden;
+}
+.t-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.t-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(30,30,44,.55) 80%, #20202f 100%);
+  pointer-events: none;
+}
+
+.t-body {
+  padding: 1.4rem 2.1rem 2.3rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
 .t-mark {
   font-family: var(--ff-num);
   font-size: 3.4rem;
   font-weight: 800;
-  line-height: .6;
+  line-height: .5;
   color: var(--yellow);
   opacity: .35;
-  margin-bottom: 1.1rem;
+  margin-bottom: .8rem;
 }
 
-.t-card > p {
+.t-body p {
   font-size: .93rem;
   line-height: 1.8;
   color: rgba(240,232,222,.82);
   font-weight: 300;
   font-style: italic;
   flex: 1;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.6rem;
 }
 
-.t-author { display: flex; align-items: center; gap: .9rem; }
-.t-avatar {
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--teal);
-  color: var(--beige);
-  font-family: var(--ff-num);
-  font-weight: 800;
-  font-size: .9rem;
-  flex-shrink: 0;
+.t-author {
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(240,232,222,.12);
 }
-.t-name { font-size: .95rem; font-weight: 700; color: var(--beige); }
+.t-name { font-size: 1rem; font-weight: 700; color: var(--beige); }
 .t-role {
   font-size: .62rem;
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--teal-lt);
-  margin-top: .2rem;
+  margin-top: .25rem;
 }
 
 /* ══════════════════ 5 · VACANTES ══════════════════ */
@@ -468,6 +492,19 @@
   from { transform: translate3d(0, 0, 0) scale(1.15); }
   to   { transform: translate3d(-12vmax, -8vmax, 0) scale(.9); }
 }
+
+/* ══════════════════ HERO CAREERS — centrado (distinto del index) ══════════════════ */
+#careers-hero {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 7rem 2rem 5rem;
+}
+#careers-hero .hero-eyebrow { margin-bottom: 1.6rem; }
+#careers-hero .hero-title   { max-width: 20ch; }
+#careers-hero .hero-sub     { margin-left: auto; margin-right: auto; }
+#careers-hero .hero-actions { justify-content: center; flex-wrap: wrap; }
+#careers-hero .hero-scroll-hint { left: 50%; transform: translateX(-50%); }
 
 /* ══════════════════ RESPONSIVE ══════════════════ */
 
