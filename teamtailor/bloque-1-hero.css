@@ -1,0 +1,198 @@
+/* ══ TESSERA · Teamtailor · Bloque 1: HERO · CSS ══
+   Pegar SOLO este archivo en el campo CSS del bloque.
+   Todo va con ámbito #careers-hero para que Teamtailor no lo altere. */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+
+#careers-hero,
+#careers-hero *,
+#careers-hero *::before,
+#careers-hero *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+#careers-hero {
+  --navy: #202031;
+  --teal: #587579;
+  --teal-lt: #6e9195;
+  --beige: #f0e8de;
+  --yellow: #fbe0a0;
+  --ff: 'Raleway', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  font-family: var(--ff);
+  position: relative;
+  overflow: hidden;
+  min-height: 720px;
+  min-height: calc(100vh - 70px);
+  min-height: calc(100svh - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 7rem 2rem 5rem;
+  background: #0a1a1c;
+}
+
+#careers-hero .hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#careers-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 1;
+}
+
+#careers-hero .hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: .04;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+#careers-hero .hero-eyebrow,
+#careers-hero .hero-title,
+#careers-hero .hero-sub,
+#careers-hero .hero-actions,
+#careers-hero .hero-scroll-hint { position: relative; z-index: 3; }
+
+#careers-hero .hero-eyebrow {
+  font-size: .7rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--teal-lt);
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+  opacity: 0;
+  animation: tsFadeUp .9s .3s var(--ease) forwards;
+}
+
+#careers-hero .hero-title {
+  font-size: clamp(3rem, 6.5vw, 7.5rem);
+  font-weight: 200;
+  line-height: .95;
+  color: var(--beige);
+  letter-spacing: .02em;
+  max-width: 20ch;
+  opacity: 0;
+  animation: tsFadeUp 1s .5s var(--ease) forwards;
+}
+
+#careers-hero .hero-title strong {
+  font-weight: 800;
+  color: var(--yellow);
+  display: block;
+}
+
+#careers-hero .hero-sub {
+  margin: 2rem auto 0;
+  max-width: 44ch;
+  font-size: 1.05rem;
+  color: rgba(240,232,222,.8);
+  font-weight: 300;
+  line-height: 1.7;
+  opacity: 0;
+  animation: tsFadeUp 1s .7s var(--ease) forwards;
+}
+
+#careers-hero .hero-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: tsFadeUp 1s .9s var(--ease) forwards;
+}
+
+#careers-hero .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .9rem 2rem;
+  background: var(--teal);
+  color: var(--beige);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background .3s, color .3s, transform .2s var(--ease);
+}
+#careers-hero .btn-primary:hover {
+  background: var(--yellow);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+
+#careers-hero .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .9rem 2rem;
+  border: 1px solid rgba(240,232,222,.5);
+  color: rgba(240,232,222,.9);
+  font-size: .76rem;
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: border-color .3s, color .3s, transform .2s var(--ease);
+}
+#careers-hero .btn-ghost:hover {
+  border-color: var(--teal);
+  color: var(--beige);
+  transform: translateY(-2px);
+}
+
+#careers-hero .hero-scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  opacity: 0;
+  animation: tsFadeIn 1s 1.5s forwards;
+}
+#careers-hero .hero-scroll-hint span {
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(240,232,222,.55);
+  font-weight: 500;
+}
+
+@keyframes tsFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes tsFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (max-width: 720px) {
+  #careers-hero { padding: 5rem 1.25rem 4rem; }
+  #careers-hero .hero-title { font-size: clamp(2.2rem, 10vw, 3rem); line-height: 1.05; max-width: 100%; }
+  #careers-hero .hero-sub { font-size: .92rem; max-width: 100%; }
+  #careers-hero .hero-eyebrow { font-size: .62rem; }
+  #careers-hero .hero-actions { flex-direction: column; align-items: stretch; width: 100%; gap: .75rem; }
+  #careers-hero .btn-primary,
+  #careers-hero .btn-ghost { justify-content: center; padding: .95rem 1.25rem; font-size: .74rem !important; }
+  #careers-hero .hero-scroll-hint { display: none; }
+}

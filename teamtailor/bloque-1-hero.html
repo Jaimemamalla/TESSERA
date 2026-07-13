@@ -1,0 +1,76 @@
+<!-- ══ TESSERA · Teamtailor · Bloque 1: HERO · HTML ══
+     Pegar SOLO este archivo en el campo HTML del bloque.
+     El CSS va aparte, en bloque-1-hero.css. -->
+
+<section id="careers-hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="https://tesseraservices.com/media/hero-bg.webm" type="video/webm" />
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+
+  <p class="hero-eyebrow">Human Capital · Careers</p>
+  <h1 class="hero-title">
+    Better decisions,<br>
+    <strong>together.</strong>
+  </h1>
+  <p class="hero-sub">
+    Buscamos personas que quieran sentarse en la mesa donde se toman las decisiones. Si te mueve la exigencia y el impacto real, este es tu sitio.
+  </p>
+  <div class="hero-actions">
+    <a href="#vacantes" class="btn-primary">
+      <span>Ver vacantes</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="https://jobs.tesseraservices.com/connect" class="btn-ghost">Connect</a>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>scroll</span>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var sec = document.getElementById('careers-hero');
+    if (!sec) return;
+
+    /* Quita el marco de Teamtailor alrededor del bloque (relleno y franja de color) */
+    var el = sec.parentElement;
+    while (el && el !== document.body) {
+      var cl = (typeof el.className === 'string') ? el.className : '';
+      if (cl.indexOf('custom-section') !== -1 || cl.indexOf('block--custom') !== -1 || cl.indexOf('block-padding') !== -1 || cl.indexOf('block-px') !== -1) {
+        el.style.padding = '0';
+        el.style.margin = '0';
+        el.style.background = 'transparent';
+      }
+      el = el.parentElement;
+    }
+
+    /* Los navegadores pausan o bloquean el autoplay: reintento cuando el vídeo es visible */
+    var v = sec.querySelector('.hero-video');
+    if (v) {
+      v.muted = true;
+      var intentar = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+      intentar();
+      window.addEventListener('load', intentar);
+      document.addEventListener('visibilitychange', intentar);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting && v.paused) intentar(); });
+        }, { threshold: 0.1 }).observe(v);
+      }
+    }
+
+    /* Ver vacantes: scroll suave a la sección de vacantes; si no existe, va a la página de ofertas */
+    var btn = sec.querySelector('.hero-actions a[href="#vacantes"]');
+    if (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var destino = document.getElementById('vacantes');
+        if (destino) destino.scrollIntoView({ behavior: 'smooth' });
+        else window.location.href = 'https://jobs.tesseraservices.com/jobs';
+      });
+    }
+  })();
+</script>

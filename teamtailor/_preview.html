@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview · Bloques Teamtailor</title>
+  <style>
+    body { margin: 0; background: #fff; }
+    /* Imita el marco que Teamtailor pone a cada bloque de código:
+       relleno vertical y fondo del color corporativo (la franja azul).
+       El script de cada bloque debe eliminarlo. */
+    .block--custom.block-padding { padding: 3rem 0; background: #202031; }
+    .block-px { padding: 0 2rem; }
+    header.fake-tt {
+      background: #202031; color: #f0e8de; padding: 1rem 2rem;
+      font-family: sans-serif; font-size: .9rem;
+      display: flex; justify-content: space-between;
+      position: sticky; top: 0; z-index: 50;
+    }
+  </style>
+</head>
+<body>
+  <header class="fake-tt"><span>TESSERA (cabecera simulada de Teamtailor)</span><span>Inicio · Vacantes</span></header>
+
+  <script>
+    var bloques = [
+      'bloque-1-hero',
+      'bloque-2-bienvenida',
+      'bloque-3-valores',
+      'bloque-4-por-que-tessera',
+      'bloque-5-vacantes',
+      'bloque-6-ubicacion',
+      'bloque-7-footer'
+    ];
+
+    bloques.forEach(function (nombre, idx) {
+      var wrapper = document.createElement('section');
+      wrapper.className = 'block--custom block-padding bg-block-preset-primary bg-company-primary';
+      wrapper.id = 'section-' + idx;
+      var inner = document.createElement('div');
+      inner.className = 'custom-section--id-' + idx + ' block-px';
+      wrapper.appendChild(inner);
+      document.body.appendChild(wrapper);
+
+      Promise.all([
+        fetch(nombre + '.html').then(function (r) { return r.text(); }),
+        fetch(nombre + '.css').then(function (r) { return r.text(); })
+      ]).then(function (partes) {
+        var style = document.createElement('style');
+        style.textContent = partes[1];
+        inner.appendChild(style);
+        var cont = document.createElement('div');
+        cont.innerHTML = partes[0];
+        /* Los <script> insertados con innerHTML no se ejecutan: hay que recrearlos */
+        var scripts = cont.querySelectorAll('script');
+        scripts.forEach(function (s) { s.remove(); });
+        while (cont.firstChild) inner.appendChild(cont.firstChild);
+        scripts.forEach(function (s) {
+          var nuevo = document.createElement('script');
+          nuevo.textContent = s.textContent;
+          inner.appendChild(nuevo);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

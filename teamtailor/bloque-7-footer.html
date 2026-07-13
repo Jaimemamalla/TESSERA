@@ -1,0 +1,81 @@
+<!-- ══ TESSERA · Teamtailor · Bloque 7: FOOTER · HTML ══
+     Pegar SOLO este archivo en el campo HTML del bloque.
+     El CSS va aparte, en bloque-7-footer.css.
+     Los enlaces apuntan a la web principal (tesseraservices.com). -->
+
+<footer id="tessera-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="https://tesseraservices.com" class="footer-logo">TESSERA</a>
+      <p>Especialistas en finanzas y capital humano para PYMES y startups en España.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/tesseraservices" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/tessera.services/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@tessera.services" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Servicios</h5>
+      <ul>
+        <li><a href="https://tesseraservices.com/index.html#servicios">M&amp;A · Compraventa de Empresas</a></li>
+        <li><a href="https://tesseraservices.com/index.html#servicios">CFO Part-Time</a></li>
+        <li><a href="https://tesseraservices.com/index.html#servicios">Reestructuración</a></li>
+        <li><a href="https://tesseraservices.com/index.html#servicios">Business Plan</a></li>
+        <li><a href="https://tesseraservices.com/index.html#servicios">Financiación</a></li>
+        <li><a href="https://tesseraservices.com/index.html#servicios">Consultoría estratégica</a></li>
+        <li><a href="https://tesseraservices.com/index.html#servicios">Implementación de ERP</a></li>
+        <li><a href="https://tesseraservices.com/index.html#metodologia">Selección 72h</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Empresa</h5>
+      <ul>
+        <li><a href="https://tesseraservices.com/index.html#about">Nosotros</a></li>
+        <li><a href="https://tesseraservices.com/index.html#casos">Casos</a></li>
+        <li><a href="https://jobs.tesseraservices.com">Careers</a></li>
+        <li><a href="https://tesseraservices.com/index.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="mailto:info@tesseraservices.com">info@tesseraservices.com</a></li>
+        <li><a href="https://www.linkedin.com/company/tesseraservices" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/tessera.services/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Tessera · Better decisions, together.</p>
+    <div class="footer-legal">
+      <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank" rel="noopener">Aviso legal</a>
+      <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank" rel="noopener">Privacidad</a>
+      <a href="https://jobs.tesseraservices.com/cookie-policy" target="_blank" rel="noopener">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var sec = document.getElementById('tessera-footer');
+    if (!sec) return;
+
+    /* Quita el marco de Teamtailor alrededor del bloque (relleno y franja de color) */
+    var el = sec.parentElement;
+    while (el && el !== document.body) {
+      var cl = (typeof el.className === 'string') ? el.className : '';
+      if (cl.indexOf('custom-section') !== -1 || cl.indexOf('block--custom') !== -1 || cl.indexOf('block-padding') !== -1 || cl.indexOf('block-px') !== -1) {
+        el.style.padding = '0';
+        el.style.margin = '0';
+        el.style.background = 'transparent';
+      }
+      el = el.parentElement;
+    }
+  })();
+</script>

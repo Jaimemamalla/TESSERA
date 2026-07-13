@@ -1,0 +1,113 @@
+/* ══ TESSERA · Teamtailor · Bloque 6: ACERCA DE / UBICACIÓN · CSS ══
+   Pegar SOLO este archivo en el campo CSS del bloque.
+   Todo va con ámbito #ubicacion para que Teamtailor no lo altere.
+   Usa Font Awesome (CDN) para el icono de ubicación. */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Manrope:wght@400;600;700;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+#ubicacion,
+#ubicacion *,
+#ubicacion *::before,
+#ubicacion *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+#ubicacion {
+  --navy: #202031;
+  --teal: #587579;
+  --beige: #f0e8de;
+  --mid: #4a4858;
+  --dust: #ddd5c8;
+  --ff: 'Raleway', sans-serif;
+  --ff-num: 'Manrope', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  font-family: var(--ff);
+  color: var(--navy);
+  position: relative;
+  overflow: hidden;
+  padding: 6.5rem 0;
+  background: var(--beige);
+}
+
+#ubicacion .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+
+#ubicacion .section-label {
+  font-size: 1rem;
+  color: var(--mid);
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 55ch;
+}
+
+#ubicacion .ubi-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 3rem;
+}
+
+#ubicacion .ubi-facts {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-top: 2.4rem;
+}
+
+#ubicacion .ubi-fact-num {
+  font-family: var(--ff-num);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+}
+
+#ubicacion .ubi-fact-label {
+  display: block;
+  margin-top: .6rem;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+#ubicacion .ubi-pin {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.4rem 1.8rem;
+  background: #fff;
+  border: 1px solid var(--dust);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform .3s var(--ease), border-color .3s, box-shadow .3s;
+}
+#ubicacion .ubi-pin:hover {
+  transform: translateY(-3px);
+  border-color: var(--teal);
+  box-shadow: 0 14px 34px rgba(32,32,49,.1);
+}
+#ubicacion .ubi-pin i { font-size: 1.4rem; color: var(--teal); }
+#ubicacion .ubi-pin-city { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+#ubicacion .ubi-pin-sub {
+  display: block;
+  font-size: .72rem;
+  color: var(--mid);
+  margin-top: .15rem;
+  letter-spacing: .06em;
+}
+
+#ubicacion .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+#ubicacion .reveal.visible { opacity: 1; transform: none; }
+#ubicacion .reveal-delay-1 { transition-delay: .1s; }
+
+@media (max-width: 720px) {
+  #ubicacion { padding: 4rem 0; }
+  #ubicacion .section-inner { padding: 0 1.25rem; }
+  #ubicacion .ubi-grid { grid-template-columns: 1fr; }
+  #ubicacion .ubi-facts { gap: 2.4rem; }
+}

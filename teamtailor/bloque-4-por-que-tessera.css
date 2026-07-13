@@ -1,0 +1,114 @@
+/* ══ TESSERA · Teamtailor · Bloque 4: POR QUÉ TESSERA · CSS ══
+   Pegar SOLO este archivo en el campo CSS del bloque.
+   Todo va con ámbito #careers-why para que Teamtailor no lo altere.
+   Usa Font Awesome (CDN) para los iconos de las tarjetas. */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+#careers-why,
+#careers-why *,
+#careers-why *::before,
+#careers-why *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+#careers-why {
+  --navy: #202031;
+  --teal: #587579;
+  --yellow: #fbe0a0;
+  --bg-lt: #faf7f2;
+  --mid: #4a4858;
+  --dust: #ddd5c8;
+  --ff: 'Raleway', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  font-family: var(--ff);
+  color: var(--navy);
+  position: relative;
+  overflow: hidden;
+  padding: 7.5rem 0;
+  background: var(--bg-lt);
+}
+
+#careers-why .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+
+#careers-why .section-label {
+  font-size: 1rem;
+  color: var(--mid);
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 55ch;
+}
+
+#careers-why .section-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 200;
+  line-height: 1.1;
+}
+#careers-why .section-title strong { font-weight: 800; }
+
+#careers-why .careers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+#careers-why .careers-card {
+  padding: 2.4rem 2rem;
+  background: #fff;
+  border: 1px solid var(--dust);
+  border-radius: 16px;
+  transition: transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+#careers-why .careers-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--teal);
+  box-shadow: 0 18px 40px rgba(32,32,49,.08);
+}
+
+#careers-why .careers-card .c-ico {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy);
+  color: var(--yellow);
+  font-size: 1.2rem;
+  margin-bottom: 1.3rem;
+}
+
+#careers-why .careers-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: .6rem;
+}
+
+#careers-why .careers-card p {
+  font-size: .92rem;
+  line-height: 1.7;
+  color: var(--mid);
+  font-weight: 300;
+}
+
+#careers-why .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+#careers-why .reveal.visible { opacity: 1; transform: none; }
+#careers-why .reveal-delay-1 { transition-delay: .1s; }
+#careers-why .reveal-delay-2 { transition-delay: .2s; }
+#careers-why .reveal-delay-3 { transition-delay: .3s; }
+
+@media (max-width: 960px) {
+  #careers-why .careers-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  #careers-why { padding: 4.5rem 0; }
+  #careers-why .section-inner { padding: 0 1.25rem; }
+  #careers-why .section-title { font-size: clamp(1.8rem, 7vw, 2.6rem); line-height: 1.15; }
+}

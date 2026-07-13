@@ -1,0 +1,196 @@
+/* ══ TESSERA · Teamtailor · Bloque 5: VACANTES (opcional) · CSS ══
+   Pegar SOLO este archivo en el campo CSS del bloque.
+   Todo va con ámbito #vacantes para que Teamtailor no lo altere. */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Manrope:wght@400;600;700;800&display=swap');
+
+#vacantes,
+#vacantes *,
+#vacantes *::before,
+#vacantes *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+#vacantes {
+  --navy: #202031;
+  --teal: #587579;
+  --beige: #f0e8de;
+  --yellow: #fbe0a0;
+  --bg: #f5f0e8;
+  --bg-lt: #faf7f2;
+  --mid: #4a4858;
+  --light: #8a879a;
+  --dust: #ddd5c8;
+  --ff: 'Raleway', sans-serif;
+  --ff-num: 'Manrope', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  font-family: var(--ff);
+  color: var(--navy);
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 0;
+  background: var(--bg);
+}
+
+#vacantes .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+
+#vacantes .section-label {
+  font-size: 1rem;
+  color: var(--mid);
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 55ch;
+}
+
+#vacantes .section-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 200;
+  line-height: 1.1;
+}
+#vacantes .section-title strong { font-weight: 800; }
+
+#vacantes .jobs-list { margin-top: 3.4rem; border-top: 1px solid var(--dust); }
+
+#vacantes .job-row {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr auto;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.9rem .6rem;
+  border-bottom: 1px solid var(--dust);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: padding-left .35s var(--ease), background .35s var(--ease);
+}
+#vacantes .job-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--teal);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .35s var(--ease);
+}
+#vacantes .job-row:hover { background: var(--bg-lt); padding-left: 1.4rem; }
+#vacantes .job-row:hover::before { transform: scaleY(1); }
+
+#vacantes .job-idx {
+  font-family: var(--ff-num);
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: .1em;
+  transition: color .3s;
+}
+#vacantes .job-row:hover .job-idx { color: var(--teal); }
+
+#vacantes .job-main h3 {
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+  color: var(--navy);
+  transition: color .3s;
+}
+#vacantes .job-row:hover .job-main h3 { color: var(--teal); }
+
+#vacantes .job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .55rem;
+}
+
+#vacantes .job-tag {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  border: 1px solid var(--dust);
+  border-radius: 2px;
+  padding: .28rem .6rem;
+  transition: color .3s, border-color .3s;
+}
+#vacantes .job-row:hover .job-tag { border-color: var(--teal); color: var(--teal); }
+
+#vacantes .job-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--dust);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  transition: background .3s var(--ease), color .3s, border-color .3s, transform .35s var(--ease);
+}
+#vacantes .job-row:hover .job-arrow {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--yellow);
+  transform: translateX(6px);
+}
+
+#vacantes .jobs-foot {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+#vacantes .jobs-connect {
+  font-size: .95rem;
+  color: var(--mid);
+  font-weight: 300;
+}
+#vacantes .jobs-connect a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal);
+  transition: color .3s, border-color .3s;
+}
+#vacantes .jobs-connect a:hover { color: var(--navy); border-color: var(--navy); }
+
+#vacantes .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .9rem 2rem;
+  background: var(--teal);
+  color: var(--beige);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background .3s, color .3s, transform .2s var(--ease);
+}
+#vacantes .btn-primary:hover {
+  background: var(--yellow);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+
+#vacantes .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+#vacantes .reveal.visible { opacity: 1; transform: none; }
+#vacantes .reveal-delay-1 { transition-delay: .1s; }
+#vacantes .reveal-delay-2 { transition-delay: .2s; }
+
+@media (max-width: 720px) {
+  #vacantes { padding: 5rem 0; }
+  #vacantes .section-inner { padding: 0 1.25rem; }
+  #vacantes .section-title { font-size: clamp(1.8rem, 7vw, 2.6rem); line-height: 1.15; }
+  #vacantes .job-row { grid-template-columns: 1fr auto; }
+  #vacantes .job-idx { display: none; }
+  #vacantes .job-row:hover { padding-left: .9rem; }
+}

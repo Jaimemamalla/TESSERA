@@ -1,0 +1,96 @@
+<!-- ══ TESSERA · Teamtailor · Bloque 6: ACERCA DE / UBICACIÓN · HTML ══
+     Pegar SOLO este archivo en el campo HTML del bloque.
+     El CSS va aparte, en bloque-6-ubicacion.css.
+     Incluye el contador animado de compañeros.
+     OJO: si usas este bloque, quita el bloque nativo "About" de Teamtailor
+     para que "Acerca de Tessera Human Capital" no salga dos veces. -->
+
+<section id="ubicacion">
+  <div class="section-inner">
+    <div class="ubi-grid">
+      <div class="reveal">
+        <p class="section-label">Acerca de Tessera Human Capital</p>
+        <div class="ubi-facts">
+          <div>
+            <span class="ubi-fact-num"><span class="count-anim" data-target="22">0</span></span>
+            <span class="ubi-fact-label">Compañeros</span>
+          </div>
+          <div>
+            <span class="ubi-fact-num">3</span>
+            <span class="ubi-fact-label">Oficinas · Madrid, Asturias y Bilbao</span>
+          </div>
+        </div>
+      </div>
+      <a class="ubi-pin reveal reveal-delay-1" href="https://www.google.com/maps/search/?api=1&amp;query=Madrid%2C+Espa%C3%B1a" target="_blank" rel="noopener">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <div>
+          <span class="ubi-pin-city">Madrid · Asturias · Bilbao</span>
+          <span class="ubi-pin-sub">tesseraservices.com</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var sec = document.getElementById('ubicacion');
+    if (!sec) return;
+
+    /* Quita el marco de Teamtailor alrededor del bloque (relleno y franja de color) */
+    var el = sec.parentElement;
+    while (el && el !== document.body) {
+      var cl = (typeof el.className === 'string') ? el.className : '';
+      if (cl.indexOf('custom-section') !== -1 || cl.indexOf('block--custom') !== -1 || cl.indexOf('block-padding') !== -1 || cl.indexOf('block-px') !== -1) {
+        el.style.padding = '0';
+        el.style.margin = '0';
+        el.style.background = 'transparent';
+      }
+      el = el.parentElement;
+    }
+
+    /* Reveal al hacer scroll */
+    var els = sec.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { obs.observe(el); });
+      setTimeout(function () { els.forEach(function (el) { el.classList.add('visible'); }); }, 3500);
+    } else {
+      els.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    /* Contador animado */
+    function countUp(el, target, dur) {
+      var t0 = performance.now();
+      (function tick() {
+        var p = Math.min((performance.now() - t0) / dur, 1);
+        el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target);
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = target;
+      })();
+    }
+    var counters = sec.querySelectorAll('.count-anim');
+    if ('IntersectionObserver' in window) {
+      var animObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !e.target.dataset.done) {
+            e.target.dataset.done = '1';
+            countUp(e.target, +e.target.dataset.target, 1200);
+          }
+        });
+      }, { threshold: 0.4 });
+      counters.forEach(function (el) { animObs.observe(el); });
+      setTimeout(function () {
+        counters.forEach(function (el) {
+          if (!el.dataset.done) { el.dataset.done = '1'; el.textContent = el.dataset.target; }
+        });
+      }, 4000);
+    } else {
+      counters.forEach(function (el) { el.textContent = el.dataset.target; });
+    }
+  })();
+</script>

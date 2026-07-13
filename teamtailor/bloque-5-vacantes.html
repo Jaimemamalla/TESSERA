@@ -1,0 +1,119 @@
+<!-- ══ TESSERA · Teamtailor · Bloque 5: VACANTES (opcional) · HTML ══
+     Pegar SOLO este archivo en el campo HTML del bloque.
+     El CSS va aparte, en bloque-5-vacantes.css.
+     RECOMENDACIÓN: usa mejor el bloque nativo "Jobs" de Teamtailor,
+     que se actualiza solo al publicar o cerrar ofertas. Este bloque
+     es la alternativa con el diseño propio de la web, pero las ofertas
+     están escritas a mano: cuando publiques o cierres una vacante
+     tendrás que editar este bloque en Teamtailor. -->
+
+<section id="vacantes">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Únete al equipo</p>
+      <h2 class="section-title">Descubre nuestras <strong>oportunidades.</strong></h2>
+    </div>
+
+    <div class="jobs-list">
+      <a class="job-row reveal" href="https://jobs.tesseraservices.com/jobs/8009566-mecanico-industrial-de-panificadora">
+        <span class="job-idx">01</span>
+        <div class="job-main">
+          <h3>Mecánico Industrial de Panificadora</h3>
+          <div class="job-meta">
+            <span class="job-tag">Ingeniería</span>
+            <span class="job-tag">Madrid</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="job-row reveal reveal-delay-1" href="https://jobs.tesseraservices.com/jobs/8004110-encargado-de-obra-burgos">
+        <span class="job-idx">02</span>
+        <div class="job-main">
+          <h3>Encargado de Obra (Burgos)</h3>
+          <div class="job-meta">
+            <span class="job-tag">Madrid</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="job-row reveal reveal-delay-1" href="https://jobs.tesseraservices.com/jobs/7996037-programador-plc-y-robotica-industrial">
+        <span class="job-idx">03</span>
+        <div class="job-main">
+          <h3>Programador PLC y Robótica Industrial</h3>
+          <div class="job-meta">
+            <span class="job-tag">Madrid</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="job-row reveal reveal-delay-2" href="https://jobs.tesseraservices.com/jobs/7989498-vacante-interna">
+        <span class="job-idx">04</span>
+        <div class="job-main">
+          <h3>Vacante Interna</h3>
+          <div class="job-meta">
+            <span class="job-tag">Sales</span>
+            <span class="job-tag">Madrid</span>
+            <span class="job-tag">Híbrido</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="job-row reveal reveal-delay-2" href="https://jobs.tesseraservices.com/jobs/7976299-jefe-de-obra-de-instalaciones-electromecanicas">
+        <span class="job-idx">05</span>
+        <div class="job-main">
+          <h3>Jefe de Obra de Instalaciones Electromecánicas</h3>
+          <div class="job-meta">
+            <span class="job-tag">Ingeniería</span>
+            <span class="job-tag">Madrid</span>
+          </div>
+        </div>
+        <span class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+
+    <div class="jobs-foot reveal">
+      <p class="jobs-connect">¿No encuentras tu puesto? <a href="https://jobs.tesseraservices.com/connect">Conecta con nosotros</a> y te avisamos.</p>
+      <a href="https://jobs.tesseraservices.com/jobs" class="btn-primary">
+        <span>Todas las vacantes</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var sec = document.getElementById('vacantes');
+    if (!sec) return;
+
+    /* Quita el marco de Teamtailor alrededor del bloque (relleno y franja de color) */
+    var el = sec.parentElement;
+    while (el && el !== document.body) {
+      var cl = (typeof el.className === 'string') ? el.className : '';
+      if (cl.indexOf('custom-section') !== -1 || cl.indexOf('block--custom') !== -1 || cl.indexOf('block-padding') !== -1 || cl.indexOf('block-px') !== -1) {
+        el.style.padding = '0';
+        el.style.margin = '0';
+        el.style.background = 'transparent';
+      }
+      el = el.parentElement;
+    }
+
+    /* Reveal al hacer scroll */
+    var els = sec.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { obs.observe(el); });
+      setTimeout(function () { els.forEach(function (el) { el.classList.add('visible'); }); }, 3500);
+    } else {
+      els.forEach(function (el) { el.classList.add('visible'); });
+    }
+  })();
+</script>

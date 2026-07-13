@@ -1,0 +1,63 @@
+<!-- ══ TESSERA · Teamtailor · Bloque 4: POR QUÉ TESSERA · HTML ══
+     Pegar SOLO este archivo en el campo HTML del bloque.
+     El CSS va aparte, en bloque-4-por-que-tessera.css. -->
+
+<section id="careers-why">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Por qué Tessera</p>
+      <h2 class="section-title">Un sitio donde <strong>se decide de verdad.</strong></h2>
+    </div>
+
+    <div class="careers-grid">
+      <div class="careers-card reveal reveal-delay-1">
+        <div class="c-ico"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
+        <h3>Decisiones reales</h3>
+        <p>Desde el primer día te sientas en operaciones de verdad: M&amp;A, financiación, reestructuración. Nada de tareas de relleno.</p>
+      </div>
+      <div class="careers-card reveal reveal-delay-2">
+        <div class="c-ico"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i></div>
+        <h3>Aprendizaje acelerado</h3>
+        <p>Finanzas, estrategia y capital humano en proyectos reales con PYMES y startups. Aprendes haciendo, junto a un equipo senior.</p>
+      </div>
+      <div class="careers-card reveal reveal-delay-3">
+        <div class="c-ico"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+        <h3>Equipo cercano</h3>
+        <p>Sin burocracia ni capas infinitas. Un equipo que se sienta a tu lado, te acompaña y te deja crecer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var sec = document.getElementById('careers-why');
+    if (!sec) return;
+
+    /* Quita el marco de Teamtailor alrededor del bloque (relleno y franja de color) */
+    var el = sec.parentElement;
+    while (el && el !== document.body) {
+      var cl = (typeof el.className === 'string') ? el.className : '';
+      if (cl.indexOf('custom-section') !== -1 || cl.indexOf('block--custom') !== -1 || cl.indexOf('block-padding') !== -1 || cl.indexOf('block-px') !== -1) {
+        el.style.padding = '0';
+        el.style.margin = '0';
+        el.style.background = 'transparent';
+      }
+      el = el.parentElement;
+    }
+
+    /* Reveal al hacer scroll */
+    var els = sec.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { obs.observe(el); });
+      setTimeout(function () { els.forEach(function (el) { el.classList.add('visible'); }); }, 3500);
+    } else {
+      els.forEach(function (el) { el.classList.add('visible'); });
+    }
+  })();
+</script>

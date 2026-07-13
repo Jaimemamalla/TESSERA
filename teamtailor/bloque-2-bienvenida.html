@@ -1,0 +1,70 @@
+<!-- ══ TESSERA · Teamtailor · Bloque 2: BIENVENIDA / HUMAN CAPITAL · HTML ══
+     Pegar SOLO este archivo en el campo HTML del bloque.
+     El CSS va aparte, en bloque-2-bienvenida.css.
+     La foto se sirve desde GitHub; cuando Netlify tenga el último deploy
+     puedes cambiarla por https://tesseraservices.com/media/grupal.webp -->
+
+<section id="careers-about">
+  <div class="section-inner">
+    <div class="cab-grid">
+      <div class="reveal">
+        <p class="section-label">Bienvenido a Tessera Human Capital</p>
+        <h2 class="section-title">Talento y estrategia <strong>bajo el mismo techo.</strong></h2>
+        <p class="cab-lead">En Tessera Human Capital acompañamos a compañías en su crecimiento desde una visión integral de personas, negocio y estructura. Trabajamos como partners en la construcción de equipos y en la toma de decisiones importantes, combinando talento y estrategia para profesionalizar procesos críticos allí donde más impacto se genera.</p>
+        <p class="cab-tagline"><span>Better decisions,</span> <strong>together.</strong></p>
+        <div class="cab-actions">
+          <a href="#careers-values" class="btn-primary">
+            <span>Conócenos</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="cab-media reveal reveal-delay-1">
+        <img src="https://raw.githubusercontent.com/Jaimemamalla/TESSERA/main/media/grupal.webp" alt="Equipo de Tessera Human Capital" loading="lazy" />
+        <span class="cab-media-caption">Tessera · Human Capital</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var sec = document.getElementById('careers-about');
+    if (!sec) return;
+
+    /* Quita el marco de Teamtailor alrededor del bloque (relleno y franja de color) */
+    var el = sec.parentElement;
+    while (el && el !== document.body) {
+      var cl = (typeof el.className === 'string') ? el.className : '';
+      if (cl.indexOf('custom-section') !== -1 || cl.indexOf('block--custom') !== -1 || cl.indexOf('block-padding') !== -1 || cl.indexOf('block-px') !== -1) {
+        el.style.padding = '0';
+        el.style.margin = '0';
+        el.style.background = 'transparent';
+      }
+      el = el.parentElement;
+    }
+
+    /* Reveal al hacer scroll */
+    var els = sec.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { obs.observe(el); });
+      setTimeout(function () { els.forEach(function (el) { el.classList.add('visible'); }); }, 3500);
+    } else {
+      els.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    /* Conócenos: scroll suave a la sección de valores */
+    var btn = sec.querySelector('a[href="#careers-values"]');
+    if (btn) {
+      btn.addEventListener('click', function (e) {
+        var destino = document.getElementById('careers-values');
+        if (destino) { e.preventDefault(); destino.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    }
+  })();
+</script>

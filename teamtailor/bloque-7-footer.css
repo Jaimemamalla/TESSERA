@@ -1,0 +1,147 @@
+/* ══ TESSERA · Teamtailor · Bloque 7: FOOTER · CSS ══
+   Pegar SOLO este archivo en el campo CSS del bloque.
+   Todo va con ámbito #tessera-footer para que Teamtailor no lo altere.
+   Usa Font Awesome (CDN) para los iconos sociales
+   y la fuente Ailerons para el logo. */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+@import url('https://fonts.cdnfonts.com/css/ailerons');
+
+#tessera-footer,
+#tessera-footer *,
+#tessera-footer *::before,
+#tessera-footer *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+#tessera-footer {
+  --navy: #202031;
+  --teal: #587579;
+  --teal-lt: #6e9195;
+  --beige: #f0e8de;
+  --ff: 'Raleway', sans-serif;
+  --ff-logo: 'Ailerons', 'Raleway', sans-serif;
+
+  font-family: var(--ff);
+  display: block;
+  background: #161625;
+  border-top: 1px solid rgba(240,232,222,.1);
+  padding: 4rem 4rem 2.5rem;
+}
+
+#tessera-footer .footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+#tessera-footer .footer-logo {
+  font-family: var(--ff-logo);
+  font-size: 1.4rem;
+  letter-spacing: .22em;
+  color: var(--beige);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: .8rem;
+  text-decoration: none;
+}
+
+#tessera-footer .footer-brand p {
+  font-size: .86rem;
+  color: rgba(240,232,222,.6);
+  line-height: 1.65;
+  max-width: 26ch;
+  font-weight: 300;
+}
+
+#tessera-footer .footer-col h5 {
+  font-size: .62rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--teal-lt);
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+#tessera-footer .footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+#tessera-footer .footer-col ul a {
+  font-size: .86rem;
+  color: rgba(240,232,222,.6);
+  text-decoration: none;
+  transition: color .25s;
+  font-weight: 300;
+}
+#tessera-footer .footer-col ul a:hover { color: var(--beige); }
+
+#tessera-footer .footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+#tessera-footer .social-link {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(240,232,222,.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: border-color .3s, background .3s;
+}
+#tessera-footer .social-link:hover {
+  border-color: var(--teal);
+  background: rgba(88,117,121,.2);
+}
+#tessera-footer .social-link i {
+  font-size: 15px;
+  color: rgba(240,232,222,.75);
+  transition: color .3s;
+}
+#tessera-footer .social-link:hover i { color: var(--beige); }
+
+#tessera-footer .footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(240,232,222,.1);
+}
+
+#tessera-footer .footer-bottom p {
+  font-size: .75rem;
+  color: rgba(240,232,222,.6);
+  font-weight: 300;
+}
+
+#tessera-footer .footer-legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+#tessera-footer .footer-legal a {
+  font-size: .75rem;
+  color: rgba(240,232,222,.6);
+  text-decoration: none;
+  transition: color .25s;
+}
+#tessera-footer .footer-legal a:hover { color: var(--beige); }
+
+@media (max-width: 960px) {
+  #tessera-footer .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  #tessera-footer { padding: 3rem 1.25rem 2rem; }
+  #tessera-footer .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  #tessera-footer .footer-logo { font-size: 1.2rem; }
+  #tessera-footer .footer-bottom { flex-direction: column; gap: .8rem; text-align: center; }
+  #tessera-footer .footer-legal { justify-content: center; flex-wrap: wrap; gap: 1rem; }
+}
