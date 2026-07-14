@@ -3,9 +3,12 @@
      El CSS va aparte, en bloque-7-footer.css.
      Los enlaces apuntan a la web principal (tesseraservices.com). -->
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/ailerons">
+<style>
+  /* Oculta el pie nativo de Teamtailor: este bloque es el único footer.
+     (La barra "Página de empleo de Teamtailor" del final no se toca:
+     es la marca obligatoria del plan y Teamtailor la protege.) */
+  [data-section-model="footer"] { display: none !important; }
+</style>
 
 <footer id="tessera-footer">
   <div class="footer-grid">
@@ -60,6 +63,7 @@
     <div class="footer-legal">
       <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank" rel="noopener">Aviso legal</a>
       <a href="https://jobs.tesseraservices.com/privacy-policy" target="_blank" rel="noopener">Privacidad</a>
+      <a href="https://jobs.tesseraservices.com/data-privacy" target="_blank" rel="noopener">Datos y privacidad</a>
       <a href="https://jobs.tesseraservices.com/cookie-policy" target="_blank" rel="noopener">Cookies</a>
     </div>
   </div>
@@ -67,6 +71,16 @@
 
 <script>
   (function () {
+    /* Fuentes: Teamtailor elimina las etiquetas <link> del campo HTML, asi que se cargan por JS */
+    ['https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'https://fonts.cdnfonts.com/css/ailerons'].forEach(function (href) {
+      if (!document.querySelector('link[href="' + href + '"]')) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        document.head.appendChild(l);
+      }
+    });
+
     var sec = document.getElementById('tessera-footer');
     if (!sec) return;
 

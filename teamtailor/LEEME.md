@@ -1,8 +1,10 @@
 # Careers en Teamtailor: cómo pasar el código
 
-La página de careers de la web ([careers.html](../careers.html)) está troceada aquí en **bloques**, listos para pegar en el editor del career site de Teamtailor. Cada bloque tiene dos archivos: el **HTML** (maquetación, las fuentes como `<link>` y su script al final) y el **CSS** (solo estilos).
+La página de careers de la web ([careers.html](../careers.html)) está troceada aquí en **bloques**, listos para pegar en el editor del career site de Teamtailor. Cada bloque tiene dos archivos: el **HTML** (maquetación y su script al final, que también carga las fuentes) y el **CSS** (solo estilos).
 
-> **Ojo con `@import`**: el procesador de CSS de Teamtailor descarta la hoja **entera** si contiene un `@import`. Por eso las fuentes (Google Fonts, Font Awesome, Ailerons) van como etiquetas `<link rel="stylesheet">` al principio del campo HTML, que Teamtailor no toca. No añadas `@import` al campo CSS.
+> **Ojo con las fuentes**: el procesador de CSS de Teamtailor descarta la hoja **entera** si contiene un `@import`, y además elimina las etiquetas `<link>` del campo HTML. Por eso cada bloque carga sus hojas externas (Google Fonts, Font Awesome, Ailerons) **por JavaScript** al principio de su `<script>`. No añadas `@import` al campo CSS ni `<link>` al campo HTML: no sobreviven.
+
+> Las etiquetas `<style>` dentro del campo HTML **sí** se conservan tal cual (sin reescribir selectores). Los bloques 1 y 7 usan esto para ocultar el encabezado y el pie nativos de Teamtailor con CSS global.
 
 Teamtailor inyecta los bloques de código directamente en la página y reescribe parte del CSS, así que estos archivos están blindados para eso: todos los estilos van con ámbito de su sección (nada de `:root`, `body` ni selectores globales que Teamtailor pueda descartar o que pisen los estilos del propio Teamtailor).
 
@@ -35,6 +37,12 @@ Teamtailor envuelve cada bloque de código en un contenedor con relleno vertical
 El bloque nativo "Jobs" de Teamtailor se actualiza solo al publicar o cerrar ofertas. `bloque-5-vacantes` mantiene el diseño exacto de la web, pero las ofertas están escritas a mano: cada vez que publiques o cierres una vacante tendrás que editar ese bloque. Elige el que prefieras.
 
 Nota: el botón "Ver vacantes" del hero hace scroll suave hasta la sección `#vacantes` si existe (bloque 5); si usas el bloque nativo "Jobs", el botón lleva a la página de ofertas.
+
+## Encabezado y pie nativos de Teamtailor
+
+- **Encabezado**: el bloque 1 (hero) incluye la barra de navegación de la web (`#tsr-nav`, con menú móvil) y oculta el encabezado nativo de Teamtailor (`header[data-section-model="header"]`). Los enlaces apuntan a las secciones de tesseraservices.com; "Careers" vuelve al inicio del career site. Ojo: esto solo aplica en las páginas que tengan el bloque 1 — en el resto (p. ej. la página "Vacantes") sigue saliendo el encabezado nativo.
+- **Pie**: el bloque 7 es el único footer; oculta el pie nativo (`[data-section-model="footer"]`) e incluye el enlace "Datos y privacidad" (aviso de datos para candidatos de Teamtailor) para que no se pierda.
+- **La barra "Página de empleo de Teamtailor"** del final no se puede quitar con CSS: Teamtailor la protege (estilos inline con `!important` y `data-turbo-permanent`). Es la marca del plan actual; solo desaparece contratando el add-on de marca blanca.
 
 ## Cambios respecto a la web original
 

@@ -3,8 +3,6 @@
      El CSS va aparte, en bloque-3-valores.css.
      Los numerales Tessera (SVG) se sirven desde GitHub. -->
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Manrope:wght@400;600;700;800&display=swap">
-
 <section id="careers-values">
   <div class="section-inner">
     <div class="values-head reveal">
@@ -51,6 +49,16 @@
 
 <script>
   (function () {
+    /* Fuentes: Teamtailor elimina las etiquetas <link> del campo HTML, asi que se cargan por JS */
+    ['https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Manrope:wght@400;600;700;800&display=swap'].forEach(function (href) {
+      if (!document.querySelector('link[href="' + href + '"]')) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        document.head.appendChild(l);
+      }
+    });
+
     var sec = document.getElementById('careers-values');
     if (!sec) return;
 
