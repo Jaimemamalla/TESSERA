@@ -1,6 +1,8 @@
 # Careers en Teamtailor: cómo pasar el código
 
-La página de careers de la web ([careers.html](../careers.html)) está troceada aquí en **bloques**, listos para pegar en el editor del career site de Teamtailor. Cada bloque tiene dos archivos: el **HTML** (maquetación y su script al final) y el **CSS** (estilos, con las fuentes cargadas por `@import`).
+La página de careers de la web ([careers.html](../careers.html)) está troceada aquí en **bloques**, listos para pegar en el editor del career site de Teamtailor. Cada bloque tiene dos archivos: el **HTML** (maquetación, las fuentes como `<link>` y su script al final) y el **CSS** (solo estilos).
+
+> **Ojo con `@import`**: el procesador de CSS de Teamtailor descarta la hoja **entera** si contiene un `@import`. Por eso las fuentes (Google Fonts, Font Awesome, Ailerons) van como etiquetas `<link rel="stylesheet">` al principio del campo HTML, que Teamtailor no toca. No añadas `@import` al campo CSS.
 
 Teamtailor inyecta los bloques de código directamente en la página y reescribe parte del CSS, así que estos archivos están blindados para eso: todos los estilos van con ámbito de su sección (nada de `:root`, `body` ni selectores globales que Teamtailor pueda descartar o que pisen los estilos del propio Teamtailor).
 

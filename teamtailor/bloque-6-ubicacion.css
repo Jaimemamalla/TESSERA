@@ -3,8 +3,6 @@
    Todo va con ámbito #ubicacion para que Teamtailor no lo altere.
    Usa Font Awesome (CDN) para el icono de ubicación. */
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Manrope:wght@400;600;700;800&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
 
 #ubicacion,
 #ubicacion *,
