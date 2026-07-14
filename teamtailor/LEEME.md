@@ -2,7 +2,9 @@
 
 La página de careers de la web ([careers.html](../careers.html)) está troceada aquí en **bloques**, listos para pegar en el editor del career site de Teamtailor. Cada bloque tiene dos archivos: el **HTML** (maquetación y su script al final, que también carga las fuentes) y el **CSS** (solo estilos).
 
-> **Ojo con las fuentes**: el procesador de CSS de Teamtailor descarta la hoja **entera** si contiene un `@import`, y además elimina las etiquetas `<link>` del campo HTML. Por eso cada bloque carga sus hojas externas (Google Fonts, Font Awesome, Ailerons) **por JavaScript** al principio de su `<script>`. No añadas `@import` al campo CSS ni `<link>` al campo HTML: no sobreviven.
+> **Ojo con las fuentes**: el procesador de CSS de Teamtailor descarta la hoja **entera** si contiene un `@import`, y además elimina las etiquetas `<link>` del campo HTML. Por eso cada bloque carga sus hojas externas (Google Fonts, Ailerons) **por JavaScript** al principio de su `<script>`. No añadas `@import` al campo CSS ni `<link>` al campo HTML: no sobreviven.
+
+> **Nada de iconos Font Awesome con `<i class="fa-...">`**: el career site carga Font Awesome en su versión SVG+JS, que procesa esas etiquetas y deja vacíos los iconos que no están en su subconjunto. Todos los iconos van como **SVG inline** en el HTML (con `fill="currentColor"`, heredan color y tamaño del contenedor).
 
 > Las etiquetas `<style>` dentro del campo HTML **sí** se conservan tal cual (sin reescribir selectores). Los bloques 1 y 7 usan esto para ocultar el encabezado y el pie nativos de Teamtailor con CSS global.
 
