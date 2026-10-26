@@ -16,7 +16,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: linear-gradient(135deg, #202031 0%, #587579 50%, #FBE0A0 100%);
+    background: linear-gradient(135deg, #587579 0%, #202031 75%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,11 +25,14 @@
     animation: curtainUp .7s .5s cubic-bezier(.76, 0, .24, 1) forwards;
   }
   .page-curtain span {
-    font-family: var(--ff-logo);
-    font-size: clamp(2rem, 7vw, 3.6rem);
-    letter-spacing: .28em;
-    text-indent: .28em;
-    color: var(--beige);
+    display: block;
+    width: clamp(200px, 40vw, 340px);
+    aspect-ratio: 5 / 1;
+    font-size: 0;
+    overflow: hidden;
+    background: var(--beige);
+    -webkit-mask: url(../media/brand/logo-mask.svg) center / contain no-repeat;
+    mask: url(../media/brand/logo-mask.svg) center / contain no-repeat;
     opacity: 0;
     transform: translateY(10px);
     animation: curtainWord .45s ease forwards;
@@ -84,15 +87,15 @@
 #casos .section-label { color: var(--teal-lt); }
 #casos .section-title { color: var(--beige); }
 #casos .section-title strong { color: var(--yellow); }
-#casos .carousel-btn { border-color: rgba(240,232,222,.4); color: rgba(240,232,222,.8); }
+#casos .carousel-btn { border-color: rgba(230,236,236,.4); color: rgba(230,236,236,.8); }
 #casos .carousel-btn:hover { background: var(--teal); border-color: var(--teal); color: var(--beige); }
-#casos .carousel-dot { background: rgba(240,232,222,.4); }
-#casos .carousel-dot.active { background: var(--yellow); box-shadow: 0 0 8px rgba(251,224,160,.4); }
+#casos .carousel-dot { background: rgba(230,236,236,.4); }
+#casos .carousel-dot.active { background: var(--yellow); box-shadow: 0 0 8px rgba(138,163,165,.4); }
 
 /* Tarjetas "glass" brillantes para que destaquen sobre el fondo oscuro */
 #casos .testimonial-card {
-  background: rgba(240, 232, 222, 0.06);
-  border-color: rgba(240, 232, 222, 0.15);
+  background: rgba(230,236,236, 0.06);
+  border-color: rgba(230,236,236, 0.15);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
@@ -100,8 +103,8 @@
 
 /* Solo cambia el fondo y la sombra al pasar el ratón, los textos NO */
 #casos .testimonial-card:hover {
-  background: rgba(240, 232, 222, 0.12);
-  border-color: rgba(240, 232, 222, 0.35);
+  background: rgba(230,236,236, 0.12);
+  border-color: rgba(230,236,236, 0.35);
   box-shadow: 0 20px 50px rgba(0,0,0,0.45);
 }
 
@@ -122,7 +125,7 @@
 /* Cargo del autor */
 #casos .author-info span,
 #casos .testimonial-card:hover .author-info span { 
-  color: rgba(240,232,222,.75) !important; 
+  color: rgba(230,236,236,.75) !important; 
 }
 
 /* Avatar del autor (círculo con las iniciales) */
@@ -145,5 +148,5 @@
 #casos .testimonial-card:hover .testimonial-result {
   color: var(--yellow) !important;
   border-color: var(--yellow) !important;
-  background: rgba(251,224,160,.08) !important;
+  background: rgba(138,163,165,.08) !important;
 }

@@ -25,12 +25,15 @@
   }
   #tsr-nav.scrolled { padding: 1rem 4rem; background: rgba(0,0,0,.32); }
   #tsr-nav .tsr-nav-logo {
-    font-family: 'Ailerons', 'Raleway', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: .22em;
-    text-transform: uppercase;
+    display: block;
+    width: 8.5rem;
+    aspect-ratio: 5 / 1;
+    font-size: 0;
+    overflow: hidden;
+    background: #E6ECEC;
+    -webkit-mask: url(https://raw.githubusercontent.com/Jaimemamalla/TESSERA/main/media/brand/logo-mask.svg) center / contain no-repeat;
+    mask: url(https://raw.githubusercontent.com/Jaimemamalla/TESSERA/main/media/brand/logo-mask.svg) center / contain no-repeat;
     text-decoration: none;
-    color: #f0e8de;
     transition: color .35s;
   }
   #tsr-nav .tsr-nav-right { display: flex; align-items: center; gap: 1.6rem; }
@@ -47,11 +50,11 @@
     letter-spacing: .12em;
     text-transform: uppercase;
     text-decoration: none;
-    color: rgba(240,232,222,.8);
+    color: rgba(230,236,236,.8);
     position: relative;
     transition: color .25s;
   }
-  #tsr-nav .tsr-nav-links a:hover { color: #f0e8de; }
+  #tsr-nav .tsr-nav-links a:hover { color: #E6ECEC; }
   #tsr-nav .tsr-nav-links a::after {
     content: '';
     position: absolute;
@@ -69,9 +72,9 @@
     font-size: .72rem !important;
     font-weight: 600 !important;
     letter-spacing: .1em !important;
-    background: rgba(240,232,222,.12);
-    color: #f0e8de !important;
-    border: 1px solid rgba(240,232,222,.3);
+    background: rgba(230,236,236,.12);
+    color: #E6ECEC !important;
+    border: 1px solid rgba(230,236,236,.3);
     transition: background .3s, border-color .3s;
   }
   #tsr-nav .tsr-nav-cta::after { display: none !important; }
@@ -85,7 +88,7 @@
     cursor: pointer;
     padding: 4px;
   }
-  #tsr-nav .tsr-hamburger span { display: block; width: 24px; height: 1.5px; background: #f0e8de; transition: .3s; }
+  #tsr-nav .tsr-hamburger span { display: block; width: 24px; height: 1.5px; background: #E6ECEC; transition: .3s; }
   #tsr-nav .tsr-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
   #tsr-nav .tsr-hamburger.open span:nth-child(2) { opacity: 0; }
   #tsr-nav .tsr-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -102,9 +105,9 @@
     font-family: 'Raleway', sans-serif;
   }
   #tsr-mobile-nav.open { display: flex; }
-  #tsr-mobile-nav a { font-size: 1.8rem; font-weight: 300; color: #f0e8de; text-decoration: none; transition: color .25s; }
+  #tsr-mobile-nav a { font-size: 1.8rem; font-weight: 300; color: #E6ECEC; text-decoration: none; transition: color .25s; }
   #tsr-mobile-nav a:hover,
-  #tsr-mobile-nav a.tsr-mobile-cta { color: #fbe0a0; }
+  #tsr-mobile-nav a.tsr-mobile-cta { color: #8AA3A5; }
   @media (max-width: 768px) {
     #tsr-nav { padding: 1.2rem 1.5rem; }
     #tsr-nav.scrolled { padding: .9rem 1.5rem; }

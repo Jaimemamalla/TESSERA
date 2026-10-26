@@ -11,9 +11,9 @@
 #careers-values {
   --navy: #202031;
   --teal: #587579;
-  --teal-lt: #6e9195;
-  --beige: #f0e8de;
-  --yellow: #fbe0a0;
+  --teal-lt: #8AA3A5;
+  --beige: #E6ECEC;
+  --yellow: #8AA3A5;
   --ff: 'Raleway', sans-serif;
   --ff-num: 'Manrope', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -22,7 +22,7 @@
   position: relative;
   overflow: hidden;
   padding: 8rem 0;
-  background: #1a1a27;
+  background: #16161F;
 }
 
 #careers-values .section-inner {
@@ -70,7 +70,7 @@
   height: 48vmax;
   bottom: -20vmax;
   left: -14vmax;
-  background: radial-gradient(circle, rgba(251,224,160,.12) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(138,163,165,.12) 0%, transparent 65%);
 }
 @media (prefers-reduced-motion: no-preference) {
   #careers-values::before { animation: tsValuesDrift1 28s ease-in-out infinite alternate; }
@@ -97,7 +97,7 @@
 #careers-values .value-item {
   position: relative;
   padding: 2.6rem 2.4rem 2.8rem;
-  background: linear-gradient(155deg, #272738 0%, var(--navy) 55%);
+  background: linear-gradient(155deg, var(--teal) 0%, var(--navy) 75%);
   border: 1px solid rgba(88,117,121,.35);
   border-radius: 16px;
   overflow: hidden;
@@ -159,7 +159,7 @@
   margin-top: .7rem;
   font-size: .95rem;
   line-height: 1.75;
-  color: rgba(240,232,222,.65);
+  color: rgba(230,236,236,.65);
   font-weight: 300;
   max-width: 42ch;
 }

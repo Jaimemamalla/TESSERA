@@ -13,15 +13,15 @@
 #tessera-footer {
   --navy: #202031;
   --teal: #587579;
-  --teal-lt: #6e9195;
-  --beige: #f0e8de;
+  --teal-lt: #8AA3A5;
+  --beige: #E6ECEC;
   --ff: 'Raleway', sans-serif;
   --ff-logo: 'Ailerons', 'Raleway', sans-serif;
 
   font-family: var(--ff);
   display: block;
-  background: #161625;
-  border-top: 1px solid rgba(240,232,222,.1);
+  background: #16161F;
+  border-top: 1px solid rgba(230,236,236,.1);
   padding: 4rem 4rem 2.5rem;
 }
 
@@ -33,11 +33,13 @@
 }
 
 #tessera-footer .footer-logo {
-  font-family: var(--ff-logo);
-  font-size: 1.4rem;
-  letter-spacing: .22em;
-  color: var(--beige);
-  text-transform: uppercase;
+  width: 7.5rem;
+  aspect-ratio: 5 / 1;
+  font-size: 0;
+  overflow: hidden;
+  background: var(--beige);
+  -webkit-mask: url(https://raw.githubusercontent.com/Jaimemamalla/TESSERA/main/media/brand/logo-mask.svg) center / contain no-repeat;
+  mask: url(https://raw.githubusercontent.com/Jaimemamalla/TESSERA/main/media/brand/logo-mask.svg) center / contain no-repeat;
   display: block;
   margin-bottom: .8rem;
   text-decoration: none;
@@ -45,7 +47,7 @@
 
 #tessera-footer .footer-brand p {
   font-size: .86rem;
-  color: rgba(240,232,222,.6);
+  color: rgba(230,236,236,.6);
   line-height: 1.65;
   max-width: 26ch;
   font-weight: 300;
@@ -69,7 +71,7 @@
 
 #tessera-footer .footer-col ul a {
   font-size: .86rem;
-  color: rgba(240,232,222,.6);
+  color: rgba(230,236,236,.6);
   text-decoration: none;
   transition: color .25s;
   font-weight: 300;
@@ -85,7 +87,7 @@
 #tessera-footer .social-link {
   width: 38px;
   height: 38px;
-  border: 1px solid rgba(240,232,222,.25);
+  border: 1px solid rgba(230,236,236,.25);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -99,7 +101,7 @@
 }
 #tessera-footer .social-link i {
   font-size: 15px;
-  color: rgba(240,232,222,.75);
+  color: rgba(230,236,236,.75);
   transition: color .3s;
 }
 #tessera-footer .social-link:hover i { color: var(--beige); }
@@ -109,12 +111,12 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 2rem;
-  border-top: 1px solid rgba(240,232,222,.1);
+  border-top: 1px solid rgba(230,236,236,.1);
 }
 
 #tessera-footer .footer-bottom p {
   font-size: .75rem;
-  color: rgba(240,232,222,.6);
+  color: rgba(230,236,236,.6);
   font-weight: 300;
 }
 
@@ -125,7 +127,7 @@
 
 #tessera-footer .footer-legal a {
   font-size: .75rem;
-  color: rgba(240,232,222,.6);
+  color: rgba(230,236,236,.6);
   text-decoration: none;
   transition: color .25s;
 }
@@ -138,7 +140,7 @@
 @media (max-width: 720px) {
   #tessera-footer { padding: 3rem 1.25rem 2rem; }
   #tessera-footer .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-  #tessera-footer .footer-logo { font-size: 1.2rem; }
+  #tessera-footer .footer-logo { font-size: 0; }
   #tessera-footer .footer-bottom { flex-direction: column; gap: .8rem; text-align: center; }
   #tessera-footer .footer-legal { justify-content: center; flex-wrap: wrap; gap: 1rem; }
 }

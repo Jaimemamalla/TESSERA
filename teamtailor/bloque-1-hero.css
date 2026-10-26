@@ -11,9 +11,9 @@
 #careers-hero {
   --navy: #202031;
   --teal: #587579;
-  --teal-lt: #6e9195;
-  --beige: #f0e8de;
-  --yellow: #fbe0a0;
+  --teal-lt: #8AA3A5;
+  --beige: #E6ECEC;
+  --yellow: #8AA3A5;
   --ff: 'Raleway', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -29,7 +29,7 @@
   align-items: center;
   text-align: center;
   padding: 7rem 2rem 5rem;
-  background: #0a1a1c;
+  background: #16161F;
 }
 
 #careers-hero .hero-video {
@@ -45,7 +45,7 @@
 #careers-hero .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.55);
+  background: rgba(32,32,49,.62);
   z-index: 1;
 }
 
@@ -97,7 +97,7 @@
   margin: 2rem auto 0;
   max-width: 44ch;
   font-size: 1.05rem;
-  color: rgba(240,232,222,.8);
+  color: rgba(230,236,236,.8);
   font-weight: 300;
   line-height: 1.7;
   opacity: 0;
@@ -141,8 +141,8 @@
   align-items: center;
   gap: .6rem;
   padding: .9rem 2rem;
-  border: 1px solid rgba(240,232,222,.5);
-  color: rgba(240,232,222,.9);
+  border: 1px solid rgba(230,236,236,.5);
+  color: rgba(230,236,236,.9);
   font-size: .76rem;
   font-weight: 400;
   letter-spacing: .1em;
@@ -172,7 +172,7 @@
   font-size: .6rem;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: rgba(240,232,222,.55);
+  color: rgba(230,236,236,.55);
   font-weight: 500;
 }
 

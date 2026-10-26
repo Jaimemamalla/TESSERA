@@ -159,13 +159,13 @@
     }
     var pgeo = new THREE.BufferGeometry();
     pgeo.setAttribute('position', new THREE.BufferAttribute(parr, 3));
-    var pmat = new THREE.PointsMaterial({ color: 0xf0d35e, size: 2.2, map: dotTex, transparent: true, opacity: 0.9, depthWrite: false, sizeAttenuation: true, blending: THREE.AdditiveBlending });
+    var pmat = new THREE.PointsMaterial({ color: 0x8AA3A5, size: 2.2, map: dotTex, transparent: true, opacity: 0.9, depthWrite: false, sizeAttenuation: true, blending: THREE.AdditiveBlending });
     var points = new THREE.Points(pgeo, pmat);
 
     var lpos = new Float32Array(N * (N - 1) / 2 * 6);
     var lgeo = new THREE.BufferGeometry();
     lgeo.setAttribute('position', new THREE.BufferAttribute(lpos, 3));
-    var lines = new THREE.LineSegments(lgeo, new THREE.LineBasicMaterial({ color: 0x6e9195, transparent: true, opacity: 0.18 }));
+    var lines = new THREE.LineSegments(lgeo, new THREE.LineBasicMaterial({ color: 0x8AA3A5, transparent: true, opacity: 0.18 }));
 
     var group = new THREE.Group(); group.add(lines); group.add(points); scene.add(group);
 
